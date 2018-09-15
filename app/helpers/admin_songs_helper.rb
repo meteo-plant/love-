@@ -1,0 +1,2 @@
+module AdminSongsHelper
+end
