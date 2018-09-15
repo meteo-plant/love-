@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'admin_users/index'
+  # get 'admin_users/index'
   get 'admin_users/show'
   get 'admin_songs_order/create'
   get 'admin_songs_order/update'
