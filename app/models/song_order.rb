@@ -1,0 +1,2 @@
+class SongOrder < ApplicationRecord
+end
