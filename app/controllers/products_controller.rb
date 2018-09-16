@@ -1,7 +1,19 @@
-class ProductsController < ApplicationController
+class AdminProductsController < ApplicationController
+  def new
+  end
+
+  def create
+  end
+
+  def update
+  end
+
   def index
   end
 
-  def show
+  def edit
+  end
+
+  def destroy
   end
 end

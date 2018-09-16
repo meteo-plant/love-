@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # get 'admin_users/index'
   get 'admin_users/show'
   get 'admin_songs_order/create'
