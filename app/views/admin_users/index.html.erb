@@ -11,12 +11,28 @@
 				<h2>サイドバー</h2>
 			</div>
 			<div class="col-lg-9">
+				<div class="search">
+					<form class="form-inline">
+						<div class="form-group">
+							<label class="sr-only" for="user_id user_name">会員ID・名前</label>
+							<input class="form-control" style="width: 300px;" placeholder="会員ID・名前">
+						</div>
+					</form>
+					<div class="form-group sort">
+						<label class="sr-only" for="InputSelect">並び替え</label>
+						<select class="form-control" style="width: 70px;" id="InputSelect">
+							<option>昇順</option>
+							<option>降順</option>
+						</select>
+					</div>
+					<button class="btn btn-default btn-lg">検索</button>
+				</div>
 				<table  class="table table-striped">
 					<thead>
 						<tr>
 							<th></th>
-							<th>Title</th>
-							<th>Opinion</th>
+							<th>会員ID</th>
+							<th>名前</th>
 							<th></th>
 						</tr>
 					</thead>

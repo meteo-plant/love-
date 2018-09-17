@@ -1,7 +1,8 @@
-class AdminDisksController < ApplicationController
+class DisksController < ApplicationController
   def create
   end
 
   def update
   end
+
 end
