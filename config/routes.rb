@@ -77,4 +77,13 @@ Rails.application.routes.draw do
   # get 'users/update'
   # get 'users/show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+    # get 'songs/new'
+  # get 'products/new'
+  # get 'products/index'
+  # get 'products/edit'
+  # get 'genres/index'
+  # get 'genres/edit'
+  # get 'user_products/index'
+  # get 'user_products/show'
 end

@@ -1,7 +1,8 @@
-class AdminSongsOrderController < ApplicationController
+class SongOrdersController < ApplicationController
   def create
   end
 
   def update
   end
+
 end
