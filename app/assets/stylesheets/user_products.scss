@@ -1,3 +1,172 @@
 // Place all the styles related to the user_products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.product_index {
+	 background-color: #ffffff;
+}
+
+.product_show {
+
+	 
+}
+
+.product_new {
+
+
+}
+
+.side_ber {
+	 background-image: url(img/background.png);
+}
+
+.site-header {
+    background-image: url(img/background.png);
+    width: 100%;
+    top: 0; /* 固定する位置 */
+    left: 0; /* 固定する位置 */
+    right: 0;  /* 固定する位置 */
+    overflow:hidden;
+    z-index: 3;
+    height: 50px;
+}
+
+.box1 {
+	margin: 5px;
+   box-shadow:5px 5px 10px;
+ }
+
+.dropdown {
+	z-index: 2;
+}
+
+.dropdown-menu {
+	z-index: 2;
+}
+
+.example {
+  width: 880px;
+  height: 340px;
+  overflow: scroll;
+  background-color: #E6FFE9;
+}
+
+hr {
+  height: 1px;
+  border: none;
+  border-top: 1px black solid;
+}
+
+.ribbon1 {
+    display: inline-block;
+    position: relative;
+    height: 50px;/*リボンの高さ*/
+    line-height: 50px;/*リボンの高さ*/
+    vertical-align: middle;
+    text-align: center;
+    padding: 0 30px;/*横の大きさ*/
+    font-size: 18px;/*文字の大きさ*/
+    background: #f57a78;/*塗りつぶし色*/
+    color: #FFF;/*文字色*/
+    box-sizing: border-box;
+}
+
+.ribbon1:before, .ribbon1:after{
+    position: absolute;
+    content: '';
+    width: 0px;
+    height: 0px;
+    z-index: 1;
+}
+
+.ribbon1:before{
+    top: 0;
+    left: 0;
+    border-width: 25px 0px 25px 15px;
+    border-color: transparent transparent transparent #fff;
+    border-style: solid;
+}
+
+.ribbon1:after{
+    top: 0;
+    right: 0;
+    border-width: 25px 15px 25px 0px;
+    border-color: transparent #fff transparent transparent;
+    border-style: solid;
+}
+
+.ribbon2 {
+    display: inline-block;
+    position: relative;
+    height: 50px;/*リボンの高さ*/
+    line-height: 50px;/*リボンの高さ*/
+    vertical-align: middle;
+    text-align: center;
+    padding: 0 30px;/*横の大きさ*/
+    font-size: 18px;/*文字の大きさ*/
+    background: #f57a78;/*塗りつぶし色*/
+    color: #CCFF33;/*文字色*/
+    box-sizing: border-box;
+}
+
+.ribbon2:before, .ribbon2:after{
+    position: absolute;
+    content: '';
+    width: 0px;
+    height: 0px;
+    z-index: 1;
+}
+
+.ribbon2:before{
+    top: 0;
+    left: 0;
+    border-width: 25px 0px 25px 15px;
+    border-color: transparent transparent transparent #fff;
+    border-style: solid;
+}
+
+.ribbon2:after{
+    top: 0;
+    right: 0;
+    border-width: 25px 15px 25px 0px;
+    border-color: transparent #fff transparent transparent;
+    border-style: solid;
+}
+
+.ribbon3 {
+    display: inline-block;
+    position: relative;
+    height: 50px;/*リボンの高さ*/
+    line-height: 50px;/*リボンの高さ*/
+    vertical-align: middle;
+    text-align: center;
+    padding: 0 30px;/*横の大きさ*/
+    font-size: 18px;/*文字の大きさ*/
+    background: #f57a78;/*塗りつぶし色*/
+    color: #66FFFF;/*文字色*/
+    box-sizing: border-box;
+}
+
+.ribbon3:before, .ribbon3:after{
+    position: absolute;
+    content: '';
+    width: 0px;
+    height: 0px;
+    z-index: 1;
+}
+
+.ribbon3:before{
+    top: 0;
+    left: 0;
+    border-width: 25px 0px 25px 15px;
+    border-color: transparent transparent transparent #fff;
+    border-style: solid;
+}
+
+.ribbon3:after{
+    top: 0;
+    right: 0;
+    border-width: 25px 15px 25px 0px;
+    border-color: transparent #fff transparent transparent;
+    border-style: solid;
+}
