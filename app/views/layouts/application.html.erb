@@ -7,6 +7,32 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script type="text/javascript">
+        <!--
+
+        function disp(){
+
+          // 「OK」時の処理開始 ＋ 確認ダイアログの表示
+          if(window.confirm('本当に削除しますか？')){
+
+            location.href = "http://localhost:3000/cart_items/"; // 商品詳細画面へジャンプ
+
+          }
+          // 「OK」時の処理終了
+
+          // 「キャンセル」時の処理開始
+          else{
+
+            window.alert('削除しました'); // 警告ダイアログを表示
+
+          }
+          // 「キャンセル」時の処理終了
+
+        }
+
+        // -->
+    </script>
   </head>
 
   <body>

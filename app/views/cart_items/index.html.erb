@@ -1,2 +1,127 @@
-<h1>CartItems#index</h1>
-<p>Find me in app/views/cart_items/index.html.erb</p>
+<header style="width: 100%; height:80px; background-color: pink">
+</header><!-- /header -->
+
+
+
+<body>
+  <div class="container" style="margin: 50px;">
+    <div class="row">
+      <div class="col-lg-10">
+        <div class="product_show" style="width: 100%; height: 350px; background-color: #ffffff; border: solid 1px #f5f5f5; margin-bottom: 10px;">
+		  <div class="container">
+		    <div class="row show1">
+		      <div class="col-lg-3" style="margin: 20px 10px 20px 0px;">
+		        <%= image_tag 'sample-5.jpg', :width =>'300px', :height =>'300px'%>
+		      </div>
+			  <div class="col-lg-4">
+		        <ul class="list-inline" style="margin: 10px 5px;">
+		          <li><strong class="h3">商品名</strong></li>
+		          <li class="h3">palet</li>
+		        </ul>
+		        <ul class="list-inline" style="margin: 0;">
+		          <li><strong class="h3">アーティスト</strong></li>
+		          <li class="h3">〇〇〇〇</li>
+		         </ul>
+		         <ul class="list-inline" style="margin: 10px 5px;">
+		           <li><strong class="h3">特典</strong></li>
+		           <li class="h3 text-danger">プレミアムチケット付き</li>
+		         </ul>
+		         <ul class="list-inline" style="margin: 0;">
+		           <li><strong class="h3">評価</strong></li>
+		           <li class="h3"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span><span class="glyphicon glyphicon-heart" aria-hidden="true">  </span><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+		           </li>
+		         </ul>
+		         <ul class="list-inline" style="margin: 15px 5px;">
+	          	   <li><strong class="h3">価格</strong></li>
+	          	   <li class="h3"><strong class="h3">￥</strong></li>
+	          	   <li class="h3">100000000000</li>
+			     </ul>
+			   </div>
+			   <div class="col-lg-2">
+			     <li style="list-style: none; margin: 10px 0px 20px 0px;"><p><input type="button" value="カートから削除する" onClick="disp()"></p></li>
+			     <li style="list-style: none; margin: 200px 0px 20px 0px;">在庫表示</li>
+			     <li style="list-style: none">
+			     	<form class="form-inline">
+			　　　　   <div class="form-group">
+				        <label class="sr-only" for="InputEmail">金額</label>
+				        <div class="input-group">
+					      <input type="text" class="form-control">
+					      <span class="input-group-addon">枚</span>
+				        </div>
+			          </div>
+                    </form>
+			     </li>
+			   </div>
+	       	</div>
+	      </div>
+	    </div>
+	    <div class="product_show" style="width: 100%; height: 350px; background-color: #ffffff; border: solid 1px #f5f5f5; margin-bottom: 10px;">
+		  <div class="container">
+		    <div class="row show1">
+		      <div class="col-lg-3" style="margin: 20px 10px 20px 0px;">
+		        <%= image_tag 'sample-6.jpg', :width =>'300px', :height =>'300px'%>
+		      </div>
+			  <div class="col-lg-4">
+		        <ul class="list-inline" style="margin: 10px 5px;">
+		          <li><strong class="h3">商品名</strong></li>
+		          <li class="h3">palet</li>
+		        </ul>
+		        <ul class="list-inline" style="margin: 0;">
+		          <li><strong class="h3">アーティスト</strong></li>
+		          <li class="h3">〇〇〇〇</li>
+		         </ul>
+		         <ul class="list-inline" style="margin: 10px 5px;">
+		           <li><strong class="h3">特典</strong></li>
+		           <li class="h3 text-danger">プレミアムチケット付き</li>
+		         </ul>
+		         <ul class="list-inline" style="margin: 0;">
+		           <li><strong class="h3">評価</strong></li>
+		           <li class="h3"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span><span class="glyphicon glyphicon-heart" aria-hidden="true">  </span><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+		           </li>
+		         </ul>
+		         <ul class="list-inline" style="margin: 15px 5px;">
+	          	   <li><strong class="h3">価格</strong></li>
+	          	   <li class="h3"><strong class="h3">￥</strong></li>
+	          	   <li class="h3">100000000000</li>
+			     </ul>
+			   </div>
+			   <div class="col-lg-2">
+			     <li style="list-style: none; margin: 10px 0px 20px 0px;"><p><input type="button" value="カートから削除する" onClick="disp()"></p></li>
+			     <li style="list-style: none; margin: 200px 0px 20px 0px;">在庫表示</li>
+			     <li style="list-style: none">
+			     	<form class="form-inline">
+			　　　　   <div class="form-group">
+				        <label class="sr-only" for="InputEmail">金額</label>
+				        <div class="input-group">
+					      <input type="text" class="form-control">
+					      <span class="input-group-addon">枚</span>
+				        </div>
+			          </div>
+                    </form>
+			     </li>
+			   </div>
+	       	</div>
+	      </div>
+	    </div>
+        <div style="margin-left: 700px;">
+          <form class="form-inline">
+          	<p>商品合計金額</p>
+		    <div class="form-group">
+			  <label class="sr-only" for="InputEmail"></label>
+			  <div class="input-group">
+			    <input type="text" class="form-control">
+			    <span class="input-group-addon">💛</span>
+			  </div>
+	        </div>
+          </form>
+        </div>
+      </div>
+	  <div class="col-lg-2 side_ber" style="height: 280px;">
+	    <div class="">
+	      <li class="botan" style="list-style: none; margin: 70px 0px 20px 0px;"><button type="button" class="btn btn-warning btn-lg btn-block ">購入ページに進む</button></li>
+		  <li class="botan" style="list-style: none;"><button type="button" class="btn btn-danger btn-sm btn-block"> ショッピングを続ける </button></li>
+        </div>
+	  </div>
+	</div>
+  </div>
+</body>
