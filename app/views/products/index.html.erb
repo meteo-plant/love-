@@ -1,2 +1,73 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<!-- http://localhost:3000/admin_users -->
+
+<body>
+	<div class="page-header" style="background-color: orange;">
+		<h1>サンプル　　<small>サブ・テキスト</small></h1>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3" style="background-color: orange;">
+				<h2>サイドバー</h2>
+			</div>
+			<div class="col-lg-9">
+				<h1 class="page_title">商品一覧</h1>
+				<div class="search">
+					<form class="form-inline">
+						<div class="form-group">
+							<label class="sr-only" for="product_id product_name">商品ID・商品名</label>
+							<input class="form-control" style="width: 300px;" placeholder="商品ID・商品名">
+						</div>
+					</form>
+					<div class="form-group sort">
+						<label class="sr-only" for="InputSelect">並び替え</label>
+						<select class="form-control" style="width: 70px;" id="InputSelect">
+							<option>昇順</option>
+							<option>降順</option>
+						</select>
+					</div>
+					<button class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> 検索</button>
+				</div>
+				<table  class="table table-striped">
+					<thead>
+						<tr>
+							<th></th>
+							<th>商品ID</th>
+							<th>商品名</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<nav>
+					<ul class="pagination">
+						<li class="disabled">
+							<a href="#" aria-label="前のページへ">
+								<span aria-hidden="true">«</span>
+							</a>
+						</li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li>
+							<a href="#" aria-label="次のページへ">
+								<span aria-hidden="true">»</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</body>
