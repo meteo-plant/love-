@@ -10,5 +10,12 @@ has_many :carts
 has_many :shipping_addresses
 
 
+validates :user_name, presence: true, length: { maximum: 50 }
+validates :user_name_phonetic, presence: true , length: { maximum: 50 }
+validates :postal_code, presence: true
+validates :address, presence: true
+validates :phone_number, presence: true
+validates :email, presence: true
+validates :password, presence: true
 
 end

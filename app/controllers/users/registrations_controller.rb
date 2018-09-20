@@ -4,6 +4,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+   before_action :configure_permitted_parameters, if: :devise_controller?
+
+   def after_sign_in_path_for(resource)
+
+     root_path(current_user.id)
+  end
+
   # GET /resource/sign_up
   # def new
   #   super
@@ -38,7 +45,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+   protected
+
+      def configure_permitted_parameters
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name, :user_name_phonetic, :postal_code, :address, :phone_number, ])
+        devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :password, :email,:postal_code, :address, :phone_number])
+      end
+
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
