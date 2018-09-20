@@ -1,3 +1,14 @@
+#coding: utf-8
+
+
+
+
+Genre.create(:genre_name => 'AKB')
+Genre.create(:genre_name => '坂道系')
+Genre.create(:genre_name => '地下アイドル')
+
+
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
