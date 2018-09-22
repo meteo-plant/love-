@@ -6,15 +6,16 @@
 	 background-color: #ffffff;
 }
 
-.product_show {
-
-	 
+.aaa {
+    justify-content: space-around;
+    display: inline-flex;
 }
 
-.product_new {
-
-
+.product_image img {
+    width: 160px;
+    height: 170px;
 }
+
 
 .side_ber {
 	 background-image: url(img/background.png);
@@ -32,9 +33,18 @@
 }
 
 .box1 {
-	margin: 5px;
+	// margin: 5px;
    box-shadow:5px 5px 10px;
+   overflow: hiddun;
  }
+
+ .link {
+    color: #FFFFFF;
+    a:hover { color: #CCCCCC; }
+    text-decoration: none;
+ }
+
+
 
 .dropdown {
 	z-index: 2;
