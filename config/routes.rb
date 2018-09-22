@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :users, only: [:create, :show, :edit, :update]
-  resources :comments, only: [:create, :destroy]
+  # resources :comments, only: [:create, :destroy]
   resources :purchases, only: [:create, :index, :new]
   resources :favorites, only: [:create, :index, :destroy]
   resources :cart_items, only: [:create, :index, :destroy, :update, :show]
@@ -25,7 +25,12 @@ Rails.application.routes.draw do
   resources :user_products, only: [:index, :show]
   resources :admin_users, only: [:index, :show]
   resources :admin_purchases, only: [:index, :show]
-  resources :products, only: [:create, :index, :update, :new, :edit]
+  resources :products, only: [:create, :index, :update, :new, :edit] do
+   resource :comments, only: [:create, :destroy]
+end
+ resources :products, only: [:create, :index, :update, :new, :edit] do 
+  resource :user_products, only: [:index, :show]
+end
   # get 'admins/top'
 
 
