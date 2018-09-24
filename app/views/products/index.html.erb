@@ -31,21 +31,21 @@
 				<table  class="table table-striped">
 					<thead>
 						<tr>
-							<th></th>
 							<th>商品ID</th>
 							<th>商品名</th>
-							<th></th>
 						</tr>
 					</thead>
 					<tbody>
+					<% @products.each do |product| %>
 						<tr>
 							<td>
+
 							</td>
 							<td>
-							</td>
-							<td>
+								<%= product.product_name %>
 							</td>
 						</tr>
+					<% end %>
 					</tbody>
 				</table>
 				<nav>

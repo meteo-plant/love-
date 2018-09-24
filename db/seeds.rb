@@ -19,13 +19,13 @@
 
 
 
- # Product.create(:product_name => 'ヘビーローテーション', :genre_id => 1, :airtist_name => 'AKB48', :jaket_image_id => 'sample-4', :price => 1500, :label_name => '秋元康', :stock => 100, :event_id => 1, :delete_flag => true )
- # Product.create(:product_name => '乃木坂アルバム', :genre_id => 2, :airtist_name => '乃木坂', :jaket_image_id => 'sample-5', :price => 4000, :label_name => 'nogizaka', :stock => 500, :event_id => 2, :delete_flag => true )
- # Product.create(:product_name => '地下地下', :genre_id => 1, :airtist_name => '地下アイドル', :jaket_image_id => 'sample-6', :price => 1000, :label_name => 'tika', :stock => 1000, :event_id => 3, :delete_flag => true )
+ # Product.create(:product_name => 'ヘビーローテーション', :genre_id => 1, :airtist_name => 'AKB48', :jaket_image => 'sample-4', :price => 1500, :label_name => '秋元康', :stock => 100, :event_id => 1, :delete_flag => true )
+ # Product.create(:product_name => '乃木坂アルバム', :genre_id => 2, :airtist_name => '乃木坂', :jaket_image => 'sample-5', :price => 4000, :label_name => 'nogizaka', :stock => 500, :event_id => 2, :delete_flag => true )
+ # Product.create(:product_name => '地下地下', :genre_id => 1, :airtist_name => '地下アイドル', :jaket_image => 'sample-6', :price => 1000, :label_name => 'tika', :stock => 1000, :event_id => 3, :delete_flag => true )
 
- #Genre.create(:genre_name => 'AKB')
- #Genre.create(:genre_name => '坂道系')
- #Genre.create(:genre_name => '地下アイドル')
+ # Genre.create(:genre_name => 'AKB')
+ # Genre.create(:genre_name => '坂道系')
+ # Genre.create(:genre_name => '地下アイドル')
 
 # Event.create(:event_name => 'AKB祭り', :event_information => '握手会開きます', :venue => '東京ドーム', :date_and_time => '2018-12-12' )
 # Event.create(:event_name => '坂道系祭り', :event_information => '参加してくれたらプレゼント有！', :venue => '名古屋ドーム', :date_and_time => '2018-11-11' )

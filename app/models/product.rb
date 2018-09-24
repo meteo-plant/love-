@@ -7,5 +7,7 @@ class Product < ApplicationRecord
 	has_many :comments, dependent: :destroy
 	has_many :cart_items
 	has_many :disks, dependent: :destroy
+	has_many :events
+	accepts_nested_attributes_for :events
 	
 end
