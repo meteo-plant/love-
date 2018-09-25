@@ -30,7 +30,7 @@
 					<div class="form-group">
 						<%= f.label :genre_id, "ジャンル：", class:"col-lg-3 control-label"  %>
 						<div class="col-lg-9">
-							<%= f.collection_select :genre_id, @genres, :id, :genre_name, :prompt => "選択してください" %>
+							<%= f.collection_select :genre_id, @genres, :id, :genre_name, {}, {class: 'js-searchable'} %>
  						</div>
 					</div>
 
@@ -93,6 +93,26 @@
 					</div>
 					<% end %>
 
+
+
+
+
+
+				<%= f.fields_for :disks do |disk| %>
+
+          			<%= render 'disk_fields', f: disk %>
+
+				<% end %>
+				<div class="links">
+					<%= link_to_add_association "ディスクを追加", f, :disks %>
+				</div>
+
+
+
+
+
+
+
 					<div class="form-group">
 						<div class=" col-lg-9">
 							<%= f.submit "ディスク、曲順、曲名を登録", class:"btn btn-primary btn-block" %>
@@ -103,6 +123,7 @@
 		</div>
 	</div>
 </body>
+
 
 
 

@@ -15,5 +15,39 @@
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
+//= require select2
+//= require turbolinks
+//= require cocoon
 //= require_tree .
 
+
+
+
+$(function () {
+    $('.js-searchable').select2({
+        // コンテナ幅のカスタマイズをサポートします。
+        width: '200px',
+        // コントロールのプレースホルダを指定します。
+        placeholder: 'Please Select',
+        // クリア可能な選択をサポートします。
+        allowClear: true
+    });
+
+    $('.add_fields').click(function() {
+    	$('select').removeClass('js-searchable');
+    })
+
+
+    setInterval(function(){
+
+    	$('.js-searchable').select2({
+        // コンテナ幅のカスタマイズをサポートします。
+	        width: '200px',
+	        // コントロールのプレースホルダを指定します。
+	        placeholder: 'Please Select',
+	        // クリア可能な選択をサポートします。
+	        allowClear: true
+	    });
+    	$('select').removeClass('js-searchable');
+    });
+});

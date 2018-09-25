@@ -1,15 +1,19 @@
 class ProductsController < ApplicationController
   def new
     @product = Product.new
-    @product.events.build
+    @event = @product.events.build
+    @disk = @product.disks.build
+    @song_order = @disk.song_orders.build
     @genres = Genre.all
+    @songs = Song.all
   end
 
   def create
     product = Product.new(product_params)
     product.save
+    session[:product_id] = product.id
     puts product.errors.full_messages
-    redirect_to new_song_path
+    redirect_to new_product_path
 
   end
 
@@ -24,7 +28,6 @@ class ProductsController < ApplicationController
   end
 
 
-
   def update
   end
 
@@ -34,6 +37,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:product_name, :airtist_name, :genre_id, :jaket_image, :price, :label_name, :stock, :event_id, :delete_flag, events_attributes: [:id, :event_name, :event_information, :venue, :date_and_time])
+    params.require(:product).permit(:product_name, :airtist_name, :genre_id, :jaket_image, :price, :label_name, :stock, :delete_flag, disks_attributes: [:id, :disk_name, :_destroy, song_orders_attributes: [:id, :song_id, :disk_id, :song_order_number, :_destroy]], events_attributes: [:id, :event_name, :event_information, :venue, :date_and_time])
   end
 end
