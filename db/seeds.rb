@@ -2,7 +2,11 @@
 
 
 
+# Cart.create(:user_id => 3, :delete_flag => true )
 
+# CartItem.create(:cart_id => 1, :product_id => 1, :number_of_sheets => 1, :old_price => 1500 )
+# CartItem.create(:cart_id => 1, :product_id => 2, :number_of_sheets => 1, :old_price => 4000 )
+# CartItem.create(:cart_id => 1, :product_id => 3, :number_of_sheets => 1, :old_price => 1000 )
 
 
  # Disk.create(:disk_name => 'disk-1-1', :product_id => 1)
@@ -20,8 +24,8 @@
 
 
  # Product.create(:product_name => 'ヘビーローテーション', :genre_id => 1, :airtist_name => 'AKB48', :jaket_image_id => 'sample-4', :price => 1500, :label_name => '秋元康', :stock => 100, :event_id => 1, :delete_flag => true )
- # Product.create(:product_name => '乃木坂アルバム', :genre_id => 2, :airtist_name => '乃木坂', :jaket_image_id => 'sample-5', :price => 4000, :label_name => 'nogizaka', :stock => 500, :event_id => 2, :delete_flag => true )
- # Product.create(:product_name => '地下地下', :genre_id => 1, :airtist_name => '地下アイドル', :jaket_image_id => 'sample-6', :price => 1000, :label_name => 'tika', :stock => 1000, :event_id => 3, :delete_flag => true )
+ #  Product.create(:product_name => '乃木坂アルバム', :genre_id => 2, :airtist_name => '乃木坂', :jaket_image_id => 'sample-5', :price => 4000, :label_name => 'nogizaka', :stock => 500, :event_id => 2, :delete_flag => true )
+ #  Product.create(:product_name => '地下地下', :genre_id => 1, :airtist_name => '地下アイドル', :jaket_image_id => 'sample-6', :price => 1000, :label_name => 'tika', :stock => 1000, :event_id => 3, :delete_flag => true )
 
  #Genre.create(:genre_name => 'AKB')
  #Genre.create(:genre_name => '坂道系')

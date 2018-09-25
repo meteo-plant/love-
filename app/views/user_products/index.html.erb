@@ -8,10 +8,8 @@
 	      <span class="caret"></span>
 	 </button>
 	 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-	   <li><%= link_to "商品一覧", products_path %></li>
-	   <li><%= link_to "購入後", new_product_path %></li>
 	   <li>"商品詳細"</li>
-	   <li>カート</li>
+	   <li><%= link_to "カートページ", cart_items_path(@cart_item) %></li>
 	   <li>購入ページ</li>
 	   <li>購入履歴</li>
 	 </ul>
@@ -32,15 +30,17 @@
 			  		<div class="product_image" style="margin:10px;">
                       <%= image_tag(product.jaket_image_id)%>
                       </div>
-			  		<button type="button" class="btn btn-warning btn-sm"><%= link_to "カートに入れる", cart_items_path, class: "link" %></button>
+			  		<button type="button" class="btn btn-warning btn-sm"><%= link_to "カートに入れる", test_cart_item_path(product.id), class: "link" %></button>
 			  		<button type="button" class="btn btn-danger btn-sm"><%= link_to "お気に入り", favorites_path, class: "link" %></button>
 			  		<ul class="list-inline" style="margin: 0;">
 			  		  <li><div></div></li>
 			  		  <li></li>
 			  	    </ul>
 			  	    <ul class="list-inline" style="margin: 0;">
+			  	    	<%= link_to (user_product_path(product.id)), class: "linka" do %>
 			  		  <li><div>商品名：</div></li>
 			  		  <li><%= product.product_name %></li>
+			  		  <% end %>
 			  	    </ul>
 			  	    <ul class="list-inline" style="margin: 0;">
 			  		  <li><div>アーティスト：</div></li>
@@ -54,7 +54,6 @@
 			  		  <li><%= product.price %></li>
 			  	    </ul>
 			  	</div>
-			  	<%= link_to "詳細ページへ", user_product_path(product.id)%>
 			  </div>
 			</div>
 			<% end %>
