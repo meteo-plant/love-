@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2018_09_24_155047) do
 
   create_table "Cart_items", force: :cascade do |t|
@@ -35,7 +36,7 @@ ActiveRecord::Schema.define(version: 2018_09_24_155047) do
 
   create_table "carts", force: :cascade do |t|
     t.integer "user_id"
-    t.boolean "delete_flag"
+    t.boolean "delete_flag", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -101,7 +102,7 @@ ActiveRecord::Schema.define(version: 2018_09_24_155047) do
     t.boolean "order_flag"
     t.boolean "shipping_flag"
     t.boolean "payment_flag"
-    t.boolean "method_of_payment"
+    t.boolean "method_of_payment", default: false, null: false
     t.datetime "shipping_date"
     t.datetime "payment_date"
     t.datetime "created_at", null: false
