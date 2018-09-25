@@ -28,47 +28,103 @@
         // -->
     </script>
 
-   <!--  <sqript src="assets/jquery.raty.js"></sqript> -->
 
-     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-     <script type="text/javascript" src="./jquery.raty.js"></script>
   </head>
 
   <body>
-    <div id="slidemenu">
-      <p>user 後でuser側とadmin側分ける</p>
-      <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
-        <% if user_signed_in? %>
-          <li class="">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-          </li>
-        <% else %>
-          <li class="">
-            <%= link_to "新規登録", new_user_registration_path %>
-          </li>
-          <li class="">
-            <%= link_to "ログイン", new_user_session_path %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-    <div id="slidemenu">
-      <p>admin　 後でuser側とadmin側分ける</p>
-      <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
-        <% if admin_signed_in? %>
-          <li class="">
-            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-          </li>
-        <% else %>
-          <li class="">
-            <%= link_to "新規登録", new_admin_registration_path %>
-          </li>
-          <li class="">
-            <%= link_to "ログイン", new_admin_session_path %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+    <header id="header" class="header">
+      <div class="header__menu">
+        <%= link_to image_tag('logo.png', { :border => '0', :alt => 'top'}), root_path, class: "header__menu__logo" %>  
+        <div class="search">
+          <form action="<%= user_products_path %>" method="get" class="form-inline">
+            <input type="text" id="search__bar" name="s_title" required size="10" placeholder=" 商品名やアーティスト名で検索" value="<%= request[:s_title] %>">
+              <button  class="search__box" type="submit">
+                  <span class="search__box__txt" ><%= image_tag "search.png", alt:"" %> 検索</span>
+              </button>
+          </form>
+        </div>
+        <nav class="header__menu__nav">
+          <ul class="nav__ul">
+            <% if user_signed_in? %>
+              <li class="nav__li">
+                <%= link_to  destroy_user_session_path ,class: "nav__logo", method: :delete  do %>
+                <%=  image_tag "exit.png", alt: "" , class: "nav__img" %>
+                <span class="nav__txt">ログアウト</span>
+                <% end %>
+              </li>
+              <li class="nav__li">
+                <%= link_to user_path(current_user.id), class: "nav__logo" do %>
+                <%=  image_tag "home.png", alt:  "" ,class: "nav__img" %>
+                <span class="nav__txt">マイページ</span>
+                <% end %>
+              </li>
+              <li class="nav__li">
+                <%= link_to favorites_path, class: "nav__logo" do %>
+                <%= image_tag "favorite.png" ,alt:"" ,class: "nav__img" %>
+                <span class="nav__txt">お気に入り</span>
+                <% end %>
+              </li>
+              <li class="nav__li">
+                <%= link_to cart_items_path(), class: "nav__logo" do %>
+                <%=  image_tag "cart.png", alt: "" ,class: "nav__image" %>
+                <span class="nav__txt">カート</span>
+                <% end %>
+              </li>
+            <% else %>
+              <li class="nav__li">
+                <%= link_to new_user_session_path, class: "nav__logo" do %>
+                <%=  image_tag "login.png", alt: "" , class: "nav__img" %>
+                <span class="nav__txt">ログイン</span>
+                <% end %>
+              </li>
+              <li class="nav__li">
+                <%= link_to new_user_registration_path, class: "nav__logo"  do %>
+                <%=  image_tag "signup.png", alt: "" , class: "nav__img" %>
+                <span class="nav__txt">新規登録</span>
+                <% end %>
+              </li>
+              <li class="nav__li">
+                <%= link_to new_user_registration_path, class: "nav__logo" do %>
+                <%=  image_tag "home.png", alt:  "" ,class: "nav__img" %>
+                <span class="nav__txt">マイページ</span>
+                <% end %>
+              </li>
+              <li class="nav__li"><a href="" title="">
+                <%= link_to new_user_registration_path, class: "nav__logo" do %>
+                <%= image_tag "favorite.png" ,alt:"" ,class: "nav__img" %>
+                <span class="nav__txt">お気に入り</span>
+                <% end %>
+              </li>
+              <li class="nav__li"><a href="" title="">
+                <%= link_to new_user_registration_path, class: "nav__logo"  do %>
+                <%=  image_tag "cart.png", alt: "" ,class: "nav__image" %>
+                <span class="nav__txt">カート</span>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+
+     
     <%= yield %>
+    <footer class="footer">
+      <div class="footer__logo"><%= image_tag "logo.png" ,alt:"", class: "footer__logo__idol" %></div>
+      <div class="footer__nav">
+        <nav>
+          <ul>
+            <li class="footer__li"><a href="" title=""></a>会社概要</li>
+            <li class="footer__li"><a href="" title=""></a>お問い合わせ</li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer__icon">
+        <%= image_tag "twitter.png" , alt:"" %>
+        <%= image_tag "facebook.png" ,alt:"", class: "footer__icon__facebook" %>
+      </div>
+      <p class="footer__copyright">Copyright ©︎ 2018 love-money.inc All rights reserved.</p>
+    </footer>
   </body>
 </html>
