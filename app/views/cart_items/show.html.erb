@@ -59,7 +59,13 @@
               <th class="h2" style="width: 200px; padding-left: 150px;">数量</th>
               <th class="h2" style="width: 200px; padding-left: 150px;">金額</th>
 			</tr>
-			<tr></tr>
+			<%= @cart_items.each do |cart_item| %>
+			<tr>
+				<td><%= cart_item.product.airtist_name %></td>
+				<td><%= cart_item.number_of_sheets %></td>
+				<td><%= cart_item.product.price %></td>
+			</tr>
+			<% end %>
 		  </table>
 	    </div>
 	    <div style="margin: 15px 0px 15px 1000px;">
