@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_09_22_072250) do
+=======
+ActiveRecord::Schema.define(version: 2018_09_24_155047) do
+
+  create_table "Cart_items", force: :cascade do |t|
+    t.integer "cart_id"
+    t.integer "product_id"
+    t.integer "number_of_sheets", default: 1
+    t.integer "old_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+>>>>>>> f7cb9414933935967f28e1b8962cfd872519d435
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,15 +35,6 @@ ActiveRecord::Schema.define(version: 2018_09_22_072250) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
-  end
-
-  create_table "cart_items", force: :cascade do |t|
-    t.integer "cart_id"
-    t.integer "product_id"
-    t.integer "number_of_sheets"
-    t.integer "old_price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "carts", force: :cascade do |t|
@@ -90,6 +94,7 @@ ActiveRecord::Schema.define(version: 2018_09_22_072250) do
     t.boolean "delete_flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "jaket_image_id"
   end
 
   create_table "purchases", force: :cascade do |t|

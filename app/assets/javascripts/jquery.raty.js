@@ -749,9 +749,15 @@
     scoreName:    'score',
     single:       false,
     space:        true,
+<<<<<<< HEAD
     starHalf:     '/images/star-half.png',
     starOff:      '/images/star-off.png',
     starOn:       '/images/star-on.png',
+=======
+    starHalf:     'star-half.png',
+    starOff:      'star-off.png',
+    starOn:       'star-on.png',
+>>>>>>> f7cb9414933935967f28e1b8962cfd872519d435
     starType:     'img',
     target:       undefined,
     targetFormat: '{score}',

@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+<<<<<<< HEAD
 
 $(function(){
    $(".modal-open").on('click',function(){
@@ -41,3 +42,6 @@ $(function(){
 });
  
 
+=======
+//= require jquery.raty
+>>>>>>> f7cb9414933935967f28e1b8962cfd872519d435
