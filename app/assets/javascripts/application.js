@@ -50,4 +50,16 @@ $(function () {
 	    });
     	$('select').removeClass('js-searchable');
     });
+
+    if (location.href == "http://localhost:3000/products?direction=asc&sort=id") {
+        $('.form-control').html("<option>昇順</option><option>降順</option>");
+    }
+
+    $('select[class=form-control]').change(function() {
+        if ($(this).val() == '降順') {
+            window.location.href = "http://localhost:3000/products?direction=dec&sort=id";
+        } else {
+            window.location.href = "http://localhost:3000/products?direction=asc&sort=id";
+        }
+    });
 });

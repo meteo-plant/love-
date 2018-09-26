@@ -22,8 +22,8 @@
 					<div class="form-group sort">
 						<label class="sr-only" for="InputSelect">並び替え</label>
 						<select class="form-control" style="width: 70px;" id="InputSelect">
-							<option>昇順</option>
 							<option>降順</option>
+							<option>昇順</option>
 						</select>
 					</div>
 					<button class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> 検索</button>
@@ -39,7 +39,7 @@
 					<% @products.each do |product| %>
 						<tr>
 							<td>
-
+								<%= product.id %>
 							</td>
 							<td>
 								<%= product.product_name %>
@@ -49,23 +49,7 @@
 					</tbody>
 				</table>
 				<nav>
-					<ul class="pagination">
-						<li class="disabled">
-							<a href="#" aria-label="前のページへ">
-								<span aria-hidden="true">«</span>
-							</a>
-						</li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li>
-							<a href="#" aria-label="次のページへ">
-								<span aria-hidden="true">»</span>
-							</a>
-						</li>
-					</ul>
+				<%= paginate @products, class:"pagenate" %>
 				</nav>
 			</div>
 		</div>
