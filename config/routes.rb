@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resources :admin_users, only: [:index, :show]
   resources :admin_purchases, only: [:index, :show]
   resources :products, only: [:create, :index, :update, :new, :edit]
-  # get 'admins/top'
+  get 'admins/top'
 
 
   # get 'admin_users/index'
@@ -51,7 +51,7 @@ Rails.application.routes.draw do
   # get 'admin_purchases/index'
   # get 'admin_purchases/show'
   # get 'tops/top'
-  # get 'events/index'
+  get 'events/index'
   # get 'events/show'
   # get 'events/create'
   # get 'products/index'

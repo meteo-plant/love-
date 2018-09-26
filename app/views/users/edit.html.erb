@@ -1,2 +1,74 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="form-form">
+   <h5 class="sign_up_message">会員情報を編集します。下記フォームに登録内容をご記入の上、画面下部の『登録』を押して下さい。</h5><br><br>
+
+  <div class="form-group">
+    <%= form_for(@user) do |f| %>
+    <%= f.label :profile_image, "プロフィール画像", class: "col-sm-3 control-label file" %>
+    <div class="col-sm-7">
+      <%=  f.attachment_field :profile_image, class: "file col-sm-7" %>
+    </div>
+  </div>
+
+　<div class="form-group">
+    <%= f.label :user_name, "名前", class: "col-sm-3  control-label" %>
+    <div class="col-sm-8">
+       <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+     <%= f.label :user_name_phonetic, "名前(カナ)", class: "col-sm-3 control-label" %>
+     <div class="col-sm-8">
+      <%= f.text_field :user_name_phonetic, autofocus: true, autocomplete: "name_phonetic", class: "form-control" %>
+     </div>
+  </div>
+
+  <div class="form-group">
+     <%= f.label :poatal_code, "郵便番号", class: "col-sm-3 control-label" %>
+     <div class="col-sm-8">
+      <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", class: "form-control",id: "address_zipcode" %>
+     </div>
+   </div>
+
+  <div class="form-group">
+     <%= f.label :address, "住所", class: "col-sm-3 control-label" %>
+     <div class="col-sm-8">
+      <%= f.text_field :address, autofocus: true,autocomplete: "address", class: "form-control",id: "user_address" %>
+     </div>
+  </div>
+
+  <div class="form-group">
+     <%= f.label :phone_number, "電話番号", class: "col-sm-3 control-label" %>
+     <div class="col-sm-8">
+      <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "form-control" %>
+     </div>
+  </div>
+
+  <div class="form-group">
+     <%= f.label :email, "メールアドレス", class: "col-sm-3 control-label" %>
+     <div class="col-sm-8">
+       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+     </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :favorite_people, "推しメン(コメント)", class: "col-sm-3 control-label" %>
+    <div class="col-sm-8">
+      <%= f.text_area :favorite_people,class: "col-sm-7 form-control",placeholder: "推しメンの名前(コメント)" %>
+    </div>
+  </div>
+
+  <div class="form-grouo">
+    <%= f.label :favorite_people_image, "推しメン画像", class: "col-sm-2 file2" %>
+    <div class="col-sm-8">
+      <%=  f.attachment_field :favorite_people_image, class: "col-sm-8 file2" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+     <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "登録", class: "sign_up_btn" %>
+     </div>
+  </div>
+</div>
+<% end %>

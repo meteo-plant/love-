@@ -48,8 +48,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
    protected
 
       def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name, :user_name_phonetic, :postal_code, :address, :phone_number, ])
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name, :user_name_phonetic, :postal_code, :address, :phone_number ])
         devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :password, :email,:postal_code, :address, :phone_number])
+        devise_parameter_sanitizer.permit(:account_update, keys: [:user_name,:user_name_phonetic, :profile_image, :postal_code,:address,:phone_number,:email,:favorite_people_image,:favorite_people])
+      
       end
 
 

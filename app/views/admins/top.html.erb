@@ -1,2 +1,106 @@
-<h1>Admins#top</h1>
-<p>Find me in app/views/admins/top.html.erb</p>
+
+
+  <body class="admin">
+  <div class="admins_header">
+      <%= link_to "User Page", class: "nav-list-item1" %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-list-item2" %>
+  </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-3">
+           <%= link_to "ホーム",admins_top_path, class: "widelink"%>
+           <a class="widelink">商品登録</a>
+           <a class="widelink">商品ジャンル登録</a>
+           <a class="widelink">ディスク登録</a>
+           <a class="widelink">商品一覧</a>
+           <a class="widelink">購入履歴一覧</a>
+           <a class="widelink">会員一覧</a>
+          </div>
+          <style type="text/css">
+          a.widelink { display: block; }
+          </style>
+
+        <div class="col-xs-8">
+
+          <div class="order_body">
+
+           <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th class="aa" colspan="2">受注状況</th>
+              </tr>
+
+              <tr>
+                <th>新規受付</th>
+                <td>~件</td>
+              </tr>
+
+              <tr>
+                <th><p>入金待ち</p></th>
+                <td>~件</td>
+              </tr>
+
+              <tr>
+                <th>入金済み</th>
+                <td>~件</td>
+              </tr>
+
+              <tr>
+                <th>取り寄せ中</th>
+                <td>~件</td>
+              </tr>
+
+            </tbody>
+　　　　　　　</table>
+
+
+    <table class="table table-bordered">
+    <tbody>
+      <tr>
+      <th class="aa" colspan="2"><label>売上状況</label></th>
+    </tr>
+    <tr>
+      <th>今月の売上</th>
+      <td>¥0,000/0,000件</td>
+    </tr>
+    </tr>
+    <tr>
+      <th>昨日の売上</th>
+      <td>¥0,000/0,000件</td>
+    </tr>
+    <tr>
+      <th><p>今日の売上</p></th>
+      <td>¥0,000/0,000件</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="table table-bordered">
+    <tbody><tr>
+      <th class="aa" colspan=7><label>ショップ状況</label></th>
+    </tr>
+    <tr>
+      <th>在庫切れ商品</th>
+      <td>~件</td>
+    </tr>
+    <tr>
+      <th><p>会員数</p></th>
+      <td>~人</td>
+    </tr>
+
+
+  </tbody>
+</table>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <%= yield %>
+  </body>
+

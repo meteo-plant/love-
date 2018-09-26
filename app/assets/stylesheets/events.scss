@@ -1,3 +1,112 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.ticket {
+  padding: 10px;
+  height: 200px;
+  border: solid 1px #dadada;/*左側の線*/
+  border-bottom: solid 2px #dadada;
+  border-right: solid 2px #dadada;
+  box-shadow :0px 0px 5px silver;
+  padding: 0.5em 0.5em 0.5em 2em;
+  background: white;
+}
+
+.QR {
+  width: 170px;
+  height: 160px;
+  float: left;
+  margin-top: 15px;
+}
+
+.ivent {
+  margin-top: 0px;
+  padding: 10px;
+  padding-left: 55px;
+  width: 430px;
+  height: 130px;
+  float: left;
+  border-top: solid #D8BfD8 1px;/*上のボーダー*/
+  border-bottom: solid #D8BfD8 1px;/*下のボーダー*/
+  background: #FFFAFA;
+}
+
+.ivent ul,li {
+  color: #999999;
+}
+
+.ribbonn {
+    display: inline-block;
+    margin-top: 10px;
+    position: relative;
+    height: 30px;
+    width: 215px;
+    line-height: 60px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 1px 0;
+    font-size: 8px;
+    font-family: 'Covered By Your Grace', cursive;
+    background: #FFBEDA;
+    color: #FFF;
+    box-sizing: border-box;
+}
+
+.ribbonn h5 {
+    vertical-align: middle;
+    margin: 0;
+    padding: 0 30px;
+    border-top: dashed 2px rgba(255, 255, 255, 0.5);
+    border-bottom: dashed 2px rgba(255, 255, 255, 0.5);
+    line-height: 25px;
+    font-family: Chalkduster, "Covered By Your Grace", Courier, "Segoe Print", sans-serif;
+
+}
+
+.ribbonn:before, .ribbonn:after{
+  position: absolute;
+  content: '';
+  width: 0px;
+  height: 0px;
+  z-index: 1;
+}
+
+.ribbonn:before{/*左の山形*/
+  top: 0;
+  left: 0;
+  border-width: 15px 0px 20px 10px;
+  border-color: transparent transparent transparent #fff;
+  border-style: solid;
+}
+
+.ribbonn:after{/*右の山形*/
+  top: 0;
+  right: 0;
+  border-width: 15px 10px 20px 0px;
+  border-color: transparent #fff transparent transparent;
+  border-style: solid;
+}
+
+.ul ,li {
+  font-size: 17px;
+  font-family: 'Poor Story', cursive;
+}
+
+.square_btn{
+    margin-top: 20px;
+    margin-right: 15px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #FF69A3;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #C71585;
+    border-radius: 3px;
+}
+.square_btn:active {/*ボタンを押したとき*/
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+}
