@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   # ネストまだしてないです
   root 'tops#top'
 
-  resources :cart_items, only: [:create, :index, :destroy, :update, :show] do 
-    member do 
+  resources :cart_items, only: [:create, :index, :destroy, :update, :show] do
+    member do
       get :test
     end
   end
@@ -19,11 +19,13 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :users, only: [:create, :show, :edit, :update]
-  # resources :comments, only: [:create, :destroy]
   resources :purchases, only: [:create, :index, :new]
   resources :favorites, only: [:create, :index, :destroy]
-  
-  resources :shipping_addresses, only: [:create, :destroy, :index]
+  resources :shipping_addresses, only: [:create, :destroy, :index] do
+    member do
+      post :add_address
+    end
+  end
   resources :events, only: [:create, :show, :index]
   resources :song_orders, only: [:create, :update]
   resources :genres, only: [:create, :index, :edit, :update]
