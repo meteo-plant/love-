@@ -1,0 +1,16 @@
+				<div class="nested-fields">
+					<div class="form-group">
+						<%= f.label :disk_name, "ディスク名:", class:"col-lg-3 control-label" %>
+						<div class="col-lg-9">
+							<%= f.text_field :disk_name, :placeholder => "ディスク名"%>
+						</div>
+					</div>
+
+    				<%= f.fields_for :song_orders do |song_order| %>
+          				<%= render 'song_order_fields', f: song_order %>
+					<% end %>
+					<div class="links">
+						<%= link_to_add_association "曲を追加", f, :song_orders %>
+					</div>
+					<%= link_to_remove_association "ディスクを削除", f %><br>
+				</div>

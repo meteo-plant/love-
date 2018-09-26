@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   resources :events, only: [:create, :show, :index]
   resources :song_orders, only: [:create, :update]
   resources :genres, only: [:create, :index, :edit, :update]
-  resources :disks, only: [:create, :update]
+  resources :disks, only: [:create, :update, :new]
   resources :songs, only: [:create, :new, :update]
   resources :user_products, only: [:index, :show]
   resources :admin_users, only: [:index, :show]
