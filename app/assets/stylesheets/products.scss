@@ -27,9 +27,18 @@ border-bottom: solid 3px #d7d7d7;/*下線*/
 .btn{
 	display: inline-block;
 	margin-left: 15px;
+	margin-top: 40px !important;
 }
 
 nav{
 	text-align: center;
+}
+
+.control-label{
+	margin-bottom: 0px !important;
+}
+
+.form-group{
+	height: 30px;
 }
 

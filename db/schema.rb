@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_09_24_155047) do
     t.datetime "updated_at", null: false
   end
 
+
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(version: 2018_09_24_155047) do
     t.string "date_and_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "product_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -87,7 +89,6 @@ ActiveRecord::Schema.define(version: 2018_09_24_155047) do
     t.integer "price"
     t.string "label_name"
     t.integer "stock"
-    t.integer "event_id"
     t.boolean "delete_flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
