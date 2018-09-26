@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2018_09_25_044416) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -95,14 +94,14 @@ ActiveRecord::Schema.define(version: 2018_09_25_044416) do
   end
 
   create_table "purchases", force: :cascade do |t|
-    t.integer "shipping_address_id"#配送先id
-    t.string "purchase_date"　#購入日
-    t.integer "cart_id" #カートid
-    t.boolean "stock_flag"#取り寄せフラグ
-    t.boolean "order_flag"#受注フラグ
-    t.boolean "shipping_flag"#配送フラグ
-    t.boolean "payment_flag"#入金フラグ
-    t.boolean "method_of_payment", default: false, null: false #支払い方法
+    t.integer "shipping_address_id"
+    t.string "purchase_date"
+    t.integer "cart_id"
+    t.boolean "stock_flag"
+    t.boolean "order_flag"
+    t.boolean "shipping_flag"
+    t.boolean "payment_flag"
+    t.boolean "method_of_payment", default: false, null: false
     t.datetime "shipping_date"
     t.datetime "payment_date"
     t.datetime "created_at", null: false

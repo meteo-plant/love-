@@ -5,7 +5,7 @@
 			  	</div>
 	<div>
 		<div Class="box2">
-        <%= form_for(@purchase) do |f| %>
+        <%= form_for(@purchase, url: {controller: "purchases", action: "create"}) do |f| %>
 		      <div class="row" style="margin: 0px 0px 50px 50px; padding-top: 50px;">
 		      	<%= f.label :"配送先の選択" %><br>
 	            <%= f.collection_select(:shipping_address_id, @shipping_address, :id, :shipping_address_name, :size => "200") %>
