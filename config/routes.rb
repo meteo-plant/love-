@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   # ネストまだしてないです
   root 'tops#top'
+
+  resources :cart_items, only: [:create, :index, :destroy, :update, :show] do 
+    member do 
+      get :test
+    end
+  end
+
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -12,21 +19,26 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :users, only: [:create, :show, :edit, :update]
-  resources :comments, only: [:create, :destroy]
+  # resources :comments, only: [:create, :destroy]
   resources :purchases, only: [:create, :index, :new]
   resources :favorites, only: [:create, :index, :destroy]
-  resources :cart_items, only: [:create, :index, :destroy, :update, :show]
+  
   resources :shipping_addresses, only: [:create, :destroy, :index]
   resources :events, only: [:create, :show, :index]
   resources :song_orders, only: [:create, :update]
   resources :genres, only: [:create, :index, :edit, :update]
-  resources :disks, only: [:create, :update]
+  resources :disks, only: [:create, :update, :new]
   resources :songs, only: [:create, :new, :update]
   resources :user_products, only: [:index, :show]
   resources :admin_users, only: [:index, :show]
   resources :admin_purchases, only: [:index, :show]
-  resources :products, only: [:create, :index, :update, :new, :edit]
   get 'admins/top'
+
+  resources :products, only: [:create, :index, :update, :new, :edit] do
+   resources :comments, only: [:create, :destroy]
+
+
+
 
 
   # get 'admin_users/index'
@@ -61,7 +73,7 @@ Rails.application.routes.draw do
   # get 'shipping_addresses/destroy'
   # get 'cart_items/index'
   # get 'cart_items/show'
-  # get 'cart_items/create'
+  # get 'cart_items/create' => 'cat_items#create', as: "test"
   # get 'cart_items/update'
   # get 'cart_items/destroy'
   # get 'favorites/index'

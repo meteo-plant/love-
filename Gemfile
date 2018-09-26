@@ -63,10 +63,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
-gem 'ransack'
+gem 'jquery-turbolinks'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'kaminari'
 gem 'nested_form_fields'
 gem 'seed-fu'
 gem "jp_prefecture"
+gem "select2-rails"
+gem 'cocoon'

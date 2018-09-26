@@ -10,10 +10,59 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery
 //= require bootstrap-sprockets
+//= require select2
+//= require turbolinks
+//= require cocoon
 //= require_tree .
+<<<<<<< HEAD
 //= require jquery.jpostal
+=======
+
+
+$(function () {
+    $('.js-searchable').select2({
+        // コンテナ幅のカスタマイズをサポートします。
+        width: '200px',
+        // コントロールのプレースホルダを指定します。
+        placeholder: 'Please Select',
+        // クリア可能な選択をサポートします。
+        allowClear: true
+    });
+
+    $('.add_fields').click(function() {
+    	$('select').removeClass('js-searchable');
+    })
+
+
+    setInterval(function(){
+
+    	$('.js-searchable').select2({
+        // コンテナ幅のカスタマイズをサポートします。
+	        width: '200px',
+	        // コントロールのプレースホルダを指定します。
+	        placeholder: 'Please Select',
+	        // クリア可能な選択をサポートします。
+	        allowClear: true
+	    });
+    	$('select').removeClass('js-searchable');
+    });
+
+    if (location.href == "http://localhost:3000/products?direction=asc&sort=id") {
+        $('.form-control').html("<option>昇順</option><option>降順</option>");
+    }
+
+    $('select[class=form-control]').change(function() {
+        if ($(this).val() == '降順') {
+            window.location.href = "http://localhost:3000/products?direction=dec&sort=id";
+        } else {
+            window.location.href = "http://localhost:3000/products?direction=asc&sort=id";
+        }
+    });
+});
+
+>>>>>>> 007e312ad3c50e8e942fdbddd2468a088e912ad8

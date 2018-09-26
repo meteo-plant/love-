@@ -1,0 +1,18 @@
+					<div class="nested-fields">
+						<div class="form-group">
+							<%= f.label :song_order_number, "曲順：", class:"col-lg-3 control-label" %>
+							<div class="col-lg-9">
+								<%= f.text_field :song_order_number, :placeholder => "曲順"%>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<%= f.label :song_id, "曲名：", class:"col-lg-3 control-label"  %>
+							<div class="col-lg-9">
+								<%= f.collection_select :song_id, @songs, :id, :song_name, {}, {class: 'js-searchable'} %>
+	 						</div>
+						</div>
+						<%= link_to_remove_association "曲を削除", f %><br>
+					</div>
+
+

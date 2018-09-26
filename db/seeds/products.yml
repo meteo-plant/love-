@@ -1,0 +1,53 @@
+products:
+  -
+    product_name: "akb"
+    airtist_name: "akb"
+    genre_id: 1
+    price: 2000
+    label_name: "秋元康"
+    stock: 200
+    event_id: 1
+    delete_flag: true
+    
+  -
+    product_name: "akb"
+    airtist_name: "akb"
+    genre_id: 2
+    price: 2000
+    label_name: "秋元康"
+    stock: 200
+    event_id: 2
+    delete_flag: true
+
+  -
+    product_name: "akb"
+    airtist_name: "akb"
+    genre_id: 3
+    price: 2000
+    label_name: "秋元康"
+    stock: 200
+    event_id: 3
+    delete_flag: true
+    
+  -
+    product_name: "akb"
+    airtist_name: "akb"
+    genre_id: 4
+    price: 2000
+    label_name: "秋元康"
+    stock: 200
+    event_id: 4
+    delete_flag: true
+
+  -
+    product_name: "メテオ"
+    airtist_name: "メテオ"
+    genre_id: 5
+    price: 2000
+    label_name: "秋元康"
+    stock: 200
+    event_id: 5
+    delete_flag: true
+    
+    
+    
