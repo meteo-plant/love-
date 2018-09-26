@@ -8,11 +8,14 @@ class DisksController < ApplicationController
   end
 
   def create
-    disk = Disk.new(disk_params)
-    disk.product_id = session[:product_id]
-    disk.save
-    session[:product_id] = nil
-    redirect_to new_product_path
+    #     session[:product_id] = product.id
+    #     session[:product_id] = nil
+    # puts product.errors.full_messages
+    # disk = Disk.new(disk_params)
+    # disk.product_id = session[:product_id]
+    # disk.save
+    # session[:product_id] = nil
+    # redirect_to new_product_path
   end
 
   def update

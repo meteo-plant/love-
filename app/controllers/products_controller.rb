@@ -14,8 +14,6 @@ class ProductsController < ApplicationController
   def create
     product = Product.new(product_params)
     product.save
-    session[:product_id] = product.id
-    puts product.errors.full_messages
     redirect_to new_product_path
 
   end
