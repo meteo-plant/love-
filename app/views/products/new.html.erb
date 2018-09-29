@@ -12,117 +12,129 @@
 			<div class="col-lg-9">
 				<h1 class="page_title">商品登録</h1>
 				<%= form_for(@product) do |f| %>
-				<form action="" method="post" class="form-horizontal">
 
 					<div class="form-group">
-						<label for="input_product_name" class="col-lg-2 control-label">商品名：</label>
-						<div class="col-lg-10">
+						<%= f.label :product_name, "商品名:", class:"col-lg-3 control-label" %>
+						<div class="col-lg-9">
 							<%= f.text_field :product_name, :placeholder => "商品名"%>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="input_artist_name" class="col-lg-2 control-label">アーティスト名：</label>
-						<div class="col-lg-10">
-							<%= f.text_field :airtist_name, :placeholder => "アーティスト名"%>
+						<%= f.label :artist_name, "アーティスト名：", class:"col-lg-3 control-label"  %>
+						<div class="col-lg-9">
+							<%= f.text_field :airtist_name, placeholder: "アーティスト名"%>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="input_genre" class="col-lg-2 control-label">ジャンル：</label>
-						<div class="col-lg-10">
-							<%= f.text_field :genre, :placeholder => "ジャンル"%>
-						</div>
+						<%= f.label :genre_id, "ジャンル：", class:"col-lg-3 control-label"  %>
+						<div class="col-lg-9">
+							<%= f.collection_select :genre_id, @genres, :id, :genre_name, {}, {class: 'js-searchable'} %>
+ 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="input_label" class="col-lg-2 control-label">レーベル名：</label>
-						<div class="col-lg-10">
+						<%= f.label :label_name, "レーベル名：", class:"col-lg-3 control-label" %>
+						<div class="col-lg-9">
 							<%= f.text_field :label_name, :placeholder => "レーベル名"%>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="input_file" class="col-lg-2 control-label">商品画像：</label>
-				        <div class="col-lg-10">
-				        <input type="file" id="file_select" class="form-control" style="display:none;">
-
-				        <div class="input-group">
-				          <span class="input-group-btn">
-				            <button type="button" id="file_select_icon" class="btn btn-sm"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span></button>
-				          </span>
-				          <input type="text" id="file_name" class="form-control" placeholder="Select file ..." readonly>
-				        </div>
-				      </div>
-				    </div>
-
-				    <div class="form-group form-group-sm">
-				      <div class="col-lg-offset-2 col-lg-10">
-				        <button type="button" class="btn btn-sm btn-info"    id="btn_filename">ファイル選択の値を取得</button>
-				        <button type="button" class="btn btn-sm btn-warning" id="btn_clear_file">ファイル選択の値をクリア</button>
-				      </div>
+						<%= f.label :jaket_image, "商品画像：", class:"col-lg-3 control-label"  %>
+				        <div class="col-lg-9">
+				        	 <%= f.attachment_field :jaket_image %>
+				    	</div>
 				    </div>
 
 					<div class="form-group">
-						<label for="input_product_info" class="col-lg-2 control-label">商品詳細：</label>
-						<div class="col-lg-10">
-							<%= f.text_area :product_info%>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="input_price" class="col-lg-2 control-label">料金：</label>
-						<div class="col-lg-10">
+						<%= f.label :price, "料金：", class:"col-lg-3 control-label" %>
+						<div class="col-lg-9">
 							<%= f.text_field :price, :placeholder => "料金"%>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="input_stock" class="col-lg-2 control-label">在庫数：</label>
-						<div class="col-lg-10">
+						<%= f.label :stock, "在庫数：", class:"col-lg-3 control-label" %>
+						<div class="col-lg-9">
 							<%= f.text_field :stock, :placeholder => "在庫数"%>
 						</div>
 					</div>
 
+
+    				<%= f.fields_for :events do |events_f| %>
 					<div class="form-group">
-						<label for="input_event_title" class="col-lg-2 control-label">イベント名：</label>
-						<div class="col-lg-10">
-							<%= f.text_field :event_title, :placeholder => "イベント名"%>
+						<%= f.label :event_name, "イベント名：", class:"col-lg-3 control-label" %>
+						<div class="col-lg-9">
+							<%= events_f.text_field :event_name, :placeholder => "イベント名"%>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="input_event_date" class="col-lg-2 control-label">イベント日時：</label>
-						<div class="col-lg-10">
-							<%= f.text_field :event_date, :placeholder => "イベント日時"%>
+						<%= f.label :date_and_time, "イベント日時：", class:"col-lg-3 control-label" %>
+						<div class="col-lg-9">
+							<%= events_f.text_field :date_and_time, :placeholder => "イベント日時"%>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="input_event_place" class="col-lg-2 control-label">イベント会場：</label>
-						<div class="col-lg-10">
-							<%= f.text_field :event_place, :placeholder => "イベント会場"%>
+						<%= f.label :venue, "イベント会場：", class:"col-lg-3 control-label" %>
+						<div class="col-lg-9">
+							<%= events_f.text_field :venue, :placeholder => "イベント会場"%>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="input_event_info" class="col-lg-2 control-label">イベント詳細：</label>
-						<div class="col-lg-10">
-							<%= f.text_area :event_info%>
+						<%= f.label :event_information, "イベント詳細：", class:"col-lg-3 control-label" %>
+						<div class="col-lg-9">
+							<%= events_f.text_area :event_information, class:"col-lg-9", style:"height: 100px;"%>
 						</div>
 					</div>
 					<% end %>
 
+
+
+
+
+
+				<%= f.fields_for :disks do |disk| %>
+
+          			<%= render 'disk_fields', f: disk %>
+
+				<% end %>
+				<div class="links">
+					<%= link_to_add_association "ディスクを追加", f, :disks %>
+				</div>
+
+
+
+
+
+
+
 					<div class="form-group">
-						<div class="col-lg-offset-2 col-lg-10">
-							<button type="submit" class="btn btn-primary btn-block">ディスク、曲順、曲名を登録</button>
+						<div class=" col-lg-9">
+							<%= f.submit "商品を登録", class:"btn btn-primary btn-block", style:"margin-bottom: 30px;" %>
 						</div>
 					</div>
-				</form>
+				<% end %>
 			</div>
+			
+				<div class="create">
+					<%= form_for(@song) do |f| %>
+						<div class="form-group">
+							<%= f.text_field :song_name,:placeholder => "曲名"%>
+						</div>
+						<%= f.submit "作成",class:"btn btn-default btn-lg" %>
+
+					<% end %>
+				</div>
+
 		</div>
 	</div>
 </body>
+
 
 
 

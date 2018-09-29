@@ -28,13 +28,14 @@ Rails.application.routes.draw do
   resources :events, only: [:create, :show, :index]
   resources :song_orders, only: [:create, :update]
   resources :genres, only: [:create, :index, :edit, :update]
-  resources :disks, only: [:create, :update]
-  resources :songs, only: [:create, :new, :update]
-  resources :user_products, only: [:show]
-  resources :admin_users, only: [:index, :show]
+
+  resources :disks, only: [:create, :update, :new]
+  resources :songs, only: [:create, :index, :edit, :update]
+  resources :user_products, only: [:index, :show]
+  resources :admin_users, only: [:index, :show, :destroy]
   resources :admin_purchases, only: [:index, :show]
-  resources :products, only: [:create, :index, :update, :new, :edit] do
-  resources :comments, only: [:create, :destroy]
+  resources :products, only: [:create, :index, :update, :new, :edit, :destroy] do
+   resources :comments, only: [:create, :destroy]
  end
   # get 'admins/top'
 
