@@ -106,6 +106,11 @@ ActiveRecord::Schema.define(version: 2018_09_29_062205) do
     t.datetime "payment_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_name"
+    t.integer "old_price"
+    t.integer "number_of_sheets"
+    t.string "label_name"
+    t.string "jaket_image_id"
   end
 
   create_table "shipping_addresses", force: :cascade do |t|

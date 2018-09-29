@@ -1,77 +1,58 @@
+
 <body>
+	<div style="background-color: #FFFF99;, width: 100%;">
+			  		<p>購入情報を選択してね！！</p>
+			  	</div>
 	<div>
 		<div Class="box2">
-	      <div class="row text-center" style="margin: 0px 0px 50px 250px; padding-top: 50px;">
-	      	<div class="col-sm-2 h4"><strong>お届け先</strong></div>
-		      <div class="input-group col-sm-2"style="width: 500px;">
-				<input type="text" class="form-control" placeholder="お届け先入力">
-				<span class="input-group-btn">
-				    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-					<span class="caret"></span>
-				    </button>
-				    <ul class="dropdown-menu" role="menu">
-					  <li><a href="#">東京</a></li>
-				      <li><a href="#">神奈川</a></li>
-					  <li><a href="#">埼玉</a></li>
-				    </ul>
-		        </span>
-	          </div>
-           </div>
-          <div class="row text-center" style="margin-left: 250px;">
-          	<div class="col-sm-2 h4"><strong>配送</strong></div>
-	          <div class="input-group col-sm-2" style="width: 500px;">
-				<input type="text" class="form-control" placeholder="配送先入力">
-				<span class="input-group-btn">
-				    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-					<span class="caret"></span>
-				    </button>
-				    <ul class="dropdown-menu" role="menu">
-					  <li><a href="#"></a></li>
-				      <li><a href="#">リンクのリスト２</a></li>
-					  <li><a href="#">リンクのリスト３</a></li>
-				    </ul>
-		        </span>
-	          </div>
-          </div>
-          <div class="row text-center" style="margin: 50px 0px 0px 250px;">
-          	<div class="col-sm-2 h4"><strong>支払い方法</strong></div>
-            <div class="input-group col-sm-2" style="width: 500px;">
-			  <input type="text" class="form-control" placeholder="支払い方法入力">
-			  <span class="input-group-btn">
-			     <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-				 <span class="caret"></span>
-			     </button>
-			     <ul class="dropdown-menu" role="menu">
-				   <li><a href="#">現金</a></li>
-			       <li><a href="#">クレジット</a></li>
-				   <li><a href="#"></a></li>
-			     </ul>
-	           </span>
-            </div>
-          </div>
+        <%= form_for(@purchase, url: {controller: "purchases", action: "create"}) do |f| %>
+		    <div class="" style=":margin: 0px 0px 50px 50px; padding-top: 50px;">
+		      	<%= f.label :"配送先の選択" %><br>
+	            <%= f.collection_select(:shipping_address_id, @shipping_address, :id, :shipping_address_name, { autofocus: 'true', class: "form-control"}) %>
+	        </div>
+
+	        <div class="" style="margin: 50px 0px 0px 50px;">
+		        <%= f.label :"支払い方法の選択" %><br>
+		        <%= f.select :method_of_payment, [["現金", "現金"], ["クレジット", "クレジット"]], { autofocus: 'true', class: "form-control"} %>
+		    </div>
+		    <div style="margin: 50px 0px 15px 1000px;">
+                 <%= f.submit '購入' %>
+	        </div>
+	    </div>
+	<% end %>
+		<div>
+			  <%= form_for(@shipping_addressA, url: {controller: "shipping_addresses", action: "add_address"}) do |f| %>
+			  <div class="row">
+			  	<div style="background-color: #FFFF99;, width: 100%;">
+			  		<p>配送先を追加したい場合はこちら</p>
+			  	</div>
+	          	<div class="col-sm-2 h4"><strong>配送先追加</strong></div>
+	          	<%= f.text_field :shipping_address_name %>
+	          <%= f.submit '決定' %>
+	            </div>
+	          <% end %>
 		</div>
+
 	    <div>
 		  <table class="table">
-			<tr>
-              <th class="h2" style="width: 200px; padding-left: 150px;">商品名aa</th>
+			<tr style="background-color: #FFFF99">
+              <th class="h2" style="width: 200px; padding-left: 150px;">商品名</th>
               <th class="h2" style="width: 200px; padding-left: 150px;">数量</th>
-              <th class="h2" style="width: 200px; padding-left: 150px;">金額</th>
+              <th class="h2" style="width: 200px; padding-left: 135px;">金額</th>
 			</tr>
-			<%= @cart_items.each do |cart_item| %>
+			<% @cart_items.each do |cart_item| %>
 			<tr>
-				<td><%= cart_item.product.airtist_name %></td>
-				<td><%= cart_item.number_of_sheets %></td>
-				<td><%= cart_item.product.price %></td>
+				<td class="h3" style="width: 200px; padding-left: 150px;"><%= cart_item.product.product_name %></td>
+				<td class="h3" style="width: 200px; padding-left: 150px;"><%= cart_item.number_of_sheets %>枚</td>
+				<td class="h3" style="width: 200px; padding-left: 150px;"><%= cart_item.product.price * cart_item.number_of_sheets %>円</td>
 			</tr>
 			<% end %>
 		  </table>
 	    </div>
-	    <div style="margin: 15px 0px 15px 1000px;">
-	      <div class="h4">合計</div>
-	      <div class="h4">￥1000000</div>
-	    </div>
-        <div style="margin: 0px 0px 15px 1000px;">
-          <button type="button" class="btn btn-primary btn-lg" style="width: 150px;">購入</button>
+	    <div class= "h3" style="margin: 15px 0px 15px 800px;">
+	      <span>商品合計金額￥：</span>
+          	<span>💛</span>
+			<span> <%= @price %>円</span>
 	    </div>
     </div>
 </body>

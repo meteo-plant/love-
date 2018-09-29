@@ -1,5 +1,4 @@
-<header style="width: 100%; height:80px; background-color: pink">
-</header>
+
 <h2>購入履歴</h2>
 
 <body>
@@ -10,117 +9,53 @@
    		</div>
    		<div class="col-lg-9">
    	      <div class="container">
+   	      	<% @purchases.each do |purchase| %>
 		    <div class="row">
-		      <div class="col-lg-2" style="margin: 20px 10px 20px 0px;">
-		         <%= image_tag 'sample-5.jpg', :width =>'150px', :height =>'150px'%>
+		      <div class="col-lg-2 purchase_image" style="margin: 20px 10px 20px 0px;">
+                  <%= image_tag(purchase.jaket_image_id) %>
 		      </div>
 			  <div class="col-lg-3">
+
 		          <ul class="list-inline" style="margin: 15px 5px;">
-		            <li><strong class="">購入者</strong></li>
-		            <li class="">オタク君</li>
+				       <li><strong class="">購入者</strong></li>
+				       <li class=""><%= current_user.user_name %></li>
 		          </ul>
+
 		          <ul class="list-inline" style="margin:  10px 5px;">
-			         <li><strong class="">購入日</strong></li>
-			         <li class="">3000年12月12日</li>
+			           <li><strong class="">購入日</strong></li>
+			           <li class=""><%= purchase.created_at.strftime('%Y/%m/%d') %></li>
 		          </ul>
+
 		          <ul class="list-inline" style="margin: 10px 5px;">
-		            <li><strong class="">商品名</strong></li>
-		            <li class="text-danger">ooooo</li>
+		              <li><strong class="">商品名</strong></li>
+		              <li class="text-danger"><%= purchase.product_name %></li>
 		          </ul>
+
 		          <ul class="list-inline" style="margin: 15px 5px;">
-	          	    <li><strong class="">届け先</strong></li>
-	          	    <li class=""><strong class="">東京都~~~</strong></li>
+	          	      <li><strong class="">届け先</strong></li>
+	          	      <li class=""><strong class=""><%= purchase.shipping_address.shipping_address_name %></strong></li>
 			      </ul>
+
 			       <ul class="list-inline" style="margin: 15px 5px;">
-	          	    <li class=""><strong class="">数量</strong></li>
-	          	    <li class="">100000000000枚</li>
+	          	      <li class=""><strong class="">数量</strong></li>
+	          	      <li class=""><%= purchase.number_of_sheets %></li>
 			      </ul>
 			  </div>
+
 			  <div class="col-sm-2" >
 			       <ul class="list-inline" style="margin-top: 10px;">
 			         <li><strong class="">ステータス</strong></li>
-			         <li>~~~~</li>
+			         <li></li>
 			       </ul>
+
 			       <ul class="list-inline">
-			     	 <li style="margin-top: 110px;"><strong>￥</strong></li>
-			     	 <li>10000</li>
+			     	   <li style="margin-top: 110px;"><strong>￥</strong></li>
+			     	   <li><%= purchase.old_price %></li>
 			       </ul>
 		      </div>
 		    </div>
-		     <div class="row">
-		      <div class="col-lg-2" style="margin: 20px 10px 20px 0px;">
-		         <%= image_tag 'sample-7.jpg', :width =>'150px', :height =>'150px'%>
-		      </div>
-			  <div class="col-lg-3">
-		          <ul class="list-inline" style="margin: 15px 5px;">
-		            <li><strong class="">購入者</strong></li>
-		            <li class="">オタク君</li>
-		          </ul>
-		          <ul class="list-inline" style="margin: 10px 5px;">
-			         <li><strong class="">購入日</strong></li>
-			         <li class="">3000年12月12日</li>
-		          </ul>
-		          <ul class="list-inline" style="margin: 10px 5px;">
-		            <li><strong class="">商品名</strong></li>
-		            <li class="text-danger">ooooo</li>
-		          </ul>
-		          <ul class="list-inline" style="margin: 15px 5px;">
-	          	    <li><strong class="">届け先</strong></li>
-	          	    <li class=""><strong class="">東京都~~~</strong></li>
-			      </ul>
-			       <ul class="list-inline" style="margin: 15px 5px;">
-	          	    <li class=""><strong class="">数量</strong></li>
-	          	    <li class="">100000000000枚</li>
-			      </ul>
-			  </div>
-			  <div class="col-sm-2" >
-			       <ul class="list-inline" style="margin-top: 10px;">
-			         <li><strong class="">ステータス</strong></li>
-			         <li>~~~~</li>
-			       </ul>
-			       <ul class="list-inline">
-			     	 <li style="margin-top: 110px;"><strong>￥</strong></li>
-			     	 <li>10000</li>
-			       </ul>
-		      </div>
-		    </div>
-		    <div class="row">
-		      <div class="col-lg-2" style="margin: 20px 10px 20px 0px;">
-		         <%= image_tag 'sample-8.jpg', :width =>'150px', :height =>'150px'%>
-		      </div>
-			  <div class="col-lg-3">
-		          <ul class="list-inline" style="margin: 15px 5px;">
-		            <li><strong class="">購入者</strong></li>
-		            <li class="">オタク君</li>
-		          </ul>
-		          <ul class="list-inline" style="margin: 10px 5px;">
-			         <li><strong class="">購入日</strong></li>
-			         <li class="">3000年12月12日</li>
-		          </ul>
-		          <ul class="list-inline" style="margin: 10px 5px;">
-		            <li><strong class="">商品名</strong></li>
-		            <li class="text-danger">ooooo</li>
-		          </ul>
-		          <ul class="list-inline" style="margin: 15px 5px;">
-	          	    <li><strong class="">届け先</strong></li>
-	          	    <li class=""><strong class="">東京都~~~</strong></li>
-			      </ul>
-			       <ul class="list-inline" style="margin: 15px 5px;">
-	          	    <li class=""><strong class="">数量</strong></li>
-	          	    <li class="">100000000000枚</li>
-			      </ul>
-			  </div>
-			  <div class="col-sm-2" >
-			       <ul class="list-inline" style="margin-top: 10px;">
-			         <li><strong class="">ステータス</strong></li>
-			         <li>~~~~</li>
-			       </ul>
-			       <ul class="list-inline">
-			     	 <li style="margin-top: 110px;"><strong>￥</strong></li>
-			     	 <li>10000</li>
-			       </ul>
-		      </div>
-		    </div>
+		    <% end %>
+
 		    <nav style="margin-left: 180px;">
 					<ul class="pagination">
 						<li>
