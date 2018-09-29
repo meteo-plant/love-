@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2018_09_29_062205) do
+
 
   create_table "Cart_items", force: :cascade do |t|
     t.integer "cart_id"
@@ -63,6 +65,7 @@ ActiveRecord::Schema.define(version: 2018_09_29_062205) do
     t.string "date_and_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "product_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -106,6 +109,11 @@ ActiveRecord::Schema.define(version: 2018_09_29_062205) do
     t.datetime "payment_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_name"
+    t.integer "old_price"
+    t.integer "number_of_sheets"
+    t.string "label_name"
+    t.string "jaket_image_id"
   end
 
   create_table "shipping_addresses", force: :cascade do |t|
@@ -147,10 +155,10 @@ ActiveRecord::Schema.define(version: 2018_09_29_062205) do
     t.string "postal_code"
     t.string "profile_image_id"
     t.string "favorite_people"
-    t.string "favorite_people_image"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "favorite_people_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

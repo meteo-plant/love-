@@ -10,7 +10,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
      admin_users_path
   end
 
- 
+
   #  def after_inactive_sign_up_path_for(resource)
   #   admin_users_path
   # end

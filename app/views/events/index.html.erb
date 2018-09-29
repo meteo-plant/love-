@@ -1,2 +1,38 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<body>
+    <div class="container">
+    	<div class="row">
+    		<div class="col-xs-3">
+                <div class="mypage_sidebar">
+                            <div class="sidelink1">MENU</div>
+                               <%= link_to "HOME",root_path, class: "sidelink"%>
+                               <%= link_to "お気に入り",favorites_path(current_user), class: "sidelink"%>
+                               <%= link_to "購入履歴",purchases_path(current_user), class: "sidelink"%>
+                               <%= link_to "所持チケット",events_path(current_user), class: "sidelink"%>
+                               <%= link_to '退会手続き',current_user, method: :delete, data: {confirm: '本当に退会しますか?'},class: "sidelink" %>
+                              <style type="text/css">
+                              a.sidelink { display: block; }
+                              </style>
+                </div>
+            </div>
+
+            <div class="col-xs-9">
+                <div class="ticket">
+                  <% @events.each do |event|%>
+    		        <div class="QR"><%= image_tag 'QRQR.jpg' , :size =>'150x150'%></div>
+                       <div class="event_ribbonn"><h5>Event Information</h5></div>
+                          <div class="ivent">
+                        	 <ul>
+                        		 <li><%= event.event_name %></li>
+                        		 <li><%= event.event_information%></li>
+                        		 <li><%= event.venue %></li>
+                        		 <li><%= %></li>
+                        	 </ul>
+                          </div>
+                </div>
+                <% end %>
+                <%= paginate(@users) %>
+            </div>
+        </div>
+    </div>
+</body>
+
