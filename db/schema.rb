@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2018_09_29_062205) do
-
+ActiveRecord::Schema.define(version: 2018_09_27_092810) do
 
   create_table "Cart_items", force: :cascade do |t|
     t.integer "cart_id"
@@ -89,7 +87,6 @@ ActiveRecord::Schema.define(version: 2018_09_29_062205) do
     t.integer "price"
     t.string "label_name"
     t.integer "stock"
-    t.integer "event_id"
     t.boolean "delete_flag", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
