@@ -21,6 +21,7 @@
 //= require_tree .
 
 
+
 $(function () {
     $('.js-searchable').select2({
         // コンテナ幅のカスタマイズをサポートします。
@@ -75,4 +76,5 @@ $(function () {
         });
     }
 });
+
 

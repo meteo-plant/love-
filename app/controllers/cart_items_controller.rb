@@ -32,11 +32,12 @@ class CartItemsController < ApplicationController
   end
 
   def test
-   CartItem.find_or_create_by(cart_id: current_user.cart.id, product_id: params[:id] )
-    redirect_to user_products_path
+    CartItem.find_or_create_by(cart_id: current_user.cart.id, product_id: params[:id] )
+    redirect_back(fallback_location: user_products_path)
   end
 
   def create
+    
   end
 
   def destroy
