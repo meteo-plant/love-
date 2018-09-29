@@ -1,6 +1,6 @@
 <header id="header" class="header">
       <div class="header__menu">
-        <%= link_to image_tag('logo.png', { :border => '0', :alt => 'top'}), root_path, class: "header__menu__logo" %>  
+        <%= link_to image_tag('logo.png', { :border => '0', :alt => 'top'}), root_path, class: "header__menu__logo" %>
         <div class="search">
           <form action="<%= user_products_path('aa') %>" method="get" class="form-inline">
             <input type="text" id="search__bar" name="s_title" required size="10" placeholder=" 商品名やアーティスト名で検索" value="<%= request[:s_title] %>">
