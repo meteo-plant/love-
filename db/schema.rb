@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2018_09_25_044416) do
     t.integer "price"
     t.string "label_name"
     t.integer "stock"
-    t.boolean "delete_flag"
+    t.boolean "delete_flag", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "jaket_image_id"

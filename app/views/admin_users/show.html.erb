@@ -1,5 +1,14 @@
 
 <body>
+	<% if @user.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 	<div class="page-header" style="background-color: orange;">
 		<h1>サンプル　　<small>サブ・テキスト</small></h1>
 	</div>
@@ -11,53 +20,45 @@
 			</div>
 			<div class="col-lg-9">
 				<h1 class="page_title">User詳細</h1>
-				<form action="" method="post" class="form-horizontal">
 
-					<div class="form-group">
-						<label for="input_user_name" class="col-lg-2 control-label">名前：</label>
-						<div class="col-lg-10">
-							<input type="string" class="form-control" placeholder="名前" /><br />
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="input_phonetic" class="col-lg-2 control-label">フリガナ：</label>
-						<div class="col-lg-10">
-							<input type="string" class="form-control" placeholder="フリガナ" /></label><br />
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="input_postal_code" class="col-lg-2 control-label">郵便番号：</label>
-						<div class="col-lg-10">
-							<input type="string" class="form-control" placeholder="郵便番号" /></label><br />
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="input_address" class="col-lg-2 control-label">住所：</label>
-						<div class="col-lg-10">
-							<input type="string" class="form-control" placeholder="住所" /></label><br />
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="input_phone_number" class="col-lg-2 control-label">電話番号：</label>
-						<div class="col-lg-10">
-							<input type="string" class="form-control" placeholder="電話番号" /></label><br />
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="input_email" class="col-lg-2 control-label">メールアドレス：</label>
-						<div class="col-lg-10">
-							<input type="string" class="form-control" placeholder="メールアドレス" /></label><br />
-						</div>
-					</div>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>項目</th>
+							<th>個人情報</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>名前：</th>
+							<td><%= @user.user_name %></td>
+						</tr>
+						<tr>
+							<th>フリガナ：</th>
+							<td><%= @user.user_name_phonetic %></td>
+						</tr>
+						<tr>
+							<th>郵便番号：</th>
+							<td><%= @user.postal_code %></td>
+						</tr>
+						<tr>
+							<th>住所：</th>
+							<td><%= @user.address %></td>
+						</tr>
+						<tr>
+							<th>電話番号：</th>
+							<td><%= @user.phone_number %></td>
+						</tr>
+						<tr>
+							<th>メールアドレス：</th>
+							<td><%= @user.email %></td>
+						</tr>
+					</tbody>
+				</table>
 
 					<div class="form-group">
 						<div class="col-lg-offset-2 col-lg-10">
-							<button type="submit" class="btn btn-primary btn-block">このUserを退会させる</button>
+							<button type="submit" class="btn btn-primary btn-block"><%= link_to "このUserを退会させる", admin_user_path(@user.id), method: :delete, "data-confirm" => "Are you sure?" %></button>
 						</div>
 					</div>
 				</form>
