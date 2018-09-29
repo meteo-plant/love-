@@ -1,38 +1,110 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
+<div class="form-form">
+
+<div class="form-group">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :profile_image, "プロフィール画像", class: "col-sm-3 control-label" %>
+    <div class="col-sm-7">
+    <%=  f.attachment_field :profile_image, class: "col-sm-7 formE" %>
+  </div>
+ </div>
+
+ <div class="form-group">
+  <%= f.label :user_name, "名前", class: "col-sm-3  control-label" %>
+     <div class="col-sm-8">
+       <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", class: "form-control" %>
+     </div>
+  </div>
+
+ <div class="form-group">
+    <%= f.label :user_name_phonetic, "名前(カナ)", class: "col-sm-3 control-label" %>
+    <div class="col-sm-7">
+      <%= f.text_field :user_name_phonetic, autofocus: true, autocomplete: "name_phonetic", class: "col-sm-7 form-control" %>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+  <%= f.label :poatal_code, "郵便番号", class: "col-sm-3 control-label" %>
+    <div class="col-sm-7">
+      <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", class: "col-sm-7 form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address, "住所", class: "col-sm-3 control-label"%>
+    <div class="col-sm-7">
+      <%= f.text_field :address, autocomplete: "address", class: "col-sm-7 form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :phone_number, "電話番号", class: "col-sm-3 control-label" %>
+    <div class="col-sm-7">
+      <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "col-sm-7 form-control",placeholder: "○○○-○○○○-○○○○" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :email, "メールアドレス", class: "col-sm-3 control-label" %>
+    <div class="col-sm-7">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-7 form-control",placeholder: "メール・アドレス" %>
+    </div>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+
+
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
+
+  <div class="form-group">
+     <%= f.label :password, "パスワード", class: "col-sm-3 control-label" %>
+     <div class="col-sm-8">
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control" ,placeholder: "パスワード" %>
+     </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+
+  <div class="form-grouo">
+    <%= f.label :password_confirmation, class: "col-sm-3 control-label" %>
+    <div class="col-sm-7">
+    <%= f.password_field :password_confirmation, class: "col-sm-7" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+
+  <div class="form-grouo">
+    <%= f.label :current_password,class: "col-sm-3 control-label" %> <i>(we need your current password to confirm your changes)</i>
+    <div class="col-sm-7">
+    <%= f.password_field :current_password, 
+    class: "col-sm-7" %>
+    </div>
+   </div>
+
+    <div class="form-group">
+  <%= f.label :favorite_people, "推しメン(コメント)", class: "col-sm-3 control-label" %>
+    <div class="col-sm-8">
+      <%= f.text_area :favorite_people,class: "col-sm-7 form-control",placeholder: "推しメンの名前(コメント)" %>
+    </div>
+
+  <div class="form-grouo">
+   <%= f.label :favorite_people_image, "推しメン画像", class: "col-sm-3 control-label" %>
+    <div class="col-sm-7">
+    <%=  f.attachment_field :favorite_people_image, class: "col-sm-7 formE" %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", class: "signbtn" %>
   </div>
 <% end %>
 
@@ -41,3 +113,4 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+</div>

@@ -1,2 +1,79 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+         <div class="mypage_sidebar">
+         	<div class="sidelink1">MENU</div>
+           <%= link_to "HOME",root_path, class: "sidelink"%>
+           <%= link_to "お気に入り",favorites_path(@user.id), class: "sidelink"%>
+           <%= link_to "購入履歴",purchases_path(@user.id), class: "sidelink"%>
+           <%= link_to "所持チケット",events_path(current_user.id), class: "sidelink"%>
+           <%= link_to '退会手続き',@users, method: :delete, data: {confirm: '本当に退会しますか?'},class: "sidelink" %>
+          <style type="text/css">
+          a.sidelink { display: block; }
+          </style>
+         </div>
+        </div>
+
+<div class="col-xs-9">
+	<div class="my">
+
+		 <table class="mytable">
+		  <tr>
+			<th>
+				<%= attachment_image_tag current_user, :profile_image, :fill, 120, 120, format: 'jpeg', fallback: "no_image.jpg" %>
+			</th>
+			<td></td>
+		  </tr>
+
+		  <tr>
+			<th>名前</th>
+			<td><%= @user.user_name %></td>
+		  </tr>
+
+		  <tr>
+		    <th>メールアドレス</th>
+		    <td><%= @user.email %></td>
+		  </tr>
+
+          <tr>
+		    <th>郵便番号</th>
+		    <td><%= @user.postal_code %></td>
+	      </tr>
+
+	      <tr>
+		   <th>住所</th>
+		   <td><%= @user.address %></td>
+	      </tr>
+
+	      <tr>
+		   <th>電話番号</th>
+           <td><%= @user.phone_number %></td>
+          </tr>
+
+	     </table>
+    <div class="edit_user">
+    <%= link_to "Edit",edit_user_path(@user.id) ,class: "edit_btn" %></div>
+
+	</div>
+
+
+	<div class="push">
+		<div class="pushing_image">
+			<%= attachment_image_tag current_user, :favorite_people_image, :fill, 130, 150, format: 'jpeg', fallback: "no_image.jpg" %>
+		</div>
+		<div class="pushing_comment">
+			<%= @user.favorite_people %>
+	</div>
+</div>
+
+
+	<div class="user_ranking">
+		<p class="doru">$1000000000000</p>
+		<p class="rank">1位</p>
+		<div class="heart">
+			<%= image_tag 'heat.png',:size =>'250x255'%>
+		</div>
+	</div>
+</div>
+</div>
+</div>

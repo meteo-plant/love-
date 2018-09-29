@@ -149,10 +149,10 @@ ActiveRecord::Schema.define(version: 2018_09_29_062205) do
     t.string "postal_code"
     t.string "profile_image_id"
     t.string "favorite_people"
-    t.string "favorite_people_image"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "favorite_people_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
