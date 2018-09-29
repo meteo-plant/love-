@@ -1,6 +1,5 @@
 class Product < ApplicationRecord
 	include SearchProduct
-	
     belongs_to :genre
 	has_many :favorites, dependent: :destroy
 	has_many :comments, dependent: :destroy

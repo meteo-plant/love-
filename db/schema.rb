@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2018_09_24_155047) do
+ActiveRecord::Schema.define(version: 2018_09_29_062205) do
 
   create_table "Cart_items", force: :cascade do |t|
     t.integer "cart_id"
@@ -88,7 +87,7 @@ ActiveRecord::Schema.define(version: 2018_09_24_155047) do
     t.string "label_name"
     t.integer "stock"
     t.integer "event_id"
-    t.boolean "delete_flag"
+    t.boolean "delete_flag", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "jaket_image_id"
@@ -98,10 +97,10 @@ ActiveRecord::Schema.define(version: 2018_09_24_155047) do
     t.integer "shipping_address_id"
     t.string "purchase_date"
     t.integer "cart_id"
-    t.boolean "stock_flag"
-    t.boolean "order_flag"
-    t.boolean "shipping_flag"
-    t.boolean "payment_flag"
+    t.boolean "stock_flag", default: false, null: false
+    t.boolean "order_flag", default: false, null: false
+    t.boolean "shipping_flag", default: false, null: false
+    t.boolean "payment_flag", default: false, null: false
     t.boolean "method_of_payment", default: false, null: false
     t.datetime "shipping_date"
     t.datetime "payment_date"

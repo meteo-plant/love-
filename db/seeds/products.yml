@@ -48,6 +48,26 @@ products:
     stock: 200
     event_id: 5
     delete_flag: true
+
+  -
+    product_name: "メ"
+    airtist_name: "メテオ"
+    genre_id: 5
+    price: 2000
+    label_name: "秋元康"
+    stock: 200
+    event_id: 5
+    delete_flag: true
+
+  -
+    product_name: "モ"
+    airtist_name: "メテオ"
+    genre_id: 5
+    price: 2000
+    label_name: "秋元康"
+    stock: 200
+    event_id: 5
+    delete_flag: true
     
     
     

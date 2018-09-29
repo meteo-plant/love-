@@ -3,5 +3,6 @@ class AdminUsersController < ApplicationController
   end
 
   def show
+  	
   end
 end

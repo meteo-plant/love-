@@ -16,27 +16,3 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
-
-$(function(){
-   $(".modal-open").on('click',function(){
-     $(".modal-overlay").fadeIn('slow');
-     posCenter();
-     $(window).on('resize',function(){
-       posCenter();
-     });
-     function posCenter() {
-       var w = $(window).width();
-       var h = $(window).height();
-       var ow = $(".modal-panel").outerWidth();
-       var oh = $(".modal-panel").outerHeight();
-       $(".modal-panel").css({
-         'left':((w - ow) / 2) + 'px',
-         'top':((h - oh) / 2) + 'px'
-       });
-     }
-     $(".modal-close").on('click',function(){
-       $(".modal-overlay").fadeOut('slow');
-     });
-   });
-});
- 
