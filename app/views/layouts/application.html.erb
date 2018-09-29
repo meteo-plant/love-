@@ -6,7 +6,14 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    "slick",'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    "slick-theme",'data-turbolinks-track': 'reload' %>
+        
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag  "//code.jquery.com/jquery-migrate-1.2.1.min.js" ,'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag  "slick.min.js"  ,'data-turbolinks-track': 'reload' %>
+  
+
 
     <script type="text/javascript">
       function disp(){
@@ -28,13 +35,13 @@
         // -->
     </script>
 
-
   </head>
 
   <body>
+
     <header id="header" class="header">
       <div class="header__menu">
-        <%= link_to image_tag('logo.png', { :border => '0', :alt => 'top'}), root_path, class: "header__menu__logo" %>  
+        <%= link_to image_tag('logo.png', { :border => '0', :alt => 'top'}), root_path, class: "header__menu__logo" %>
         <div class="search">
           <form action="<%= user_products_path %>" method="get" class="form-inline">
             <input type="text" id="search__bar" name="s_title" required size="10" placeholder=" 商品名やアーティスト名で検索" value="<%= request[:s_title] %>">
@@ -110,21 +117,6 @@
 
      
     <%= yield %>
-    <footer class="footer">
-      <div class="footer__logo"><%= image_tag "logo.png" ,alt:"", class: "footer__logo__idol" %></div>
-      <div class="footer__nav">
-        <nav>
-          <ul>
-            <li class="footer__li"><a href="" title=""></a>会社概要</li>
-            <li class="footer__li"><a href="" title=""></a>お問い合わせ</li>
-          </ul>
-        </nav>
-      </div>
-      <div class="footer__icon">
-        <%= image_tag "twitter.png" , alt:"" %>
-        <%= image_tag "facebook.png" ,alt:"", class: "footer__icon__facebook" %>
-      </div>
-      <p class="footer__copyright">Copyright ©︎ 2018 love-money.inc All rights reserved.</p>
-    </footer>
+    
   </body>
 </html>

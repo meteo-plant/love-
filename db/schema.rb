@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_25_044416) do
+
+ActiveRecord::Schema.define(version: 2018_09_29_062205) do
+
 
   create_table "Cart_items", force: :cascade do |t|
     t.integer "cart_id"
@@ -87,6 +89,7 @@ ActiveRecord::Schema.define(version: 2018_09_25_044416) do
     t.integer "price"
     t.string "label_name"
     t.integer "stock"
+    t.integer "event_id"
     t.boolean "delete_flag", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -97,15 +100,20 @@ ActiveRecord::Schema.define(version: 2018_09_25_044416) do
     t.integer "shipping_address_id"
     t.string "purchase_date"
     t.integer "cart_id"
-    t.boolean "stock_flag"
-    t.boolean "order_flag"
-    t.boolean "shipping_flag"
-    t.boolean "payment_flag"
+    t.boolean "stock_flag", default: false, null: false
+    t.boolean "order_flag", default: false, null: false
+    t.boolean "shipping_flag", default: false, null: false
+    t.boolean "payment_flag", default: false, null: false
     t.boolean "method_of_payment", default: false, null: false
     t.datetime "shipping_date"
     t.datetime "payment_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_name"
+    t.integer "old_price"
+    t.integer "number_of_sheets"
+    t.string "label_name"
+    t.string "jaket_image_id"
   end
 
   create_table "shipping_addresses", force: :cascade do |t|
@@ -147,10 +155,10 @@ ActiveRecord::Schema.define(version: 2018_09_25_044416) do
     t.string "postal_code"
     t.string "profile_image_id"
     t.string "favorite_people"
-    t.string "favorite_people_image"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "favorite_people_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

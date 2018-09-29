@@ -30,6 +30,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
         cart.save
         puts cart.user_id
         puts current_user.id
+        shipping_address = ShippingAddress.new(user_id: current_user.id, shipping_address_name: current_user.address)
+        shipping_address.save
+
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
         expire_data_after_sign_in!
@@ -69,8 +72,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
    protected
 
       def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name, :user_name_phonetic, :postal_code, :address, :phone_number, ])
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name, :user_name_phonetic, :postal_code, :address, :phone_number ])
         devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :password, :email,:postal_code, :address, :phone_number])
+        devise_parameter_sanitizer.permit(:account_update, keys: [:user_name,:user_name_phonetic, :profile_image, :postal_code,:address,:phone_number,:email,:favorite_people_image,:favorite_people])
+      
       end
 
 

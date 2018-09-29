@@ -19,6 +19,10 @@
 //= require turbolinks
 //= require cocoon
 //= require_tree .
+//= require jquery.jpostal
+// = require data-confirm-modal
+
+
 
 
 $(function () {
@@ -75,4 +79,6 @@ $(function () {
         });
     }
 });
+
+
 

@@ -5,24 +5,31 @@
 
 
 .box2 {
+
 	 background-image: url(img/background.png);
-	 height: 300px;
+	 height: 200px;
+
 }
 
 .botan {
-	  box-shadow:5px 5px 10px;
+	 box-shadow:5px 5px 10px;
 }
 .show1 {
-	border-left: solid 10px #AAAAAA;
+	 border-left: solid 10px #AAAAAA;
 }
 
 .cart_item img{
-	width: 250px;
-	height:250px;
+	 width: 250px;
+	 height:250px;
 }
 
 .linkb {
-	color: #000000;
-    a:hover { color: #C0C0C0; }
-    text-decoration: none;
+	 color: #000000;
+     a:hover { color: #C0C0C0; }
+     text-decoration: none;
+}
+
+.form-control {
+	 width: 200px;
+	 height:40px;
 }
