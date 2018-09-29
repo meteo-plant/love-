@@ -1,49 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Love</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    "slick",'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    "slick-theme",'data-turbolinks-track': 'reload' %>
-        
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag  "//code.jquery.com/jquery-migrate-1.2.1.min.js" ,'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag  "slick.min.js"  ,'data-turbolinks-track': 'reload' %>
-  
-
-
-    <script type="text/javascript">
-      function disp(){
-      // 「OK」時の処理開始 ＋ 確認ダイアログの表示
-      if(window.confirm('本当に削除しますか？')){
-       location.href = "http://localhost:3000/cart_items/"; // 商品詳細画面へジャンプ
-         }
-          // 「OK」時の処理終了
-
-          // 「キャンセル」時の処理開始
-          else{
-         window.alert('削除しました'); // 警告ダイアログを表示
-
-          }
-          // 「キャンセル」時の処理終了
-
-        }
-
-        // -->
-    </script>
-
-  </head>
-
-  <body>
-
-    <header id="header" class="header">
+<header id="header" class="header">
       <div class="header__menu">
-        <%= link_to image_tag('logo.png', { :border => '0', :alt => 'top'}), root_path, class: "header__menu__logo" %>
+        <%= link_to image_tag('logo.png', { :border => '0', :alt => 'top'}), root_path, class: "header__menu__logo" %>  
         <div class="search">
-          <form action="<%= user_products_path %>" method="get" class="form-inline">
+          <form action="<%= user_products_path('aa') %>" method="get" class="form-inline">
             <input type="text" id="search__bar" name="s_title" required size="10" placeholder=" 商品名やアーティスト名で検索" value="<%= request[:s_title] %>">
               <button  class="search__box" type="submit">
                   <span class="search__box__txt" ><%= image_tag "search.png", alt:"" %> 検索</span>
@@ -51,6 +10,11 @@
           </form>
         </div>
         <nav class="header__menu__nav">
+          <% if user_signed_in? %>
+            <span><%= current_user.user_name %>様,こんにちは</span>
+          <% else %>
+            <span>ゲスト様,こんにちは</span>
+          <% end %>
           <ul class="nav__ul">
             <% if user_signed_in? %>
               <li class="nav__li">
@@ -113,10 +77,3 @@
         </nav>
       </div>
     </header>
-
-
-     
-    <%= yield %>
-    
-  </body>
-</html>

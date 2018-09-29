@@ -1,0 +1,48 @@
+<!-- http://localhost:3000/admin_users -->
+
+<body>
+	<div class="page-header" style="background-color: orange;">
+		<h1>サンプル　　<small>サブ・テキスト</small></h1>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3" style="background-color: orange;">
+				<h2>サイドバー</h2>
+			</div>
+			<div class="col-lg-9">
+				<h1>曲登録</h1>
+				<div class="create">
+					<%= form_for(@song) do |f| %>
+						<div class="form-group">
+							<%= f.text_field :song_name, class:"form-song", :placeholder => "曲名"%>
+						</div>
+						<%= f.submit "作成",class:"btn btn-default btn-lg" %>
+					<% end %>
+				</div>
+				<table  class="table table-striped">
+					<thead>
+						<tr>
+							<th>すべての曲</th>
+						</tr>
+					</thead>
+					<tbody>
+					<% @songs.each do |song| %>
+						<tr>
+							<td>
+								<%= song.song_name %>
+							</td>
+							<td>
+								<%= link_to "編集", edit_song_path(song.id),class: "edit_#{song.id}" %>
+							</td>
+						</tr>
+					<% end %>
+					</tbody>
+				</table>
+				<nav>
+				<%= paginate @songs, class:"pagenate" %>
+				</nav>
+			</div>
+		</div>
+	</div>
+</body>

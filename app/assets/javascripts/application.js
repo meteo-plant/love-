@@ -24,6 +24,7 @@
 
 
 
+
 $(function () {
     $('.js-searchable').select2({
         // コンテナ幅のカスタマイズをサポートします。
@@ -55,14 +56,29 @@ $(function () {
     if (location.href == "http://localhost:3000/products?direction=asc&sort=id") {
         $('.form-control').html("<option>昇順</option><option>降順</option>");
     }
+    if (location.href == "http://localhost:3000/products?direction=asc&sort=id" || location.href == "http://localhost:3000/products?direction=dec&sort=id" || location.href == "http://localhost:3000/products") {
+        $('select[class=form-control]').change(function() {
+            if ($(this).val() == '降順') {
+                window.location.href = "http://localhost:3000/products?direction=dec&sort=id";
+            } else {
+                window.location.href = "http://localhost:3000/products?direction=asc&sort=id";
+            }
+        });
+    }
 
-    $('select[class=form-control]').change(function() {
-        if ($(this).val() == '降順') {
-            window.location.href = "http://localhost:3000/products?direction=dec&sort=id";
-        } else {
-            window.location.href = "http://localhost:3000/products?direction=asc&sort=id";
-        }
-    });
+    if (location.href == "http://localhost:3000/admin_users?direction=asc&sort=id") {
+        $('.form-control').html("<option>昇順</option><option>降順</option>");
+    }
+    if (location.href == "http://localhost:3000/admin_users?direction=asc&sort=id" || location.href == "http://localhost:3000/admin_users?direction=dec&sort=id" || location.href == "http://localhost:3000/admin_users") {
+        $('select[class=form-control]').change(function() {
+            if ($(this).val() == '降順') {
+                window.location.href = "http://localhost:3000/admin_users?direction=dec&sort=id";
+            } else {
+                window.location.href = "http://localhost:3000/admin_users?direction=asc&sort=id";
+            }
+        });
+    }
 });
 
->>>>>>> 007e312ad3c50e8e942fdbddd2468a088e912ad8
+
+

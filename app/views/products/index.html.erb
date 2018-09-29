@@ -1,4 +1,4 @@
-<!-- http://localhost:3000/admin_users -->
+s<!-- http://localhost:3000/admin_users -->
 
 <body>
 	<div class="page-header" style="background-color: orange;">
@@ -13,8 +13,8 @@
 			<div class="col-lg-9">
 				<h1 class="page_title">商品一覧</h1>
 			        <div class="search">
-			          <form action="<%= user_products_path %>" method="get" class="form-inline">
-			            <input type="text" id="search__bar" name="s_title" required size="10" placeholder=" 商品名やアーティスト名で検索" value="<%= request[:s_title] %>">
+			          <form action="<%= products_path %>" method="get" class="form-inline">
+			            <input type="text" id="search__bar" name="s_title" required size="10" placeholder=" 商品名で検索" value="<%= request[:s_title] %>">
 			              <button  class="search__box" type="submit">
 			                  <span class="search__box__txt" ><%= image_tag "search.png", alt:"" %> 検索</span>
 			              </button>
@@ -35,13 +35,13 @@
 						</tr>
 					</thead>
 					<tbody>
-					<% @products.each do |product| %>
+					<% @products.where(delete_flag: false).each do |product| %>
 						<tr>
 							<td>
 								<%= product.id %>
 							</td>
 							<td>
-								<%= product.product_name %>
+								<%= link_to product.product_name, edit_product_path(product.id) %>
 							</td>
 						</tr>
 					<% end %>

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+ 	include SearchUser
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -21,8 +22,12 @@ validates :favorite_people, length: { maximum: 150 }
 
 
 
+
 def inactive_message
   !deleted_at ? super : :deleted_account
+
+
+
 end
 
 include JpPrefecture
