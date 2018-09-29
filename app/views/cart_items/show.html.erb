@@ -6,18 +6,18 @@
 	<div>
 		<div Class="box2">
         <%= form_for(@purchase, url: {controller: "purchases", action: "create"}) do |f| %>
-		      <div class="row" style="margin: 0px 0px 50px 50px; padding-top: 50px;">
+		    <div class="" style=":margin: 0px 0px 50px 50px; padding-top: 50px;">
 		      	<%= f.label :"配送先の選択" %><br>
-	            <%= f.collection_select(:shipping_address_id, @shipping_address, :id, :shipping_address_name, :size => "200") %>
-	          </div>
+	            <%= f.collection_select(:shipping_address_id, @shipping_address, :id, :shipping_address_name, { autofocus: 'true', class: "form-control"}) %>
+	        </div>
 
-	           <div class="row" style="margin: 50px 0px 0px 50px;">
-		          	<%= f.label :"支払い方法の選択" %><br>
-		          	<%= f.select :method_of_payment, [["現金", "現金"], ["クレジット", "クレジット"]] %>
-		       </div>
-		</div>
-		 <div style="margin: 50px 0px 15px 1000px;">
-          <%= f.submit '購入' %>
+	        <div class="" style="margin: 50px 0px 0px 50px;">
+		        <%= f.label :"支払い方法の選択" %><br>
+		        <%= f.select :method_of_payment, [["現金", "現金"], ["クレジット", "クレジット"]], { autofocus: 'true', class: "form-control"} %>
+		    </div>
+		    <div style="margin: 50px 0px 15px 1000px;">
+                 <%= f.submit '購入' %>
+	        </div>
 	    </div>
 	<% end %>
 		<div>
@@ -40,7 +40,7 @@
               <th class="h2" style="width: 200px; padding-left: 150px;">数量</th>
               <th class="h2" style="width: 200px; padding-left: 135px;">金額</th>
 			</tr>
-			<%= @cart_items.each do |cart_item| %>
+			<% @cart_items.each do |cart_item| %>
 			<tr>
 				<td class="h3" style="width: 200px; padding-left: 150px;"><%= cart_item.product.product_name %></td>
 				<td class="h3" style="width: 200px; padding-left: 150px;"><%= cart_item.number_of_sheets %>枚</td>
