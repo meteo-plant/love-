@@ -1,9 +1,17 @@
-<div class="header-love">ヘッダー</div>
-<div class="back">
 <div class="container">
 	<div class="row">
 		<div class="col-xs-3">
-         <div class="sidebar">サイドバー</div>
+         <div class="mypage_sidebar">
+         	<div class="sidelink1">MENU</div>
+           <%= link_to "HOME",root_path, class: "sidelink"%>
+           <%= link_to "お気に入り",favorites_path(@user.id), class: "sidelink"%>
+           <%= link_to "購入履歴",purchases_path(@user.id), class: "sidelink"%>
+           <%= link_to "所持チケット",events_path(current_user.id), class: "sidelink"%>
+           <%= link_to '退会手続き',@users, method: :delete, data: {confirm: '本当に退会しますか?'},class: "sidelink" %>
+          <style type="text/css">
+          a.sidelink { display: block; }
+          </style>
+         </div>
         </div>
 
 <div class="col-xs-9">
@@ -59,14 +67,13 @@
 </div>
 
 
-	<div class="ranking">
+	<div class="user_ranking">
 		<p class="doru">$1000000000000</p>
 		<p class="rank">1位</p>
 		<div class="heart">
 			<%= image_tag 'heat.png',:size =>'250x255'%>
 		</div>
 	</div>
-</div>
 </div>
 </div>
 </div>

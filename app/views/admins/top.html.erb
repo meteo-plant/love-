@@ -1,55 +1,52 @@
-
-
-  <body class="admin">
+<body class="admin">
   <div class="admins_header">
-      <%= link_to "User Page", class: "nav-list-item1" %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-list-item2" %>
+    <%= link_to "User Page", admin_users_path, class: "nav-list-itemm" %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-list-item2" %>
   </div>
 
     <div class="container">
       <div class="row">
         <div class="col-xs-3">
            <%= link_to "ホーム",admins_top_path, class: "widelink"%>
-           <a class="widelink">商品登録</a>
-           <a class="widelink">商品ジャンル登録</a>
-           <a class="widelink">ディスク登録</a>
-           <a class="widelink">商品一覧</a>
-           <a class="widelink">購入履歴一覧</a>
-           <a class="widelink">会員一覧</a>
-          </div>
-          <style type="text/css">
+            <a class="widelink">商品登録</a>
+            <a class="widelink">商品ジャンル登録</a>
+            <a class="widelink">ディスク登録</a>
+            <a class="widelink">商品一覧</a>
+            <a class="widelink">購入履歴一覧</a>
+            <a class="widelink">会員一覧</a>
+        </div>
+        <style type="text/css">
           a.widelink { display: block; }
-          </style>
+        </style>
 
         <div class="col-xs-8">
-
           <div class="order_body">
 
-           <table class="table table-bordered">
-            <tbody>
-              <tr>
-                <th class="aa" colspan="2">受注状況</th>
-              </tr>
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <th class="aa" colspan="2">受注状況</th>
+                </tr>
 
-              <tr>
-                <th>新規受付</th>
-                <td>~件</td>
-              </tr>
+                <tr>
+                  <th>新規受付</th>
+                  <td>~件</td>
+                </tr>
 
-              <tr>
-                <th><p>入金待ち</p></th>
-                <td>~件</td>
-              </tr>
+                <tr>
+                  <th><p>入金待ち</p></th>
+                  <td>~件</td>
+                </tr>
 
-              <tr>
-                <th>入金済み</th>
-                <td>~件</td>
-              </tr>
+                <tr>
+                  <th>入金済み</th>
+                  <td>~件</td>
+                </tr>
 
-              <tr>
-                <th>取り寄せ中</th>
-                <td>~件</td>
-              </tr>
+                <tr>
+                  <th>取り寄せ中</th>
+                  <td>~件</td>
+                </tr>
 
             </tbody>
 　　　　　　　</table>
@@ -102,5 +99,5 @@
 
 
     <%= yield %>
-  </body>
+</body>
 

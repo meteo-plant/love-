@@ -1,89 +1,38 @@
 <body>
-	<p class="love">
-	<div class="header-love">ヘッダー</div>
-<div class="back">
-<div class="container">
-	<div class="row">
-		<div class="col-xs-3">
-<div class="sidebar">サイドバー</div>
-</div>
+    <div class="container">
+    	<div class="row">
+    		<div class="col-xs-3">
+                <div class="mypage_sidebar">
+                            <div class="sidelink1">MENU</div>
+                               <%= link_to "HOME",root_path, class: "sidelink"%>
+                               <%= link_to "お気に入り",favorites_path(current_user), class: "sidelink"%>
+                               <%= link_to "購入履歴",purchases_path(current_user), class: "sidelink"%>
+                               <%= link_to "所持チケット",events_path(current_user), class: "sidelink"%>
+                               <%= link_to '退会手続き',current_user, method: :delete, data: {confirm: '本当に退会しますか?'},class: "sidelink" %>
+                              <style type="text/css">
+                              a.sidelink { display: block; }
+                              </style>
+                </div>
+            </div>
 
-<div class="col-xs-9">
-
-	<div class="ticket">
-		<div class="QR">
-		<%= image_tag 'QRQR.jpg' , :size =>'150x150'%>
+            <div class="col-xs-9">
+                <div class="ticket">
+                  <% @events.each do |event|%>
+    		        <div class="QR"><%= image_tag 'QRQR.jpg' , :size =>'150x150'%></div>
+                       <div class="event_ribbonn"><h5>Event Information</h5></div>
+                          <div class="ivent">
+                        	 <ul>
+                        		 <li><%= event.event_name %></li>
+                        		 <li><%= event.event_information%></li>
+                        		 <li><%= event.venue %></li>
+                        		 <li><%= %></li>
+                        	 </ul>
+                          </div>
+                </div>
+                <% end %>
+                <%= paginate(@users) %>
+            </div>
+        </div>
     </div>
-    <div class="ribbonn">
-  <h5>Event Information</h5>
-</div>
-    <div class="ivent">
-    	<ul>
-    		<li>アーティスト名 ____________________</li>
-    		<li>イベント名 ________________________</li>
-    		<li>日程 ______________________________</li>
-    		<li>会場 ______________________________</li>
-    	</ul>
-    </div>
-    </div>
-
-	<div class="ticket">
-		<div class="QR">
-		<%= image_tag 'QRQR.jpg' , :size =>'150x150'%>
-    </div>
-    <div class="ribbonn">
-  <h5>Event Information</h5>
-</div>
-    <div class="ivent">
-    </div>
-    </div>
-
-    <div class="ticket">
-		<div class="QR">
-		<%= image_tag 'QRQR.jpg' , :size =>'150x150'%>
-    </div>
-    <div class="ribbonn">
-  <h5>Event Information</h5>
-</div>
-    <div class="ivent">
-    </div>
-    </div>
-
-    <div class="ticket">
-		<div class="QR">
-		<%= image_tag 'QRQR.jpg' , :size =>'150x150'%>
-    </div>
-    <div class="ribbonn">
-  <h5>Event Information</h5>
-</div>
-    <div class="ivent">
-    </div>
-    </div>
-
-    <div class="ticket">
-		<div class="QR">
-		<%= image_tag 'QRQR.jpg' , :size =>'150x150'%>
-    </div>
-    <div class="ribbonn">
-  <h5>Event Information</h5>
-</div>
-    <div class="ivent">
-    </div>
-    </div>
-<div class="col-xs-3">
-</div>
-<div class="col-xs-6">
-<a href="#" class="square_btn">1</a>
-<a href="#" class="square_btn">2</a>
-<a href="#" class="square_btn">3</a>
-<a href="#" class="square_btn">4</a>
-<a href="#" class="square_btn">5</a>
-
-</div>
-</div>
-	</div>
-</div>
-</div>
-</p>
 </body>
 

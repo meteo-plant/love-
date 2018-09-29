@@ -72,3 +72,4 @@ gem 'seed-fu'
 gem "jp_prefecture"
 gem "select2-rails"
 gem 'cocoon'
+gem 'data-confirm-modal'

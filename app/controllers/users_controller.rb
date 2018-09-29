@@ -24,6 +24,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @users = current_user
+    @users.soft_delete
+    sign_out(@users)
+    redirect_to root_path
   end
 
   private

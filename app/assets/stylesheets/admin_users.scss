@@ -35,7 +35,7 @@ nav{
 
 .admins_header {
   width: 100%;
-  height: 50px;
+  height: 70px;
   border-top: solid 1px #A9A9A9;
   border-bottom: solid 1.5px #A9A9A9;
   background-color: whitesmoke;
@@ -43,27 +43,9 @@ nav{
   padding: 3px;
 }
 
-.btn-default {
-  text-align: center;
-  background:!important #EEEEEE;
-  width: 150px;
-  display: inline-block;
-  padding: 5px 10px;
-  margin: 5 auto;
-  font-size:!important 20px;
-  border: solid 1px #dadada;/*左側の線*/
-  border-right: solid 2px #CCCCCC;
-  border-bottom: solid 2px #dadada;/*下に灰色線*/
-  float: right;
-  font-family:!important "Comic Sans MS";
-  position: absolute;
-  bottom: 3px;
-  right: 120px;
-  height: 40px
 
-
-}
-.nav-list-item1{
+.nav-list-itemm {
+    margin-top: 10px;
     display: inline-block;
     padding-right: 35px;
     padding-left: 35px;
@@ -85,7 +67,7 @@ nav{
 
 
 }
-.user_btn:active {/*ボタンを押したとき*/
+.nav-list-itemm:active {/*ボタンを押したとき*/
     -ms-transform: translateY(4px);
     -webkit-transform: translateY(4px);
     transform: translateY(4px);/*下に動く*/
@@ -94,6 +76,7 @@ nav{
 }
 
 .nav-list-item2 {
+  margin-bottom: 10px;
   text-align: right;
   color: #777777;
   font-size: 17px;

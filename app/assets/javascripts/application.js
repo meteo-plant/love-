@@ -19,9 +19,9 @@
 //= require turbolinks
 //= require cocoon
 //= require_tree .
-<<<<<<< HEAD
 //= require jquery.jpostal
-=======
+// = require data-confirm-modal
+
 
 
 $(function () {

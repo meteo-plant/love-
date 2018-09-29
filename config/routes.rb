@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
-  resources :users, only: [:create, :show, :edit, :update]
+  resources :users, only: [:create, :show, :edit, :update, :destroy]
   # resources :comments, only: [:create, :destroy]
   resources :purchases, only: [:create, :index, :new]
   resources :favorites, only: [:create, :index, :destroy]
@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 
   resources :products, only: [:create, :index, :update, :new, :edit] do
    resources :comments, only: [:create, :destroy]
-
+end
 
 
 
