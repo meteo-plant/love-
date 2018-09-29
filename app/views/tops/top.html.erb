@@ -64,7 +64,7 @@
 		<div class="tickets">
 			<%= image_tag "left.png" ,alt:"" , class: "left__arrow" %>
 			<% @products.each do |product| %>
-				<div class="item__box my-slide">
+				<div class="item__box" id="my-slide">
 					<%= image_tag "jacketimg.png", alt:"" ,class: "jacket" %>
 					<h3 class="product__name"><%= product.product_name %></h3>
 					<p class="artist__name"><%= product.airtist_name %></p>
@@ -218,7 +218,7 @@
 </script>
 <script>
 	$(document).ready(function(){
-	$('.my-slide').slick({
+	$('#my-slide').slick({
 		  // アクセシビリティ。左右ボタンで画像の切り替えをできるかどうか
 		  accessibility: true,
 		  // 自動再生。trueで自動再生される。
@@ -248,9 +248,9 @@
 		  // 最初のスライダーの位置
 		  initialSlide: 0,
 		  // 画像の遅延表示。‘ondemand’or'progressive'
-		  lazyLoad: ‘ondemand’,
+		
 		  // スライドのエリアにマウスオーバーしている間、自動再生を止めるかどうか。
-		  pauseOnHover: true
+		  pauseOnHover: true,
 		  // スライドのエリアに画像がいくつ表示されるかを指定
 		  slidesToShow: 4,
 		  // 一度にスライドする数
@@ -262,7 +262,7 @@
 		  // 表示中の画像を中央へ
 		　centerMode: true,
 		  // 中央のpadding
-		  centerPadding: '160px;
+		  centerPadding: '160px'
 		});
 	});
 </script>
