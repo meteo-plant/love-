@@ -1,4 +1,4 @@
-<!-- http://localhost:3000/admin_users -->
+s<!-- http://localhost:3000/admin_users -->
 
 <body>
 	<div class="page-header" style="background-color: orange;">
@@ -12,13 +12,14 @@
 			</div>
 			<div class="col-lg-9">
 				<h1 class="page_title">商品一覧</h1>
-				<div class="search">
-					<form class="form-inline">
-						<div class="form-group">
-							<label class="sr-only" for="product_id product_name">商品ID・商品名</label>
-							<input class="form-control" style="width: 300px;" placeholder="商品ID・商品名">
-						</div>
-					</form>
+			        <div class="search">
+			          <form action="<%= products_path %>" method="get" class="form-inline">
+			            <input type="text" id="search__bar" name="s_title" required size="10" placeholder=" 商品名で検索" value="<%= request[:s_title] %>">
+			              <button  class="search__box" type="submit">
+			                  <span class="search__box__txt" ><%= image_tag "search.png", alt:"" %> 検索</span>
+			              </button>
+			          </form>
+			        </div>
 					<div class="form-group sort">
 						<label class="sr-only" for="InputSelect">並び替え</label>
 						<select class="form-control" style="width: 70px;" id="InputSelect">
@@ -26,8 +27,6 @@
 							<option>昇順</option>
 						</select>
 					</div>
-					<button class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> 検索</button>
-				</div>
 				<table  class="table table-striped">
 					<thead>
 						<tr>
@@ -36,13 +35,13 @@
 						</tr>
 					</thead>
 					<tbody>
-					<% @products.each do |product| %>
+					<% @products.where(delete_flag: false).each do |product| %>
 						<tr>
 							<td>
 								<%= product.id %>
 							</td>
 							<td>
-								<%= product.product_name %>
+								<%= link_to product.product_name, edit_product_path(product.id) %>
 							</td>
 						</tr>
 					<% end %>

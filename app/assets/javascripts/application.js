@@ -19,6 +19,10 @@
 //= require turbolinks
 //= require cocoon
 //= require_tree .
+//= require jquery.jpostal
+// = require data-confirm-modal
+
+
 
 
 $(function () {
@@ -52,13 +56,29 @@ $(function () {
     if (location.href == "http://localhost:3000/products?direction=asc&sort=id") {
         $('.form-control').html("<option>昇順</option><option>降順</option>");
     }
+    if (location.href == "http://localhost:3000/products?direction=asc&sort=id" || location.href == "http://localhost:3000/products?direction=dec&sort=id" || location.href == "http://localhost:3000/products") {
+        $('select[class=form-control]').change(function() {
+            if ($(this).val() == '降順') {
+                window.location.href = "http://localhost:3000/products?direction=dec&sort=id";
+            } else {
+                window.location.href = "http://localhost:3000/products?direction=asc&sort=id";
+            }
+        });
+    }
 
-    $('select[class=form-control]').change(function() {
-        if ($(this).val() == '降順') {
-            window.location.href = "http://localhost:3000/products?direction=dec&sort=id";
-        } else {
-            window.location.href = "http://localhost:3000/products?direction=asc&sort=id";
-        }
-    });
+    if (location.href == "http://localhost:3000/admin_users?direction=asc&sort=id") {
+        $('.form-control').html("<option>昇順</option><option>降順</option>");
+    }
+    if (location.href == "http://localhost:3000/admin_users?direction=asc&sort=id" || location.href == "http://localhost:3000/admin_users?direction=dec&sort=id" || location.href == "http://localhost:3000/admin_users") {
+        $('select[class=form-control]').change(function() {
+            if ($(this).val() == '降順') {
+                window.location.href = "http://localhost:3000/admin_users?direction=dec&sort=id";
+            } else {
+                window.location.href = "http://localhost:3000/admin_users?direction=asc&sort=id";
+            }
+        });
+    }
 });
+
+
 

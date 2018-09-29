@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def create
-  	 product = Product.find(params[:product_id])
+  	product = Product.find(params[:product_id])
     comment = current_user.comments.new(comment_params)
     comment.product_id = product.id
     comment.save

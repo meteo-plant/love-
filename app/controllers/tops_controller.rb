@@ -1,11 +1,14 @@
 class TopsController < ApplicationController
   def top
-  	@cart = Cart.new
+  	@cart_item = CartItem.new
+  	@products = Product.all
+    @genres = Genre.all
   end
 
   def create
-  	@cart = Cart.new(params[:id])
-  	redirect_to root_path
+  	@cart_item = CartItem.new(params[:id])
+  	@cart_item.save
+  	redirect_to carts_item_path
   end
 
   private 

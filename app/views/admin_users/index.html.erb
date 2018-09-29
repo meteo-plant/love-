@@ -12,62 +12,46 @@
 			</div>
 			<div class="col-lg-9">
 				<h1 class="page_title">User一覧</h1>
-				<div class="search">
-					<form class="form-inline">
-						<div class="form-group">
-							<label class="sr-only" for="user_id user_name">会員ID・名前</label>
-							<input class="form-control" style="width: 300px;" placeholder="会員ID・名前">
-						</div>
-					</form>
+			        <div class="search">
+			          <form action="<%= admin_users_path %>" method="get" class="form-inline">
+			            <input type="text" id="search__bar" name="s_title" required size="10" placeholder=" User名で検索" value="<%= request[:s_name] %>">
+			              <button  class="search__box" type="submit">
+			                  <span class="search__box__txt" ><%= image_tag "search.png", alt:"" %> 検索</span>
+			              </button>
+			          </form>
+			        </div>
 					<div class="form-group sort">
 						<label class="sr-only" for="InputSelect">並び替え</label>
 						<select class="form-control" style="width: 70px;" id="InputSelect">
-							<option>昇順</option>
 							<option>降順</option>
+							<option>昇順</option>
 						</select>
 					</div>
-					<button class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> 検索</button>
-				</div>
 				<table  class="table table-striped">
 					<thead>
 						<tr>
-							<th></th>
 							<th>会員ID</th>
 							<th>名前</th>
-							<th></th>
 						</tr>
 					</thead>
 					<tbody>
+					<% @users.each do |user| %>
 						<tr>
 							<td>
+								<%= user.id %>
 							</td>
 							<td>
-							</td>
-							<td>
+								<%= link_to user.user_name, admin_user_path(user.id) %>
 							</td>
 						</tr>
+					<% end %>
 					</tbody>
 				</table>
 				<nav>
-					<ul class="pagination">
-						<li class="disabled">
-							<a href="#" aria-label="前のページへ">
-								<span aria-hidden="true">«</span>
-							</a>
-						</li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li>
-							<a href="#" aria-label="次のページへ">
-								<span aria-hidden="true">»</span>
-							</a>
-						</li>
-					</ul>
+				<%= paginate @users, class:"pagenate" %>
 				</nav>
 			</div>
 		</div>
 	</div>
 </body>
+

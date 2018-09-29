@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
 	include SearchProduct
+
+	attachment :jaket_image
 	
     belongs_to :genre
 	has_many :favorites, dependent: :destroy

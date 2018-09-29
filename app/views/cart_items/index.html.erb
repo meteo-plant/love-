@@ -1,7 +1,4 @@
 
-
-
-
 <body>
   <div class="container" style="margin: 50px;">
     <div class="row">
@@ -11,7 +8,7 @@
 		  <div class="container">
 		    <div class="row show1">
 		      <div class="col-lg-3  cart_item" style="margin: 20px 10px 20px 0px;">
-		        <%= image_tag(cart_item.product.jaket_image_id)%>
+		      
 		      </div>
 
 			  <div class="col-lg-4">
@@ -54,11 +51,13 @@
 			    </ul>
 
 			     	<%= form_for(cart_item) do |f| %>
+
 			     	<label>枚数</label>
 			     	<label><%= f.number_field :number_of_sheets, max: cart_item.product.stock , min: 0 , value: cart_item.number_of_sheets %></label>
 			     	<%= f.hidden_field :old_price, value: cart_item.product.price %>
 			     	<%= f.submit "決定" %>
 			     	<% end %>
+
 			   </div>
 	       	</div>
 	      </div>
@@ -79,7 +78,7 @@
 	      	<div>購入ページに進む</div>
 	      </li>
 	    <% end %>
-      <%= link_to (user_products_path), class: "linkb" do %>
+      <%= link_to (root_path), class: "linkb" do %>
 		  <li class="botan" style="list-style: none;">
 		  	 <div>ショッピングを続ける</div>
 		  </li>

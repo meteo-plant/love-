@@ -1,3 +1,4 @@
+<%= render 'layouts/header' %>  
 
 <div class="main__visual">
 	<div class="main__visual__content">
@@ -8,6 +9,8 @@
         <div class="visual-img5"></div>
 	</div>
 </div>
+
+
 <div class="main clearfix">
 	<div class="sidebar">
 		<div class="genre">
@@ -15,32 +18,16 @@
 				<span ><%= image_tag "music.png" ,alt:"" ,class:"genre__title__img" %></span>
 				<span class="genre__title">ジャンル</span>
 			</div>
-			<div class="genre__box">
-				<span class="genre__name__img"><%= image_tag "disc.png" ,alt:"" ,class: "" %></span>
-				<span class="genre__name">AKBグループ</span>
-				<span class="genre__arrow"><%= image_tag "genre-arrow.png", alt:"" ,class: "" %></span>
-			</div>
-			<div class="genre__box">
-				<span class="genre__name__img"><%= image_tag "disc.png" ,alt:"" ,class: "" %></span>
-				<span class="genre__name">AKBグループ</span>
-				<span class="genre__arrow"><%= image_tag "genre-arrow.png", alt:"" ,class: "" %></span>
-			</div>
-			<div class="genre__box">
-				<span class="genre__name__img"><%= image_tag "disc.png" ,alt:"" ,class: "" %></span>
-				<span class="genre__name">AKBグループ</span>
-				<span class="genre__arrow"><%= image_tag "genre-arrow.png", alt:"" ,class: "" %></span>
-			</div>
-			<div class="genre__box">
-				<span class="genre__name__img"><%= image_tag "disc.png" ,alt:"" ,class: "" %></span>
-				<span class="genre__name">AKBグループ</span>
-				<span class="genre__arrow"><%= image_tag "genre-arrow.png", alt:"" ,class: "" %></span>
-			</div>
-			<div class="genre__box">
-				<span class="genre__name__img"><%= image_tag "disc.png" ,alt:"" ,class: "" %></span>
-				<span class="genre__name">AKBグループ</span>
-				<span class="genre__arrow"><%= image_tag "genre-arrow.png", alt:"" ,class: "" %></span>
-			</div>
-		</div>
+			<% @genres.each do |genre| %>
+                <%= link_to user_products_path(genre.id) do %>
+                    <div class="genre__box clearfix">
+                        <span class="genre__name__img"><%= image_tag "disc.png" ,alt:"" ,class: "" %></span>
+                        <span class="genre__name"><%= genre.genre_name %></span>
+                        <span class="genre__arrow"><%= image_tag "genre-arrow.png", alt:"" ,class: "" %></span>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
 		<div class="banner">
 			<%= image_tag "banner.png" ,alt:"" ,class: "banner__img" %>
 			<%= image_tag "banner.png" ,alt:"" ,class: "banner__img" %>
@@ -55,17 +42,17 @@
 		<div class="ranking">
 			<div class="user__gold">
 				<%= image_tag "gold.png" ,alt: "" ,class: "crown" %>
-				<%= image_tag "icon.png" ,alt: "" ,class: "profile" %>
+				<%= image_tag "icon.png" ,alt: "" ,class: "profile trim-image-to-circle" %>
 				<p class="user__name">ユーザー名</p>
 			</div>
 			<div class="user__silver">
 				<%= image_tag "silver.png" ,alt: "", class: "crown" %>
-				<%= image_tag "icon.png" ,alt: "" ,class: "profile" %>
+				<%= image_tag "icon.png" ,alt: "" ,class: "profile trim-image-to-circle" %>
 				<p class="user__name">ユーザー名</p>
 			</div>
 			<div class="user__bronze">
 				<%= image_tag "bronze.png" ,alt: "", class: "crown" %>
-				<%= image_tag "icon.png" ,alt: "" ,class: "profile" %>
+				<%= image_tag "icon.png" ,alt: "" ,class: "profile trim-image-to-circle" %>
 				<p class="user__name">ユーザー名</p>
 			</div>
 
@@ -76,184 +63,36 @@
 		</div>
 		<div class="tickets">
 			<%= image_tag "left.png" ,alt:"" , class: "left__arrow" %>
-			<div class="item__box">
-				<%= image_tag "jacketimg.png", alt:"" ,class: "jacket" %>
-				<h3 class="product__name">タイトル</h3>
-				<p class="artist__name">アーティスト名</p>
-				<p class="price">¥ 0,000</p>
-				<p class="stocks">在庫:100</p>
-				<div class="evaluation" id="default">
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-					<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-					<span class="evaluation__count">49</span>
+			<% @products.each do |product| %>
+				<div class="item__box my-slide">
+					<%= image_tag "jacketimg.png", alt:"" ,class: "jacket" %>
+					<h3 class="product__name"><%= product.product_name %></h3>
+					<p class="artist__name"><%= product.airtist_name %></p>
+					<p class="price">¥ <%= product.price %></p>
+					<p class="stocks">在庫:<%= product.stock %></p>
+					<div class="evaluation star"  id="default">
+						<%= image_tag "love1.png" , alt:"" , class: "love1" %>
+						<%= image_tag "love1.png" , alt:"" , class: "love1" %>
+						<%= image_tag "love1.png" , alt:"" , class: "love1" %>
+						<%= image_tag "love2.png" , alt:"" , class: "love2" %>
+						<%= image_tag "love2.png" , alt:"" , class: "love2" %>
+						<span class="evaluation__count">49</span>
+					</div>
+					<%= link_to favorites_path do %>
+						<div class="favorite__button__box">
+							<span class="favorite__button">お気に入りへ追加</span>
+						</div>
+					<% end %>
+					<%= link_to test_cart_item_path(product.id) do %>
+						<div class="cart__button__box">
+							<span class="cart__button modal-open">カートへ入れる</span>
+						</div>
+					<% end %>
 				</div>
-				<div class="favorite__button__box">
-					<span class="favorite__button">お気に入りへ追加</span>
-				</div>
-				<div class="cart__button__box">
-					<span class="cart__button modal-open">カートへ入れる</span>
-				</div>
-			</div>
-			<div class="item__box">
-				<%= image_tag "jacketimg.png", alt:"" ,class: "jacket" %>
-				<h3 class="product__name">タイトル</h3>
-				<p class="artist__name">アーティスト名</p>
-				<p class="price">¥ 0,000</p>
-				<p class="stocks">在庫:100</p>
-				<div class="evaluation">
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-					<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-					<span class="evaluation__count">49</span>
-				</div>
-				<div class="favorite__button__box">
-					<span class="favorite__button">お気に入りへ追加</span>
-				</div>
-				<div class="cart__button__box">
-					<span class="cart__button modal-open">カートへ入れる</span>
-				</div>
-			</div>
-			<div class="item__box">
-				<%= image_tag "jacketimg.png", alt:"" ,class: "jacket" %>
-				<h3 class="product__name">タイトル</h3>
-				<p class="artist__name">アーティスト名</p>
-				<p class="price">¥ 0,000</p>
-				<p class="stocks">在庫:100</p>
-				<div class="evaluation">
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-					<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-					<span class="evaluation__count">49</span>
-				</div>
-				<div class="favorite__button__box">
-					<span class="favorite__button">お気に入りへ追加</span>
-				</div>
-				<div class="cart__button__box">
-					<span class="cart__button modal-open">カートへ入れる</span>
-				</div>
-			</div>
-			<div class="item__box">
-				<%= image_tag "jacketimg.png", alt:"" ,class: "jacket" %>
-				<h3 class="product__name">タイトル</h3>
-				<p class="artist__name">アーティスト名</p>
-				<p class="price">¥ 0,000</p>
-				<p class="stocks">在庫:100</p>
-				<div class="evaluation">
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-					<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-					<span class="evaluation__count">49</span>
-				</div>
-				<div class="favorite__button__box">
-					<span class="favorite__button">お気に入りへ追加</span>
-				</div>
-				<div class="cart__button__box">
-					<span class="cart__button modal-open">カートへ入れる</span>
-				</div>
-			</div>
+			<% end %>	
 			<%= image_tag "right.png", alt:"" ,class: "right__arrow" %>
 		</div>
-		<!-- 新着 -->
-		<div class="new__arrivals__img">
-			<%= image_tag "main3.png" ,alt:"" %>
-		</div>
-		<div class="new__arrivals">
-			<%= image_tag "left.png" ,alt:"" , class: "left__arrow" %>
-			<div class="item__box">
-				<%= image_tag "jacketimg.png", alt:"" ,class: "jacket" %>
-				<h3 class="product__name">タイトル</h3>
-				<p class="artist__name">アーティスト名</p>
-				<p class="price">¥ 0,000</p>
-				<p class="stocks">在庫:100</p>
-				<div class="evaluation">
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-					<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-					<span class="evaluation__count">49</span>
-				</div>
-				<div class="favorite__button__box">
-					<span class="favorite__button">お気に入りへ追加</span>
-				</div>
-				<div class="cart__button__box">
-					<span class="cart__button modal-open">カートへ入れる</span>
-				</div>
-			</div>
-			<div class="item__box">
-				<%= image_tag "jacketimg.png", alt:"" ,class: "jacket" %>
-				<h3 class="product__name">タイトル</h3>
-				<p class="artist__name">アーティスト名</p>
-				<p class="price">¥ 0,000</p>
-				<p class="stocks">在庫:100</p>
-				<div class="evaluation">
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-					<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-					<span class="evaluation__count">49</span>
-				</div>
-				<div class="favorite__button__box">
-					<span class="favorite__button">お気に入りへ追加</span>
-				</div>
-				<div class="cart__button__box">
-					<span class="cart__button modal-open">カートへ入れる</span>
-				</div>
-			</div>
-			<div class="item__box">
-				<%= image_tag "jacketimg.png", alt:"" ,class: "jacket" %>
-				<h3 class="product__name">タイトル</h3>
-				<p class="artist__name">アーティスト名</p>
-				<p class="price">¥ 0,000</p>
-				<p class="stocks">在庫:100</p>
-				<div class="evaluation">
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-					<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-					<span class="evaluation__count">49</span>
-				</div>
-				<div class="favorite__button__box">
-					<span class="favorite__button">お気に入りへ追加</span>
-				</div>
-				<div class="cart__button__box">
-					<span class="cart__button modal-open">カートへ入れる</span>
-				</div>
-			</div>
-			<div class="item__box">
-				<%= image_tag "jacketimg.png", alt:"" ,class: "jacket" %>
-				<h3 class="product__name">タイトル</h3>
-				<p class="artist__name">アーティスト名</p>
-				<p class="price">¥ 0,000</p>
-				<p class="stocks">在庫:100</p>
-				<div class="evaluation">
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-					<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-					<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-					<span class="evaluation__count">49</span>
-				</div>
-				<div class="favorite__button__box">
-					<span class="favorite__button">お気に入りへ追加</span>
-				</div>
-				<div class="cart__button__box">
-					<span class="cart__button modal-open">カートへ入れる</span>
-				</div>
-			</div>
-			<%= image_tag "right.png", alt:"" ,class: "right__arrow" %>
-		</div>
+
 		<!-- 売れ筋 -->
 		<div class="selling__img">
 			<%= image_tag "main4.png", alt:"" %>
@@ -348,16 +187,11 @@
 		</div>
 	</div>
 </div>
-<div  class="modal-overlay">
-    <div class="modal-panel">
-    	<p class="modal-title">個数を入力してください</p>
-	   <!--  -->
-	     <p class="modal-close">閉じる</p>
-    </div>
-</div>
+
+
+<%= render 'layouts/footer' %>  
 
 		<!-- フッター -->
-		
 
 <script>
 	$(".main__visual__content").skippr({
@@ -382,4 +216,54 @@
     // 一枚目のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
     hidePrevious : true
 });
+</script>
+<script>
+	$(document).ready(function(){
+	$('.my-slide').slick({
+		  // アクセシビリティ。左右ボタンで画像の切り替えをできるかどうか
+		  accessibility: true,
+		  // 自動再生。trueで自動再生される。
+		  autoplay: false,
+		  // 自動再生で切り替えをする時間
+		  autoplaySpeed: 3000,
+		  // 自動再生や左右の矢印でスライドするスピード
+		  speed: 400,
+		  // 自動再生時にスライドのエリアにマウスオンで一時停止するかどうか
+		  pauseOnHover: true,
+		  // 自動再生時にドットにマウスオンで一時停止するかどうか
+		  pauseOnDotsHover: true,
+		  // 切り替えのアニメーション。ease,linear,ease-in,ease-out,ease-in-out
+		  cssEase: 'ease',
+		  // 画像下のドット（ページ送り）を表示
+		  dots: false,
+		  // ドットのclass名をつける
+		  dotsClass: 'dot-class',
+		  // ドラッグができるかどうか
+		  draggable: true,
+		  // 切り替え時のフェードイン設定。trueでon
+		  fade: false,
+		  // 左右の次へ、前へボタンを表示するかどうか
+		  arrows: true,
+		  // 無限スクロールにするかどうか。最後の画像の次は最初の画像が表示される。
+		  infinite: true,
+		  // 最初のスライダーの位置
+		  initialSlide: 0,
+		  // 画像の遅延表示。‘ondemand’or'progressive'
+		  lazyLoad: ‘ondemand’,
+		  // スライドのエリアにマウスオーバーしている間、自動再生を止めるかどうか。
+		  pauseOnHover: true
+		  // スライドのエリアに画像がいくつ表示されるかを指定
+		  slidesToShow: 4,
+		  // 一度にスライドする数
+		  slidesToScroll: 1,
+		  // タッチスワイプに対応するかどうか
+		  swipe: true,
+		  // 縦方向へのスライド
+		  vertical: false,
+		  // 表示中の画像を中央へ
+		　centerMode: true,
+		  // 中央のpadding
+		  centerPadding: '160px;
+		});
+	});
 </script>

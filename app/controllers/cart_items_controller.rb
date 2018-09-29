@@ -38,6 +38,7 @@ class CartItemsController < ApplicationController
   end
       #puts cart_item.errors.full_messages
 
+
   def test #←カートアイテム作成
     product = Product.find(params[:id])
    CartItem.find_or_create_by(cart_id: current_user.carts.where(delete_flag: false).first.id, product_id: params[:id], old_price: product.price)

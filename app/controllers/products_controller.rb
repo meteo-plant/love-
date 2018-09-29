@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
     @genres = Genre.all
     @songs = Song.all
     @song = Song.new
-
+    
   end
 
   def create
@@ -20,16 +20,27 @@ class ProductsController < ApplicationController
 
   def index
       @products = Product.page(params[:page]).order(sort_column + ' ' + sort_direction).per(15)
+      @products = @products.search(s_title: params[:s_title]) if params[:s_title].present?
+
   end
 
   def edit
+    @product = Product.find(params[:id])
+    @genres = Genre.all
+    @songs = Song.all
   end
 
 
   def update
+    @product = Product.find(params[:id])
+    @product.update(product_params)
+    redirect_to edit_product_path(@product.id)
   end
 
   def destroy
+   @product = Product.find(params[:id])
+   @product.update(delete_flag: true)
+   redirect_to products_path
   end
 
   private
