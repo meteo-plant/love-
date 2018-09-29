@@ -1,5 +1,5 @@
 
-<h2>購入履歴</h2>
+<%= render 'layouts/header' %>
 
 <body>
    <div class="container">
@@ -12,7 +12,7 @@
    	      	<% @purchases.each do |purchase| %>
 		    <div class="row">
 		      <div class="col-lg-2 purchase_image" style="margin: 20px 10px 20px 0px;">
-                  <%= image_tag(purchase.jaket_image_id) %>
+                  <%= attachment_image_tag purchase, :jaket_image %>
 		      </div>
 			  <div class="col-lg-3">
 
@@ -80,3 +80,5 @@
       </div>
    </div>
 </body>
+
+<%= render 'layouts/footer' %>
