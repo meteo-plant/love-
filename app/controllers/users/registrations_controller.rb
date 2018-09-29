@@ -30,6 +30,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
         cart.save
         puts cart.user_id
         puts current_user.id
+        shipping_address = ShippingAddress.new(user_id: current_user.id, shipping_address_name: current_user.address)
+        shipping_address.save
+
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
         expire_data_after_sign_in!

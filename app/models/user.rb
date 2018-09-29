@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
 has_many :favorites
 has_many :comments
-has_one :cart
+has_many :carts
 has_many :shipping_addresses
 
 attachment :profile_image

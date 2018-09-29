@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root 'tops#top'
   get '/user_products/:id' => 'user_products#index', as: 'user_products'
 
-  resources :cart_items, only: [:create, :index, :destroy, :update, :show] do 
-    member do 
+  resources :cart_items, only: [:create, :index, :destroy, :update, :show] do
+    member do
       get :test
     end
   end
@@ -19,12 +19,19 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
+
+ 
+
   resources :users, only: [:create, :show, :edit, :update, :destroy]
   # resources :comments, only: [:create, :destroy]
+
   resources :purchases, only: [:create, :index, :new]
   resources :favorites, only: [:create, :index, :destroy]
-  
-  resources :shipping_addresses, only: [:create, :destroy, :index]
+  resources :shipping_addresses, only: [:create, :destroy, :index] do
+    member do
+      post :add_address
+    end
+  end
   resources :events, only: [:create, :show, :index]
   resources :song_orders, only: [:create, :update]
   resources :genres, only: [:create, :index, :edit, :update]
