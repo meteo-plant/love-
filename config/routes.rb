@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # ネストまだしてないです
   root 'tops#top'
   get '/user_products/:id' => 'user_products#index', as: 'user_products'
+  get '/user_product/:id' => 'user_products#show', as: 'user_product'
 
   resources :cart_items, only: [:create, :index, :destroy, :update, :show] do
     member do
@@ -38,8 +39,11 @@ Rails.application.routes.draw do
 
   resources :disks, only: [:create, :update, :new]
   resources :songs, only: [:create, :index, :edit, :update]
-  resources :user_products, only: [:index, :show]
+
+  resources :user_products, only: [:index]
+
   resources :admin_users, only: [:index, :show, :destroy, :update]
+
   resources :admin_purchases, only: [:index, :show]
   get 'admins/top'
   resources :products, only: [:create, :index, :update, :new, :edit, :destroy] do
