@@ -2,10 +2,10 @@ class PurchasesController < ApplicationController
   def index
   	@cart = current_user.carts.where(delete_flag: false).first
   	 # @user = User.find(params[:id])
-  	 #@cart_items = @cart.cart_items.all
+  	 @cart_item = @cart.cart_items
   	 #@products = @cart_items.product.all
   	# @shipping_address = current_user.shipping_address
-    @purchases = Purchase.all
+    @purchases = Purchase.page(params[:page]).reverse_order
   end
 
   def new
@@ -30,8 +30,8 @@ class PurchasesController < ApplicationController
      	# if cart.delete_flag == true
         cart = Cart.new(user_id: current_user.id)
         cart.save
-     # end
-     redirect_to purchases_path
+
+     redirect_to new_purchase_path
   end
 
    private
