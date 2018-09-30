@@ -1,5 +1,5 @@
 
-<h2>購入履歴</h2>
+<%= render 'layouts/header' %>
 
 <body>
    <div class="container">
@@ -12,7 +12,7 @@
    	      	<% @purchases.each do |purchase| %>
 		    <div class="row">
 		      <div class="col-lg-2 purchase_image" style="margin: 20px 10px 20px 0px;">
-                  <%= image_tag(purchase.jaket_image_id) %>
+                  <%= attachment_image_tag purchase, :jaket_image %>
 		      </div>
 			  <div class="col-lg-3">
 
@@ -43,15 +43,14 @@
 			  </div>
 
 			  <div class="col-sm-2" >
-			       <ul class="list-inline" style="margin-top: 10px;">
-			         <li><strong class="">ステータス</strong></li>
-			         <li></li>
-			       </ul>
-
 			       <ul class="list-inline">
 			     	   <li style="margin-top: 110px;"><strong>￥</strong></li>
 			     	   <li><%= purchase.old_price %></li>
 			       </ul>
+			       <!--  <ul class="list-inline">
+			     	   <li style="margin-top: 15px;"><strong>カートナンバー</strong></li>
+			     	   <li><%=@cart.id %></li>
+			       </ul> -->
 		      </div>
 		    </div>
 		    <% end %>
@@ -75,8 +74,11 @@
 						</li>
 					</ul>
 		        </nav>
+
 	      </div>
 	    </div>
       </div>
    </div>
 </body>
+
+<%= render 'layouts/footer' %>

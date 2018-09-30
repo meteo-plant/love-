@@ -4,10 +4,10 @@ class CreatePurchases < ActiveRecord::Migration[5.2]
       t.integer :shipping_address_id
       t.string :purchase_date
       t.integer :cart_id
-      t.boolean :stock_flag
-      t.boolean :order_flag
-      t.boolean :shipping_flag
-      t.boolean :payment_flag
+      t.boolean :stock_flag, null: false, default: "false"
+      t.boolean :order_flag, null: false, default: "false"
+      t.boolean :shipping_flag, null: false, default: "false"
+      t.boolean :payment_flag, null: false, default: "false"
       t.boolean :method_of_payment
       t.datetime :shipping_date
       t.datetime :payment_date

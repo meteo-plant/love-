@@ -1,17 +1,7 @@
-<!-- http://localhost:3000/admin_users -->
+<%= render 'layouts/admin' %>
 
-<body>
-	<div class="page-header" style="background-color: orange;">
-		<h1>サンプル　　<small>サブ・テキスト</small></h1>
-	</div>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3" style="background-color: orange;">
-				<h2>サイドバー</h2>
-			</div>
 			<div class="col-lg-9">
-				<h1 class="page_title">User一覧</h1>
+				<h1 class="admin_user_title">会員一覧</h1>
 			        <div class="search">
 			          <form action="<%= admin_users_path %>" method="get" class="form-inline">
 			            <input type="text" id="search__bar" name="s_title" required size="10" placeholder=" User名で検索" value="<%= request[:s_name] %>">
@@ -38,10 +28,18 @@
 					<% @users.each do |user| %>
 						<tr>
 							<td>
-								<%= user.id %>
+								<% if user.deleted_at.blank? %>
+									<%= user.id %>
+								<% else %>
+									<%= user.id %> (退会済み)
+								<% end %>
 							</td>
 							<td>
-								<%= link_to user.user_name, admin_user_path(user.id) %>
+								<% if user.deleted_at.blank? %>
+									<%= link_to user.user_name, admin_user_path(user.id) %>
+								<% else %>
+									<%= user.user_name %> (退会済み)
+								<% end %>
 							</td>
 						</tr>
 					<% end %>

@@ -287,11 +287,6 @@ html {
   font-size: 100%;
 }
 
-body {
-  margin: 0;
-  background-image: image-url("Artboard.png");
-}
-
 a:focus {
   outline: thin∫ dotted;
 }
@@ -1165,4 +1160,9 @@ strong {
   .pc-no-padding {
     padding: 0 15px;
   }
+}
+
+body {
+  margin: 0;
+  background-image: image-url("Artboard.png");
 }

@@ -1,10 +1,17 @@
-<%= form_for(@genre) do |f| %>
+<%= render 'layouts/admin' %>
 
-<h4>ジャンル名</h4>
-<%= f.text_field :genre_name,  class:"form-genre"%>
+<div class="col-lg-9">
+	<h1 class="genre_title">ジャンル編集</h1>
+	<div class="genre_form">
+		<%= form_for(@genre) do |f| %>
 
-<%= f.submit "変更",class:"btn btn-default btn-lg" %>
+			<h4>ジャンル名</h4>
+			<%= f.text_field :genre_name,  class:"form-genre"%><br>
 
-<% end %>
+			<%= f.submit "変更",class:"btn btn-default btn-lg" %>
 
+		<% end %>
+	</div>
 <%= link_to "Back", genres_path,class: "back" %>
+
+</div>

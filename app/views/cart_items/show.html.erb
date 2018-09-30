@@ -1,3 +1,4 @@
+<%= render 'layouts/header' %>
 
 <body>
 	<div style="background-color: #FFFF99;, width: 100%;">
@@ -6,24 +7,24 @@
 	<div>
 		<div Class="box2">
         <%= form_for(@purchase, url: {controller: "purchases", action: "create"}) do |f| %>
-		    <div class="" style=":margin: 0px 0px 50px 50px; padding-top: 50px;">
-		      	<%= f.label :"配送先の選択" %><br>
-	            <%= f.collection_select(:shipping_address_id, @shipping_address, :id, :shipping_address_name, { autofocus: 'true', class: "form-control"}) %>
+		    <div >
+		      	<div style="margin-left: 100px;"><%= f.label :"配送先の選択" %></div>
+	           <div style="margin-left: 100px;"> <%= f.collection_select(:shipping_address_id, @shipping_address, :id, :shipping_address_name, { autofocus: 'true', class: "form-control"}) %></div>
 	        </div>
 
-	        <div class="" style="margin: 50px 0px 0px 50px;">
-		        <%= f.label :"支払い方法の選択" %><br>
-		        <%= f.select :method_of_payment, [["現金", "現金"], ["クレジット", "クレジット"]], { autofocus: 'true', class: "form-control"} %>
+	        <div >
+		        	<div style="margin-left: 100px;"><%= f.label :"支払い方法の選択" %></div>
+		        	<div style="margin-left: 100px;"><%= f.select :method_of_payment, [["現金", "現金"], ["クレジット", "クレジット"]], { autofocus: 'true', class: "form-control"} %></div>
 		    </div>
 		    <div style="margin: 50px 0px 15px 1000px;">
-                 <%= f.submit '購入' %>
+                  <button type="button"><%= f.submit '購入' %></button>
 	        </div>
 	    </div>
 	<% end %>
 		<div>
 			  <%= form_for(@shipping_addressA, url: {controller: "shipping_addresses", action: "add_address"}) do |f| %>
 			  <div class="row">
-			  	<div style="background-color: #FFFF99;, width: 100%;">
+			  	<div style="background-color: #FFFF99;, width: 100%; padding-left: 20px;">
 			  		<p>配送先を追加したい場合はこちら</p>
 			  	</div>
 	          	<div class="col-sm-2 h4"><strong>配送先追加</strong></div>
@@ -42,9 +43,9 @@
 			</tr>
 			<% @cart_items.each do |cart_item| %>
 			<tr>
-				<td class="h3" style="width: 200px; padding-left: 150px;"><%= cart_item.product.product_name %></td>
-				<td class="h3" style="width: 200px; padding-left: 150px;"><%= cart_item.number_of_sheets %>枚</td>
-				<td class="h3" style="width: 200px; padding-left: 150px;"><%= cart_item.product.price * cart_item.number_of_sheets %>円</td>
+				<td class="h3" style="width: 200px; padding-left: 120px;"><%= cart_item.product.product_name %></td>
+				<td class="h3" style="width: 200px; padding-left: 120px;"><%= cart_item.number_of_sheets %>枚</td>
+				<td class="h3" style="width: 200px; padding-left: 120px;"><%= cart_item.product.price * cart_item.number_of_sheets %>円</td>
 			</tr>
 			<% end %>
 		  </table>
@@ -55,4 +56,7 @@
 			<span> <%= @price %>円</span>
 	    </div>
     </div>
+   
 </body>
+
+<%= render 'layouts/footer' %>
