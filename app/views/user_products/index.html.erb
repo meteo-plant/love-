@@ -18,8 +18,10 @@
 			  			<button type="button" class="btn-warning ">
 			  				<%= link_to "カートに入れる", test_cart_item_path(product), class: "link" %>
 			  			</button>
-			  		    <button type="button" class="btn-danger">
-			  		        <%= link_to "お気に入り", favorites_path, class: "link" %>
+
+			  		    <button type="button" class="btn btn-danger btn-sm">
+			  		        <%= link_to "お気に入り", favorites_path(product), class: "link" %>
+
 			  			</button>
 
 
