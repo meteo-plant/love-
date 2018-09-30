@@ -9,7 +9,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :label_name
       t.integer :stock
       t.integer :event_id
-      t.boolean :delete_flag
+      t.boolean :delete_flag, null: false, default: 0
 
       t.timestamps
     end
