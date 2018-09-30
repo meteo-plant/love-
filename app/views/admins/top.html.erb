@@ -1,23 +1,5 @@
 <body class="admin">
-  <div class="admins_header">
-    <%= link_to "User Page", admin_users_path, class: "nav-list-itemm" %>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-list-item2" %>
-  </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-3">
-           <%= link_to "ホーム",admins_top_path, class: "widelink"%>
-            <a class="widelink">商品登録</a>
-            <a class="widelink">商品ジャンル登録</a>
-            <a class="widelink">ディスク登録</a>
-            <a class="widelink">商品一覧</a>
-            <a class="widelink">購入履歴一覧</a>
-            <a class="widelink">会員一覧</a>
-        </div>
-        <style type="text/css">
-          a.widelink { display: block; }
-        </style>
+  <%= render 'layouts/admin' %>
 
         <div class="col-xs-8">
           <div class="order_body">
@@ -34,7 +16,7 @@
                 </tr>
 
                 <tr>
-                  <th><p>入金待ち</p></th>
+                  <th>入金待ち</th>
                   <td>~件</td>
                 </tr>
 
@@ -67,7 +49,7 @@
       <td>¥0,000/0,000件</td>
     </tr>
     <tr>
-      <th><p>今日の売上</p></th>
+      <th>今日の売上</th>
       <td>¥0,000/0,000件</td>
     </tr>
   </tbody>
@@ -83,7 +65,7 @@
       <td>~件</td>
     </tr>
     <tr>
-      <th><p>会員数</p></th>
+      <th>会員数</th>
       <td>~人</td>
     </tr>
 

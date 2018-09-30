@@ -1,4 +1,4 @@
-<%= render 'layouts/header' %>  
+<%= render 'layouts/header' %>
 
 <div class="main__visual">
 	<div class="main__visual__content">
@@ -11,30 +11,9 @@
 </div>
 
 
-<div class="main clearfix">
-	<div class="sidebar">
-		<div class="genre">
-			<div class="genre__title__box">
-				<span ><%= image_tag "music.png" ,alt:"" ,class:"genre__title__img" %></span>
-				<span class="genre__title">ジャンル</span>
-			</div>
-			<% @genres.each do |genre| %>
-                <%= link_to user_products_path(genre.id) do %>
-                    <div class="genre__box clearfix">
-                        <span class="genre__name__img"><%= image_tag "disc.png" ,alt:"" ,class: "" %></span>
-                        <span class="genre__name"><%= genre.genre_name %></span>
-                        <span class="genre__arrow"><%= image_tag "genre-arrow.png", alt:"" ,class: "" %></span>
-                    </div>
-                <% end %>
-            <% end %>
-        </div>
-		<div class="banner">
-			<%= image_tag "banner.png" ,alt:"" ,class: "banner__img" %>
-			<%= image_tag "banner.png" ,alt:"" ,class: "banner__img" %>
-			<%= image_tag "banner.png" ,alt:"" ,class: "banner__img" %>
-			<%= image_tag "banner.png" ,alt:"" ,class: "banner__img" %>
-		</div>
-	</div>
+
+<%= render 'tops/sidebar', genres: @genres %>  
+
 	<div class="content">
 		<div class="ranking__img">
 				<%= image_tag "main1.png" ,alt:"" %>
@@ -64,12 +43,24 @@
 		<div class="tickets" id="my-slide">
 			<% @products.each do |product| %>
 				<div class="item__box" >
-					<%= attachment_image_tag  product, :jaket_image , :fill, 140, 120, format: 'jpeg' %>
-					<h3 class="product__name"><%= product.product_name %></h3>
+					<% if product.stock == 0  %>
+						<%= image_tag ("soldout.jpg"),:size => "140x120" %>
+					<% else %>
+						<%= attachment_image_tag  product, :jaket_image , :fill, 140, 120, format: 'jpeg' %>
+					<% end %>
+					<%= link_to user_product_path(product.id) do %>
+						<h3 class="product__name"><%= product.product_name %></h3>
+					<% end %>
 					<p class="artist__name"><%= product.airtist_name %></p>
 					<p class="price">¥ <%= product.price %></p>
-					<p class="stocks">在庫:<%= product.stock %></p>
-					
+					<p class="stocks">在庫:<%= product.stock %></p><div class="evaluation">
+						<%= image_tag "love1.png" , alt:"" , class: "love1" %>
+						<%= image_tag "love1.png" , alt:"" , class: "love1" %>
+						<%= image_tag "love1.png" , alt:"" , class: "love1" %>
+						<%= image_tag "love2.png" , alt:"" , class: "love2" %>
+						<%= image_tag "love2.png" , alt:"" , class: "love2" %>
+						<span class="evaluation__count">49</span>
+					</div>
 					<% if user_signed_in? %>
 						<%= link_to favorites_path do %>
 							<div class="favorite__button__box">

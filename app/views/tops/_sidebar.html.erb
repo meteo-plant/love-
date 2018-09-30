@@ -1,0 +1,24 @@
+<div class="main clearfix">
+	<div class="sidebar">
+		<div class="genre">
+			<div class="genre__title__box">
+				<span ><%= image_tag "music.png" ,alt:"" ,class:"genre__title__img" %></span>
+				<span class="genre__title">ジャンル</span>
+			</div>
+			<% genres.each do |genre| %>
+                <%= link_to user_products_path(genre.id) do %>
+                    <div class="genre__box clearfix">
+                        <span class="genre__name__img"><%= image_tag "disc.png" ,alt:"" ,class: "" %></span>
+                        <span class="genre__name"><%= genre.genre_name %></span>
+                        <span class="genre__arrow"><%= image_tag "genre-arrow.png", alt:"" ,class: "" %></span>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+		<div class="banner">
+			<%= image_tag "banner.png" ,alt:"" ,class: "banner__img" ,width:"282px",height: "119px" %>
+			<%= image_tag "banner2.png" ,alt:"" ,class: "banner__img",width:"282px",height: "119px" %>
+			<%= image_tag "banner3.png" ,alt:"" ,class: "banner__img",width:"282px",height: "119px"%>
+			<%= image_tag "banner4.png" ,alt:"" ,class: "banner__img",width:"282px",height: "119px"%>
+		</div>
+	</div>

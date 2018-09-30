@@ -1,2 +1,77 @@
-<h1>AdminPurchases#show</h1>
-<p>Find me in app/views/admin_purchases/show.html.erb</p>
+
+	<div class="page-header" style="background-color: orange;">
+		<h1>サンプル　　<small>サブ・テキスト</small></h1>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3" style="background-color: orange;">
+				<h2>サイドバー</h2>
+			</div>
+			<div class="col-lg-9">
+				<h1 class="page_title">購入履歴</h1>
+
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>項目</th>
+							<th>個人情報</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>名前：</th>
+							<td><%= @purchase.user_name %></td>
+						</tr>
+						<tr>
+							<th>配送先：</th>
+							<td><%= @purchase.shipping_address.shipping_address_name %></td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>受注日</th>
+							<th><%= @purchase.created_at %></th>
+							<th>ステータス</th>
+
+							<% if @purchase.payment_flag == true && @purchase.shipping_flag == true %>
+								<th class="status">出荷済み</th>
+							<% elsif @purchase.payment_flag == true && @purchase.shipping_flag == false %>
+								<th class="status">商品準備中</th>
+							<% else %>
+								<th class="status">受付中</th>
+							<% end %>
+								
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>商品名：</th>
+							<td><%= @purchase.product_name %></td>
+						</tr>
+						<tr>
+							<th>商品数：</th>
+							<td><%= @purchase.number_of_sheets %></td>
+						</tr>
+						<tr>
+							<th>合計：</th>
+							<td><%= @purchase.old_price %></td>
+						</tr>
+					</tbody>
+				</table>
+				<div>
+					<%= form_for @purchase,:url => { :controller => :admin_purchases, :action => :destroy} do |f| %>
+						<%= f.submit "商品準備中",class:"btn btn-default btn-lg" %>
+					<% end %>
+				</div>
+				<div>
+					<%= form_for @purchase,:url => { :controller => :admin_purchases, :action => :shipping_destroy} do |f| %>
+						<%= f.submit "出荷済み",class:"btn btn-default btn-lg" %>
+					<% end %>
+				</div>
+
+			</div>
+		</div>
+	</div>

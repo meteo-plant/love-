@@ -14,14 +14,18 @@ class PurchasesController < ApplicationController
 
 
   def create
+        user = current_user
   	    cart = current_user.carts.where(delete_flag: false).first
   	    cart_items = cart.cart_items
   	    #cart_items = CartItem.where(cart_id: cart.id)
   	    cart_items.each do |cart_item|
 	  	  	purchase = Purchase.new(purchase_params)
 	  	 	purchase.save
-	  	 	purchase.update(old_price: cart_item.old_price, product_name: cart_item.product.product_name,
+	  	 	purchase.update(old_price: cart_item.old_price, product_name: cart_item.product.product_name, user_id: cart_item.cart.user_id, user_name: user.user_name,
 	  	 		number_of_sheets: cart_item.number_of_sheets, jaket_image_id: cart_item.product.jaket_image_id, label_name: cart_item.product.label_name)
+        # 在庫処理
+        product = cart_item.product
+        product.update(stock: product.stock.to_i - cart_item.number_of_sheets.to_i)
   	    end
   		cart.delete_flag = true
      	cart.save

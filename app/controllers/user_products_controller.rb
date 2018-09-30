@@ -6,6 +6,7 @@ class UserProductsController < ApplicationController
   	else
   		@products = Product.where(genre_id: params[:id])
     end
+    @genre = Genre.all
   end
 
   def show

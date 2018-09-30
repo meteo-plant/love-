@@ -1,0 +1,16 @@
+<div class="admins_header">
+    <%= link_to "User Page", admin_users_path, class: "nav-list-itemm" %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-list-item2" %>
+  </div>
+
+        <div class="col-xs-3">
+           <%= link_to "ホーム",admins_top_path, class: "widelink"%>
+           <%= link_to "商品登録",new_product_path, class: "widelink"%>
+           <%= link_to "商品ジャンル登録",genres_path,  class: "widelink"%>
+           <%= link_to "ディスク登録",songs_path, class: "widelink"%>
+           <%= link_to "購入履歴一覧",admin_purchases_path,  class: "widelink"%>
+           <%= link_to "会員一覧",admin_users_path,  class: "widelink"%>
+        </div>
+        <style type="text/css">
+          a.widelink { display: block; }
+        </style>

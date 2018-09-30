@@ -1,2 +1,55 @@
-<h1>AdminPurchases#index</h1>
-<p>Find me in app/views/admin_purchases/index.html.erb</p>
+
+<body>
+	<div class="page-header" style="background-color: orange;">
+		<h1>サンプル　　<small>サブ・テキスト</small></h1>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3" style="background-color: orange;">
+				<h2>サイドバー</h2>
+			</div>
+			<div class="col-lg-9">
+				<h1 class="page_title">購入履歴</h1>
+			        <div class="search">
+			          <form action="<%= admin_purchases_path %>" method="get" class="form-inline">
+			            <input type="text" id="search__bar" name="s_name" required size="10" placeholder=" ユーザー名で検索" >
+			              <button  class="search__box" type="submit">
+			                  <span class="search__box__txt" ><%= image_tag "search.png", alt:"" %> 検索</span>
+			              </button>
+			          </form>
+			        </div>
+					<div class="form-group sort">
+						<label class="sr-only" for="InputSelect">並び替え</label>
+						<select class="form-control" style="width: 70px;" id="InputSelect">
+							<option>降順</option>
+							<option>昇順</option>
+						</select>
+					</div>
+				<table  class="table table-striped">
+					<thead>
+						<tr>
+							<th>購入ID</th>
+							<th>ユーザー名</th>
+						</tr>
+					</thead>
+					<tbody>
+					<% @purchases.each do |purchase| %>
+						<tr>
+							<td>
+								<%= link_to purchase.id, admin_purchase_path(purchase.id) %>
+							</td>
+							<td>
+								<%=  purchase.user_name %>
+							</td>
+						</tr>
+					<% end %>
+					</tbody>
+				</table>
+				<nav>
+				
+				</nav>
+			</div>
+		</div>
+	</div>
+</body>

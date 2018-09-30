@@ -25,7 +25,9 @@ Version: 1.0.0
 Tags:
 */
 /* フォント設定 */
-
+.status{
+  color:red;
+}
 .fa-angle-up:before {
   content: "\f106";
 }

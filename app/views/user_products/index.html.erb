@@ -1,4 +1,4 @@
-
+<%= render 'layouts/header' %>  
 
 <div class="dropdown">
 	 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -18,14 +18,19 @@
 	<div class="container"style="margin-top: 50px;">
 		<div class="row">
 	      <div class="col-lg-3 side_ber" style="height: 800px;">
-	      	<h1></h1>
+	      	<%= render 'tops/sidebar', genres: @genres %>  
 	      </div>
 	      <div class="col-lg-9 aaa">
-	      	<% @products.each do |product| %>
+	      	<% @products.where(delete_flag: false).each do |product| %>
 		    <div class="container"style="width: 900px;">
 			  <div class="row" style="">
 			  	<div class="col-lg-3 box1 item" style="width: 210px; height: 350px; background-color: #ffffff; border: solid 1px #f5f5f5;">
 			  		<div class="product_image" style="margin:10px;">
+		      		<% if product.stock == 0  %>
+						<%= image_tag ("soldout.jpg") %>
+					<% else %>
+						<%= attachment_image_tag product, :jaket_image%>
+					<% end %>  
                       
                     </div>
 			  			<button type="button" class="btn btn-warning btn-sm">
@@ -68,4 +73,6 @@
 		</div>
 	</div>
 </body>
+
+<%= render 'layouts/footer' %>
 
