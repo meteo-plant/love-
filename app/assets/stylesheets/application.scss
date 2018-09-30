@@ -25,7 +25,9 @@ Version: 1.0.0
 Tags:
 */
 /* フォント設定 */
-
+.status{
+  color:red;
+}
 .fa-angle-up:before {
   content: "\f106";
 }
@@ -733,6 +735,7 @@ strong {
 .footer__nav .footer__li {
   padding-left: 24px;
   display: inline-block;
+  color: white;
 }
 
 .footer__icon {
@@ -765,7 +768,7 @@ strong {
 }
 
 .main {
-  width: 12nav8px;
+  width: 1208px;
   padding-top: 77px;
   margin: 0 auto;
 }

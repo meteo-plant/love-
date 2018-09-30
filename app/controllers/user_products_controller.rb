@@ -1,13 +1,12 @@
 class UserProductsController < ApplicationController
   def index
-
-  	if params[:id] == 'aa'
-	  	@products = Product.page params[:page]
-	    @products = @products.search(s_title: params[:s_title], s_artist: params[:s_artist]) if params[:s_title].present? || params[:s_artist].present? 
-	else
-		@products = Product.where(genre_id: params[:id])
-	end
-
+    if params[:id] == 'aa'
+      @products = Product.page params[:page]
+  	  @products = @products.search(s_title: params[:s_title]) if params[:s_title].present? 
+  	else
+  		@products = Product.where(genre_id: params[:id])
+    end
+    @genre = Genre.all
   end
 
   def show
@@ -17,9 +16,8 @@ class UserProductsController < ApplicationController
   end
 
 
-   private
- def product_params
- 	params.require(:product).permit(:jaket_image, :product_name, :product_id)
- end
-
+  private
+  def product_params
+   	params.require(:product).permit(:jaket_image, :product_name, :product_id)
+  end
 end

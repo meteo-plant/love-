@@ -2,7 +2,7 @@ class TopsController < ApplicationController
   def top
   	@cart_item = CartItem.new
   	@products = Product.all
-    @genres = Genre.all
+    @genres = Genre.all 
   end
 
   def create

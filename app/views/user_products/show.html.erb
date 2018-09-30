@@ -10,7 +10,14 @@
 		  <div class="container">
 		    <div class="row">
 		      <div class="col-lg-3 show-image" style="margin: 20px 0px 20px 0px;">
-		       <%= attachment_image_tag @product, :jaket_image %>
+
+		      	<% if @product.stock == 0  %>
+						<%= image_tag ("soldout.jpg") %>
+				<% else %>
+						<%= attachment_image_tag @product, :jaket_image %>
+				<% end %> 
+		       
+
 		      </div>
 
 			  <div class="col-sm-4">

@@ -5,15 +5,22 @@
 	<div class="container"style="margin-top: 50px;">
 		<div class="row">
 	      <div class="col-lg-3 side_ber" style="height: 800px;">
-	      	<h1></h1>
+	      	<%= render 'tops/sidebar', genres: @genres %>  
 	      </div>
 	      <div class="col-lg-9 aaa">
 	      	<% @products.each do |product| %>
 		    <div class="container"style="width: 900px;">
 			  <div class="row" style="">
-			  	<div class="col-lg-3 box1 item" style="width: 230px; background-color: #ffffff; border: solid 1px #f5f5f5;">
-			  		<div class="product_image" style="padding:10px 0px 2px 15px;">
-                      <%= attachment_image_tag product, :jaket_image%>
+
+			  	<div class="col-lg-3 box1 item" style="width: 210px; height: 350px; background-color: #ffffff; border: solid 1px #f5f5f5;">
+			  		<div class="product_image" style="margin:10px;">
+		      		<% if product.stock == 0  %>
+						<%= image_tag ("soldout.jpg") %>
+					<% else %>
+						<%= attachment_image_tag product, :jaket_image%>
+					<% end %>  
+                      
+
                     </div>
 			  			<button type="button" class="btn-warning ">
 			  				<%= link_to "カートに入れる", test_cart_item_path(product), class: "link" %>

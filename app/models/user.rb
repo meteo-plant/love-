@@ -9,6 +9,7 @@ has_many :favorites
 has_many :comments
 has_many :carts
 has_many :shipping_addresses
+has_many :purchases
 
 attachment :profile_image
 attachment :favorite_people_image

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get '/user_products/:id' => 'user_products#index', as: 'user_products'
   get '/user_product/:id' => 'user_products#show', as: 'user_product'
 
+  patch "/admin_purchases/:id/destroy"=> "admin_purchases#destroy"
+  patch "/admin_purchases/:id/shipping_destroy"=> "admin_purchases#shipping_destroy"
+
   resources :cart_items, only: [:create, :index, :destroy, :update, :show] do
     member do
       get :test
@@ -44,9 +47,11 @@ Rails.application.routes.draw do
   resources :disks, only: [:create, :update, :new]
   resources :songs, only: [:create, :index, :edit, :update]
 
+
   resources :user_products, only: [:index]
 
   resources :admin_users, only: [:index, :show, :destroy, :update]
+
 
   resources :admin_purchases, only: [:index, :show]
   get 'admins/top'
