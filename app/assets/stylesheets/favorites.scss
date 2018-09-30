@@ -36,7 +36,7 @@ h2:after {right: 0;}
   width: 500px;
   position: absolute;
   left: 200px;
-  bottom: 5px;
+  bottom: 40px;
 }
 
 .fp {
@@ -49,4 +49,8 @@ h2:after {right: 0;}
   padding: 0.5em 0.5em 0.5em 2em;
   background: white;
   position: relative;
+}
+
+.favorite_td {
+ width: 70px;
 }
