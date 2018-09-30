@@ -8,6 +8,8 @@
   box-sizing: border-box;
 }
 
+
+
 .sign_in {
   width: 500px;
   height: 400px;
@@ -156,6 +158,7 @@
   box-shadow :0px 0px 5px silver;
   padding: 0.5em 0.5em 0.5em 2em;
   position: relative;
+
 }
 
 .my:after{
@@ -186,6 +189,7 @@
 
 
 .push {
+  margin-top:20px;
   width: 720px;
   height: 220px;
   background: white;
@@ -225,7 +229,7 @@
 .pushing_comment {
   word-wrap: break-word;
   padding-top: 20px;
-  width: 400px;
+  width: 430px;
   height: 160px;
   float: left;
   background: #FFF0F5;
@@ -234,8 +238,8 @@
   padding: 10px;
   position: absolute;
   z-index: 0;
-  left: 200px;
-  top: 6px;
+  left: 220px;
+  top: 14px;
   font-family: Chalkduster, "Covered By Your Grace", Courier, "Segoe Print", sans-serif;
 }
 
@@ -270,11 +274,12 @@
   background: none;
   position: absolute;
   top: 30px;
-  left: 40px;
+  left: 50px;
 }
 
 
 .user_ranking {
+  margin-top:20px;
   width: 720px;
   height: 330px;
   background: white;
@@ -326,7 +331,7 @@
   font-size: 60px;
   z-index: 2;
   left: 20%;
-  top: 40%;
+  top: 35%;
 
 }
 
@@ -342,24 +347,24 @@
   color: #666666;
   width: 76%;
   position: absolute;
-  bottom: 130px;
+  bottom: 100px;
   left: 96px;
   font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 
-.mytable,th{
+.mymymy{
   width: 25px;
-  padding: 15px;
+  padding: 10px;
   border-bottom: 1px dashed #cccccc;
   background-color: none;
   height: 35px;
 }
 
-.mytable,td{
+.mymy{
   width: 70%;
   background: white;
   border-bottom: 1px dashed #cccccc;
-  padding: 15px;
+  padding: 10px;
   text-align: center;
 }
 

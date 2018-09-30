@@ -1,3 +1,4 @@
+<%= render 'layouts/header' %>
 <div class="container">
 	<div class="row">
 		<div class="col-xs-3">
@@ -19,35 +20,35 @@
 
 		 <table class="mytable">
 		  <tr>
-			<th>
+			<th class="mymymy">
 				<%= attachment_image_tag current_user, :profile_image, :fill, 120, 120, format: 'jpeg', fallback: "no_image.jpg" %>
 			</th>
-			<td></td>
+			<td class="mymy"></td>
 		  </tr>
 
 		  <tr>
-			<th>名前</th>
-			<td><%= @user.user_name %></td>
+			<th class="mymymy">名前</th>
+			<td class="mymy"><%= @user.user_name %></td>
 		  </tr>
 
 		  <tr>
-		    <th>メールアドレス</th>
-		    <td><%= @user.email %></td>
+		    <th class="mymymy">メールアドレス</th>
+		    <td class="mymy"><%= @user.email %></td>
 		  </tr>
 
           <tr>
-		    <th>郵便番号</th>
-		    <td><%= @user.postal_code %></td>
+		    <th class="mymymy">郵便番号</th>
+		    <td class="mymy"><%= @user.postal_code %></td>
 	      </tr>
 
 	      <tr>
-		   <th>住所</th>
-		   <td><%= @user.address %></td>
+		   <th class="mymymy">住所</th>
+		   <td class="mymy"><%= @user.address %></td>
 	      </tr>
 
 	      <tr>
-		   <th>電話番号</th>
-           <td><%= @user.phone_number %></td>
+		   <th class="mymymy">電話番号</th>
+           <td class="mymy"><%= @user.phone_number %></td>
           </tr>
 
 	     </table>
@@ -77,3 +78,4 @@
 </div>
 </div>
 </div>
+<%= render 'layouts/footer' %>

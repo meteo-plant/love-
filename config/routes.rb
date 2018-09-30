@@ -39,8 +39,11 @@ Rails.application.routes.draw do
 
   resources :disks, only: [:create, :update, :new]
   resources :songs, only: [:create, :index, :edit, :update]
+
   resources :user_products, only: [:index]
-  resources :admin_users, only: [:index, :show, :destroy]
+
+  resources :admin_users, only: [:index, :show, :destroy, :update]
+
   resources :admin_purchases, only: [:index, :show]
   get 'admins/top'
   resources :products, only: [:create, :index, :update, :new, :edit, :destroy] do
