@@ -1,71 +1,67 @@
+<%= render 'layouts/admin' %>
 
-<body>
-	<% if @user.errors.any? %>
-  <div id="error_explanation" class="alert alert-danger">
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-	<div class="page-header" style="background-color: orange;">
-		<h1>サンプル　　<small>サブ・テキスト</small></h1>
+	<div class="col-lg-9">
+		<h1 class="admin_user_title">会員詳細</h1>
+
+
+			<%= form_for(@user, url: {controller: "admin_users", action: "update"}) do |f| %>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>項目</th>
+					<th>個人情報</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>名前：</th>
+					<td><%= f.text_field :user_name %></td>
+				</tr>
+				<tr>
+					<th>フリガナ：</th>
+					<td><%= f.text_field :user_name_phonetic %></td>
+				</tr>
+				<tr>
+					<th>郵便番号：</th>
+					<td> <%= f.text_field :postal_code %></td>
+				</tr>
+				<tr>
+					<th>住所：</th>
+					<td><%= f.text_field :address %></td>
+				</tr>
+				<tr>
+					<th>電話番号：</th>
+					<td><%= f.text_field :phone_number %></td>
+				</tr>
+				<tr>
+					<th>メールアドレス：</th>
+					<td><%= f.email_field :email %></td>
+				</tr>
+				<tr>
+					<th>プロフィール画像：</th>
+					<td><%=  f.attachment_field :profile_image %></td>
+				</tr>
+				<tr>
+					<th>推しメン画像：</th>
+					<td><%=  f.attachment_field :favorite_people_image %></td>
+				</tr>
+				<tr>
+					<th>推しメン(名前.コメント)：</th>
+					<td><%= f.text_area :favorite_people %></td>
+				</tr>
+			</tbody>
+		</table>
+
+		  <div class="form-group">
+		     <div class="col-sm-offset-3 col-sm-9">
+		      <%= f.submit "編集", class: "btn btn-default btn-sm"%>
+		      <% end %>
+		      <button type="submit" class="btn btn-default btn-sm"><%= link_to "このUserを退会させる", admin_user_path(@user.id), method: :delete, "data-confirm" => "Are you sure?" %></button>
+		     </div>
+		  </div>
 	</div>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3" style="background-color: orange;">
-				<h2>サイドバー</h2>
-			</div>
-			<div class="col-lg-9">
-				<h1 class="page_title">User詳細</h1>
-
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th>項目</th>
-							<th>個人情報</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th>名前：</th>
-							<td><%= @user.user_name %></td>
-						</tr>
-						<tr>
-							<th>フリガナ：</th>
-							<td><%= @user.user_name_phonetic %></td>
-						</tr>
-						<tr>
-							<th>郵便番号：</th>
-							<td><%= @user.postal_code %></td>
-						</tr>
-						<tr>
-							<th>住所：</th>
-							<td><%= @user.address %></td>
-						</tr>
-						<tr>
-							<th>電話番号：</th>
-							<td><%= @user.phone_number %></td>
-						</tr>
-						<tr>
-							<th>メールアドレス：</th>
-							<td><%= @user.email %></td>
-						</tr>
-					</tbody>
-				</table>
-
-					<div class="form-group">
-						<div class="col-lg-offset-2 col-lg-10">
-							<button type="submit" class="btn btn-primary btn-block"><%= link_to "このUserを退会させる", admin_user_path(@user.id), method: :delete, "data-confirm" => "Are you sure?" %></button>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</body>
 
 
 

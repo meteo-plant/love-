@@ -10,14 +10,24 @@ class GenresController < ApplicationController
 
   def create
     genre = Genre.new(genre_params)
-    genre.save
-    redirect_to genres_path
+    if genre.save
+      flash[:notice] = "Genre was successfully created."
+      redirect_to genres_path
+    else
+      flash[:notice] = "!!This genre already exists!!"
+      redirect_to genres_path
+    end
   end
 
   def update
     genre = Genre.find(params[:id])
-    genre.update(genre_params)
+    if genre.update(genre_params)
+    flash[:notice] = "Genre was successfully updated."
     redirect_to genres_path
+    else
+      flash[:notice] = "!!This genre already exists!!"
+      redirect_to genres_path
+    end
   end
 
   private

@@ -1,19 +1,15 @@
+<%= render 'layouts/admin' %>
 
-<body>
-	<div class="page-header" style="background-color: orange;">
-		<h1>サンプル　　<small>サブ・テキスト</small></h1>
-	</div>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3" style="background-color: orange;">
-				<h2>サイドバー</h2>
-			</div>
 			<div class="col-lg-9">
-				<h1 class="page_title">商品登録</h1>
+				<h1 class="product_title">商品登録</h1>
+				<% if flash[:notice] %>
+					<div class="flash">
+						<%= flash[:notice] %>
+					</div>
+				<% end %>
 				<%= form_for(@product) do |f| %>
 
-					<div class="form-group">
+					<div class="form-group" style="margin-top: 50px">
 						<%= f.label :product_name, "商品名:", class:"col-lg-3 control-label" %>
 						<div class="col-lg-9">
 							<%= f.text_field :product_name, :placeholder => "商品名"%>
@@ -121,17 +117,6 @@
 					</div>
 				<% end %>
 			</div>
-			
-				<div class="create">
-					<%= form_for(@song) do |f| %>
-						<div class="form-group">
-							<%= f.text_field :song_name,:placeholder => "曲名"%>
-						</div>
-						<%= f.submit "作成",class:"btn btn-default btn-lg" %>
-
-					<% end %>
-				</div>
-
 		</div>
 	</div>
 </body>

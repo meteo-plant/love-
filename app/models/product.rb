@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
 	include SearchProduct
+	validates :product_name, presence: true
+	validates :product_name, uniqueness: true
 
 	attachment :jaket_image
 	

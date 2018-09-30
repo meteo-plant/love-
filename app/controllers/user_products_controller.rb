@@ -12,6 +12,7 @@ class UserProductsController < ApplicationController
   def show
   	  @comment = Comment.new
   	  @product = Product.find(params[:id])
+      @user = User.all
   end
 
 

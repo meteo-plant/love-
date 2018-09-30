@@ -13,9 +13,13 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.new(product_params)
-    product.save
-    redirect_to new_product_path
-
+    if product.save
+      flash[:notice] = "Product was successfully created."
+      redirect_to new_product_path
+    else
+      flash[:notice] = "!!This product already exists or There is no product name!!"
+      redirect_to new_product_path
+    end
   end
 
   def index
@@ -33,8 +37,13 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.update(product_params)
-    redirect_to edit_product_path(@product.id)
+    if @product.update(product_params)
+      flash[:notice] = "Product was successfully created."
+      redirect_to edit_product_path(@product.id)
+    else
+      flash[:notice] = "!!This product already exists or There is no product name!!"
+      redirect_to edit_product_path(@product.id)
+    end
   end
 
   def destroy

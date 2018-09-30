@@ -1,18 +1,13 @@
-<!-- http://localhost:3000/admin_users -->
+<%= render 'layouts/admin' %>
 
-<body>
-	<div class="page-header" style="background-color: orange;">
-		<h1>サンプル　　<small>サブ・テキスト</small></h1>
-	</div>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3" style="background-color: orange;">
-				<h2>サイドバー</h2>
-			</div>
 			<div class="col-lg-9">
-				<h1>曲登録</h1>
-				<div class="create">
+				<h1 class="admin_song_title">曲登録</h1>
+				<% if flash[:notice] %>
+					<div class="flash">
+						<%= flash[:notice] %>
+					</div>
+				<% end %>
+				<div class="admin_song_form">
 					<%= form_for(@song) do |f| %>
 						<div class="form-group">
 							<%= f.text_field :song_name, class:"form-song", :placeholder => "曲名"%>

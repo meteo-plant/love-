@@ -4,4 +4,6 @@ class Purchase < ApplicationRecord
 	belongs_to :user
 
 	attachment :jaket_image
+
+	
 end

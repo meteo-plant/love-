@@ -4,10 +4,22 @@ class AdminUsersController < ApplicationController
       @users = @users.search(s_title: params[:s_title]) if params[:s_title].present?
   end
 
+
   def show
 
   	@user = User.find(params[:id])
 
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+       flash[:notice] = "User was successfully updated."
+       redirect_to admin_user_path(@user.id)
+    else
+      flash[:notice] = "!!User was <not> successfully updated.!!"
+       redirect_to admin_user_path(@user.id)
+    end
   end
 
   def destroy
