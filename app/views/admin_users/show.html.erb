@@ -21,6 +21,9 @@
 			<div class="col-lg-9">
 				<h1 class="page_title">User詳細</h1>
 
+
+ 				<%= form_for(@user) do |f| %>
+
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -31,30 +34,50 @@
 					<tbody>
 						<tr>
 							<th>名前：</th>
-							<td><%= @user.user_name %></td>
+							<td><%= f.text_field :user_name %></td>
 						</tr>
 						<tr>
 							<th>フリガナ：</th>
-							<td><%= @user.user_name_phonetic %></td>
+							<td><%= f.text_field :user_name_phonetic %></td>
 						</tr>
 						<tr>
 							<th>郵便番号：</th>
-							<td><%= @user.postal_code %></td>
+							<td> <%= f.text_field :postal_code %></td>
 						</tr>
 						<tr>
 							<th>住所：</th>
-							<td><%= @user.address %></td>
+							<td><%= f.text_field :address %></td>
 						</tr>
 						<tr>
 							<th>電話番号：</th>
-							<td><%= @user.phone_number %></td>
+							<td><%= f.text_field :phone_number %></td>
 						</tr>
 						<tr>
 							<th>メールアドレス：</th>
-							<td><%= @user.email %></td>
+							<td><%= f.email_field :email %></td>
+						</tr>
+						<tr>
+							<th>プロフィール画像：</th>
+							<td><%=  f.attachment_field :profile_image %></td>
+						</tr>
+						<tr>
+							<th>推しメン画像：</th>
+							<td><%=  f.attachment_field :favorite_people_image %></td>
+						</tr>
+						<tr>
+							<th>推しメン(名前.コメント)：</th>
+							<td><%= f.text_area :favorite_people %></td>
 						</tr>
 					</tbody>
 				</table>
+
+				  <div class="form-group">
+				     <div class="col-sm-offset-2 col-sm-10">
+				      <%= f.submit "登録", class: "sign_up_btn" %>
+				     </div>
+				  </div>
+				</div>
+				<% end %>
 
 					<div class="form-group">
 						<div class="col-lg-offset-2 col-lg-10">
