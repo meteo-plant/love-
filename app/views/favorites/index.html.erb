@@ -21,7 +21,7 @@
               <div class="fp">
                 <div class="jki">
 
-                  <%= image_tag(favorite.product.jaket_image_id), :width =>'150px', :height =>'150px'%>
+                  <%= attachment_image_tag favorite.product, :jaket_image, :fill, 150, 150 %>
                 </div>
 
                           <table class="favorite_information">
