@@ -1,17 +1,9 @@
-<!-- http://localhost:3000/admin_users -->
 
-<body>
-	<div class="page-header" style="background-color: orange;">
-		<h1>サンプル　　<small>サブ・テキスト</small></h1>
-	</div>
+<%= render 'layouts/admin' %>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3" style="background-color: orange;">
-				<h2>サイドバー</h2>
-			</div>
+
 			<div class="col-lg-9">
-				<h1 class="page_title">商品一覧</h1>
+				<h1 class="product_title">商品一覧</h1>
 			        <div class="search">
 			          <form action="<%= products_path %>" method="get" class="form-inline">
 			            <input type="text" id="search__bar" name="s_title" required size="10" placeholder=" 商品名で検索" value="<%= request[:s_title] %>">

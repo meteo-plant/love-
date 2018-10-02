@@ -100,14 +100,16 @@ nav{
 }
 
 .widelink {
-  height: 40px;
+  text-align: center;
+  width: 240px;
+  height: 50px;
   color: #404040;
   border-left: solid 1px #A9A9A9;/*左側の線*/
   border-right: solid 2px #CCCCCC;
   background: whitesmoke;
   margin-bottom: 2px;/*下のバーとの余白*/
   line-height: 1;
-  padding: 0.5em;
+  padding: 13px;
   list-style-type: none!important;/*ポチ消す*/
   font-weight: bold;
   border-bottom: solid 2px #CCCCCC;
@@ -116,7 +118,7 @@ nav{
 }
 
 .order_body {
-  width: 700px;
+  width: 770px;
   height: 650px;
   background: white;
   border: solid 1px #dadada;/*左側の線*/
@@ -148,3 +150,8 @@ nav{
   height: 25px;
   width: 580px;
 }
+
+.admin_user_title{
+  margin-top: 20px;
+}
+

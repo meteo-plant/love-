@@ -3,6 +3,7 @@ class UserProductsController < ApplicationController
     if params[:id] == 'aa'
       @products = Product.page params[:page]
   	  @products = @products.search(s_title: params[:s_title]) if params[:s_title].present? 
+      @genres = Genre.all
   	else
   		@products = Product.where(genre_id: params[:id])
     end
@@ -12,6 +13,7 @@ class UserProductsController < ApplicationController
   def show
   	  @comment = Comment.new
   	  @product = Product.find(params[:id])
+      @user = User.all
   end
 
 

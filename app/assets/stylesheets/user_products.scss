@@ -2,13 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .product_index {
 	 background-color: #ffffff;
+     // margin-bottom: 20px;
 }
 
 .aaa {
     justify-content: space-around;
     display: inline-flex;
+     margin-bottom: 20px;
 }
 
 .product_image img {
@@ -48,6 +51,10 @@
     text-decoration: none;
  }
 
+ .form-group1 {
+    margin-top: 30px;
+ }
+
 
 
 .dropdown {
@@ -58,9 +65,9 @@
 	z-index: 2;
 }
 
-.example {
-  width: 880px;
-  height: 340px;
+.container1 {
+  width: 100%;
+  height: 270px;
   overflow: scroll;
   // background-color: ;
 }

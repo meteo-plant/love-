@@ -10,14 +10,24 @@ class SongsController < ApplicationController
 
   def create
     song = Song.new(song_params)
-    song.save
-    redirect_to new_product_path
+    if song.save
+      flash[:notice] = "Song was successfully created."
+      redirect_to songs_path
+    else
+      flash[:notice] = "!!Song already exists!!"
+      redirect_to songs_path
+    end
   end
 
   def update
     song = Song.find(params[:id])
-    song.update(song_params)
-    redirect_to songs_path
+    if song.update(song_params)
+      flash[:notice] = "Song was successfully updated."
+      redirect_to songs_path
+    else
+      flash[:notice] = "!!Song already exists!!"
+      redirect_to songs_path
+    end
   end
     private
 
@@ -26,3 +36,4 @@ class SongsController < ApplicationController
   end
 
 end
+

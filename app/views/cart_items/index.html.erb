@@ -78,11 +78,13 @@
       </div>
 	  <div class="col-lg-2 side_ber" style="height: 280px;">
 	    <div class="">
-	   <%= link_to cart_item_path(current_user), class: "linkb" do %>
+	
+	         <%= link_to cart_item_path(current_user), class: "linkb" do %>
 	      <li class="botan" style="list-style: none; margin: 70px 0px 20px 0px;">
 	      	<div>購入ページに進む</div>
 	      </li>
-	    <% end %>
+	         <% end %>
+	
       <%= link_to (root_path), class: "linkb" do %>
 		  <li class="botan" style="list-style: none;">
 		  	 <div>ショッピングを続ける</div>
@@ -92,6 +94,7 @@
 	  </div>
 	</div>
   </div>
+  
 </body>
 
 <%= render 'layouts/footer' %>
