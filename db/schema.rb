@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2018_09_30_072908) do
-
+ActiveRecord::Schema.define(version: 2018_10_03_101108) do
 
   create_table "Cart_items", force: :cascade do |t|
     t.integer "cart_id"
@@ -113,6 +111,10 @@ ActiveRecord::Schema.define(version: 2018_09_30_072908) do
     t.integer "number_of_sheets"
     t.string "label_name"
     t.string "jaket_image_id"
+    t.string "event_name"
+    t.text "event_information"
+    t.string "venue"
+    t.string "date_and_time"
     t.integer "user_id"
     t.string "user_name"
   end

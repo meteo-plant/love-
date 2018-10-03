@@ -5,7 +5,8 @@ class PurchasesController < ApplicationController
   	 @cart_item = @cart.cart_items
   	 #@products = @cart_items.product.all
   	# @shipping_address = current_user.shipping_address
-    @purchases = Purchase.page(params[:page]).reverse_order
+    @purchases = Purchase.where(user_id: current_user.id).page(params[:page]).reverse_order
+
   end
 
   def new
@@ -19,13 +20,16 @@ class PurchasesController < ApplicationController
   	    cart_items = cart.cart_items
   	    #cart_items = CartItem.where(cart_id: cart.id)
   	    cart_items.each do |cart_item|
+          a = cart_item.product.id
+          event = Event.find_by(product_id: a)
+          # puts b.event_name
 	  	  	purchase = Purchase.new(purchase_params)
-	  	 	purchase.save
-	  	 	purchase.update(old_price: cart_item.old_price, product_name: cart_item.product.product_name, user_id: cart_item.cart.user_id, user_name: user.user_name,
-	  	 		number_of_sheets: cart_item.number_of_sheets, jaket_image_id: cart_item.product.jaket_image_id, label_name: cart_item.product.label_name)
-        # 在庫処理
-        product = cart_item.product
-        product.update(stock: product.stock.to_i - cart_item.number_of_sheets.to_i)
+	  	 	 purchase.save
+	  	 	 purchase.update(old_price: cart_item.old_price, product_name: cart_item.product.product_name, user_id: cart_item.cart.user_id, user_name: user.user_name,
+	  	 	 	number_of_sheets: cart_item.number_of_sheets, jaket_image_id: cart_item.product.jaket_image_id, label_name: cart_item.product.label_name, event_name: event.event_name, event_information: event.event_information, venue: event.venue, date_and_time: event.date_and_time)
+      #   # 在庫処理
+      #   product = cart_item.product
+      #   product.update(stock: product.stock.to_i - cart_item.number_of_sheets.to_i)
   	    end
   		cart.delete_flag = true
      	cart.save
@@ -41,6 +45,6 @@ class PurchasesController < ApplicationController
    private
 
 	def purchase_params
-	  params.require(:purchase).permit(:cart_item_id, :product_id, :purchase_id, :user_id, :shipping_address_id, :method_of_payment)
+	  params.require(:purchase).permit(:cart_item_id, :product_id, :purchase_id, :user_id, :shipping_address_id, :method_of_payment, :event_name, :evernt_information, :venue, :date_and_time, :event_id)
 	end
 end
