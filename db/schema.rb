@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_03_101108) do
+ActiveRecord::Schema.define(version: 2018_10_03_064019) do
 
   create_table "Cart_items", force: :cascade do |t|
     t.integer "cart_id"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2018_10_03_101108) do
   create_table "purchases", force: :cascade do |t|
     t.integer "shipping_address_id"
     t.string "purchase_date"
-    t.integer ".q"
+    t.integer "cart_id"
     t.boolean "stock_flag", default: false, null: false
     t.boolean "order_flag", default: false, null: false
     t.boolean "shipping_flag", default: false, null: false
@@ -104,6 +104,8 @@ ActiveRecord::Schema.define(version: 2018_10_03_101108) do
     t.boolean "method_of_payment", default: false, null: false
     t.datetime "shipping_date"
     t.datetime "payment_date"
+    t.integer "user_id"
+    t.string "user_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "product_name"
@@ -115,8 +117,6 @@ ActiveRecord::Schema.define(version: 2018_10_03_101108) do
     t.text "event_information"
     t.string "venue"
     t.string "date_and_time"
-    t.integer "user_id"
-    t.string "user_name"
   end
 
   create_table "shipping_addresses", force: :cascade do |t|

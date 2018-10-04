@@ -28,6 +28,13 @@ class UsersController < ApplicationController
     @all_price = item.old_price * item.number_of_sheets
     @price +=  @all_price
    end
+    @users = Purchase.group(:user_id).sum(:old_price)
+    @users = Hash[ @users.sort_by{ |_, v| -v } ]
+    @users.keys.each.with_index(1) do |b, s|
+      if current_user.id == User.find(b).id
+           @s = s
+      end
+   end
  end
 
   def destroy
