@@ -30,9 +30,6 @@ class AdminPurchasesController < ApplicationController
 
 	private
 
-  def user_params
-      params.require(:user).permit(:user_name, :user_name_phonetic, :postal_code, :address, :phone_number, :email )
-  end
 
 
   def sort_direction
@@ -40,7 +37,7 @@ class AdminPurchasesController < ApplicationController
   end
 
   def sort_column
-      User.column_names.include?(params[:sort]) ? params[:sort] : "id"
+      Purchase.column_names.include?(params[:sort]) ? params[:sort] : "id"
   end
 
 end

@@ -89,10 +89,13 @@
 .slick-prev:before
 {
     content: '←';
+    background-color: #AAAAAA;
+
 }
 [dir='rtl'] .slick-prev:before
 {
     content: '→';
+    background-color: #AAAAAA;
 }
 
 .slick-next
@@ -107,10 +110,12 @@
 .slick-next:before
 {
     content: '→';
+    background-color: #AAAAAA;
 }
 [dir='rtl'] .slick-next:before
 {
     content: '←';
+    background-color: #AAAAAA;
 }
 
 /* Dots */
