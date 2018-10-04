@@ -18,7 +18,7 @@ class CartItemsController < ApplicationController
        @all_price = cart_item.product.price * cart_item.number_of_sheets
        @price +=  @all_price
       end
-       @shipping_address = ShippingAddress.all
+       @shipping_address = current_user.shipping_addresses
        @purchase = Purchase.new
        @cart = current_user.carts.where(delete_flag: false).first
        @cart_items = @cart.cart_items.all
