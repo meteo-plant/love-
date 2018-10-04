@@ -12,48 +12,58 @@
 
 
 
-<%= render 'tops/sidebar', genres: @genres %>  
+<%= render 'tops/sidebar', genres: @genres %>
+
+
 
 	<div class="content">
 		<div class="ranking__img">
 				<%= image_tag "main1.png" ,alt:"" %>
 		</div>
 		<div class="ranking">
-			<div class="user__gold">
-				<%= image_tag "gold.png" ,alt: "" ,class: "crown" %>
-				<%= image_tag "icon.png" ,alt: "" ,class: "profile trim-image-to-circle" %>
-				<p class="user__name">ユーザー名</p>
-			</div>
-			<div class="user__silver">
-				<%= image_tag "silver.png" ,alt: "", class: "crown" %>
-				<%= image_tag "icon.png" ,alt: "" ,class: "profile trim-image-to-circle" %>
-				<p class="user__name">ユーザー名</p>
-			</div>
-			<div class="user__bronze">
-				<%= image_tag "bronze.png" ,alt: "", class: "crown" %>
-				<%= image_tag "icon.png" ,alt: "" ,class: "profile trim-image-to-circle" %>
-				<p class="user__name">ユーザー名</p>
-			</div>
-
-		</div>
+      <% i = 0 %>
+      <% @users.keys.each do |b| %>
+        <% break if i == 3 %>
+        <% if i == 0 %>
+        <div class="user__gold">
+          <%= image_tag "gold.png" ,alt: "" ,class: "crown" %>
+          <%= attachment_image_tag User.find(b), :profile_image ,class: "profile trim-image-to-circle" %>
+          <p class="user__name"><%= User.find(b).user_name %></p>
+        </div>
+        <% elsif i == 1 %>
+          <div class="user__silver">
+            <%= image_tag "silver.png" ,alt: "" ,class: "crown" %>
+            <%= attachment_image_tag User.find(b), :profile_image ,class: "profile trim-image-to-circle" %>
+            <p class="user__name"><%= User.find(b).user_name %></p>
+          </div>
+        <% else %>
+          <div class="user__bronze">
+            <%= image_tag "bronze.png" ,alt: "" ,class: "crown" %>
+            <%= attachment_image_tag User.find(b), :profile_image ,class: "profile trim-image-to-circle" %>
+            <p class="user__name"><%= User.find(b).user_name %></p>
+          </div>
+         <% end %>
+        <% i+= 1 %>
+      <% end %>
+    </div>
 		<!-- イベント付きチケット -->
 		<div class="ticket__img">
 			<%= image_tag "main2.png" ,alt: "" %>
 		</div>
-		<div class="tickets" id="my-slide">
-			<% @products.each do |product| %>
+		<div class="tickets my-slide">
+			<% @event_products.each do |event_product| %>
 				<div class="item__box" >
-					<% if product.stock == 0  %>
+					<% if event_product.product.stock == 0  %>
 						<%= image_tag ("soldout.jpg"),:size => "140x120" %>
 					<% else %>
-						<%= attachment_image_tag  product, :jaket_image , :fill, 140, 120, format: 'jpeg' %>
+						<%= attachment_image_tag  event_product.product, :jaket_image , :fill, 140, 120, format: 'jpeg' %>
 					<% end %>
-					<%= link_to user_product_path(product.id) do %>
-						<h3 class="product__name"><%= product.product_name %></h3>
+					<%= link_to user_product_path(event_product.product.id) do %>
+						<h3 class="product__name"><%= event_product.product.product_name %></h3>
 					<% end %>
-					<p class="artist__name"><%= product.airtist_name %></p>
-					<p class="price">¥ <%= product.price %></p>
-					<p class="stocks">在庫:<%= product.stock %></p><div class="evaluation">
+					<p class="artist__name"><%= event_product.product.airtist_name %></p>
+					<p class="price">¥ <%= event_product.product.price %></p>
+					<p class="stocks">在庫:<%= event_product.product.stock %></p><div class="evaluation">
 						<%= image_tag "love1.png" , alt:"" , class: "love1" %>
 						<%= image_tag "love1.png" , alt:"" , class: "love1" %>
 						<%= image_tag "love1.png" , alt:"" , class: "love1" %>
@@ -62,12 +72,12 @@
 						<span class="evaluation__count">49</span>
 					</div>
 					<% if user_signed_in? %>
-						<%= link_to ss_favorite_path(product.id) do %>
+						<%= link_to ss_favorite_path(event_product.product.id) do %>
 							<div class="favorite__button__box">
 								<span class="favorite__button">お気に入りへ追加</span>
 							</div>
 						<% end %>
-						<%= link_to test_cart_item_path(product.id) do %>
+						<%= link_to test_cart_item_path(event_product.product.id) do %>
 							<div class="cart__button__box">
 								<span class="cart__button modal-open">カートへ入れる</span>
 							</div>
@@ -83,57 +93,62 @@
 								<span class="cart__button modal-open">カートへ入れる</span>
 							</div>
 						<% end %>
-					<% end %>		
+					<% end %>
 				</div>
 			<% end %>	
 		</div>
 
-		<!-- 売れ筋 -->
+		<!-- 新着 -->
 		<div class="selling__img">
-			<%= image_tag "main4.png", alt:"" %>
+			<%= image_tag "main3.png", alt:"" %>
 		</div>
-		<div class="sellings">
-			<% @products.each do |product| %>
-				<div class="item__box" id="my-slide">
-					<%= attachment_image_tag  product, :jaket_image , :fill, 140, 120, format: 'jpeg' %>
-					<h3 class="product__name"><%= product.product_name %></h3>
-					<p class="artist__name"><%= product.airtist_name %></p>
-					<p class="price">¥ <%= product.price %></p>
-					<p class="stocks">在庫:<%= product.stock %></p>
-					<div class="evaluation star"  id="default">
-						<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-						<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-						<%= image_tag "love1.png" , alt:"" , class: "love1" %>
-						<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-						<%= image_tag "love2.png" , alt:"" , class: "love2" %>
-						<span class="evaluation__count">49</span>
-					</div>
-					<% if user_signed_in? %>
-						<%= link_to favorites_path do %>
-							<div class="favorite__button__box">
-								<span class="favorite__button">お気に入りへ追加</span>
-							</div>
-						<% end %>
-						<%= link_to test_cart_item_path(product.id) do %>
-							<div class="cart__button__box">
-								<span class="cart__button modal-open">カートへ入れる</span>
-							</div>
-						<% end %>
-					<% else %>
-					    <%= link_to new_user_registration_path do %>
-							<div class="favorite__button__box">
-								<span class="favorite__button">お気に入りへ追加</span>
-							</div>
-						<% end %>
-						<%= link_to new_user_registration_path do %>
-							<div class="cart__button__box">
-								<span class="cart__button modal-open">カートへ入れる</span>
-							</div>
-						<% end %>
-					<% end %>		
-				</div>
-			<% end %>	
-		</div>
+		<div class="sellings my-slide">
+      <% @products.each do |product| %>
+        <div class="item__box" >
+          <% if product.stock == 0  %>
+            <%= image_tag ("soldout.jpg"),:size => "140x120" %>
+          <% else %>
+            <%= attachment_image_tag  product, :jaket_image , :fill, 140, 120, format: 'jpeg' %>
+          <% end %>
+          <%= link_to user_product_path(product.id) do %>
+            <h3 class="product__name"><%= product.product_name %></h3>
+          <% end %>
+          <p class="artist__name"><%= product.airtist_name %></p>
+          <p class="price">¥ <%= product.price %></p>
+          <p class="stocks">在庫:<%= product.stock %></p><div class="evaluation">
+          <%= image_tag "love1.png" , alt:"" , class: "love1" %>
+          <%= image_tag "love1.png" , alt:"" , class: "love1" %>
+          <%= image_tag "love1.png" , alt:"" , class: "love1" %>
+          <%= image_tag "love2.png" , alt:"" , class: "love2" %>
+          <%= image_tag "love2.png" , alt:"" , class: "love2" %>
+          <span class="evaluation__count">49</span>
+        </div>
+          <% if user_signed_in? %>
+            <%= link_to ss_favorite_path(product.id) do %>
+              <div class="favorite__button__box">
+                <span class="favorite__button">お気に入りへ追加</span>
+              </div>
+            <% end %>
+            <%= link_to test_cart_item_path(product.id) do %>
+              <div class="cart__button__box">
+                <span class="cart__button modal-open">カートへ入れる</span>
+              </div>
+            <% end %>
+          <% else %>
+            <%= link_to new_user_registration_path do %>
+              <div class="favorite__button__box">
+                <span class="favorite__button">お気に入りへ追加</span>
+              </div>
+            <% end %>
+            <%= link_to new_user_registration_path do %>
+              <div class="cart__button__box">
+                <span class="cart__button modal-open">カートへ入れる</span>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
 	</div>
 </div>
 
@@ -168,7 +183,7 @@
 </script>
 <script>
 	$(document).ready(function(){
-	$('#my-slide').slick({
+	$('.my-slide').slick({
 		  // アクセシビリティ。左右ボタンで画像の切り替えをできるかどうか
 		  accessibility: true,
 		  // 自動再生。trueで自動再生される。
@@ -212,7 +227,7 @@
 		  // 表示中の画像を中央へ
 		　centerMode: true,
 		  // 中央のpadding
-		  centerPadding: '0px'
+		  centerPadding: '2.5px'
 		});
 
 	});

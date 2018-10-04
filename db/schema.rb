@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2018_09_30_072908) do
   create_table "purchases", force: :cascade do |t|
     t.integer "shipping_address_id"
     t.string "purchase_date"
-    t.integer "cart_id"
+    t.integer ".q"
     t.boolean "stock_flag", default: false, null: false
     t.boolean "order_flag", default: false, null: false
     t.boolean "shipping_flag", default: false, null: false

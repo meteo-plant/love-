@@ -15,8 +15,8 @@ class CartItemsController < ApplicationController
       @cart_items = @cart.cart_items
       @price = 0
       @cart_items.each do |cart_item|
-       @all_price = cart_item.product.price * cart_item.number_of_sheets
-       @price +=  @all_price
+        @all_price = cart_item.product.price * cart_item.number_of_sheets
+        @price +=  @all_price
       end
        @shipping_address = ShippingAddress.all
        @purchase = Purchase.new

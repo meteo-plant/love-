@@ -11,7 +11,8 @@ class CreatePurchases < ActiveRecord::Migration[5.2]
       t.boolean :method_of_payment
       t.datetime :shipping_date
       t.datetime :payment_date
-
+      t.integer "user_id"
+      t.string "user_name"
       t.timestamps
     end
   end

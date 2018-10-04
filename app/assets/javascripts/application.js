@@ -78,6 +78,18 @@ $(function () {
             }
         });
     }
+    if (location.href == "http://localhost:3000/admin_purchases?direction=asc&sort=id") {
+        $('.form-control').html("<option>昇順</option><option>降順</option>");
+    }
+    if (location.href == "http://localhost:3000/admin_purchases?direction=asc&sort=id" || location.href == "http://localhost:3000/admin_purchases?direction=dec&sort=id" || location.href == "http://localhost:3000/admin_purchases") {
+        $('select[class=form-control]').change(function() {
+            if ($(this).val() == '降順') {
+                window.location.href = "http://localhost:3000/admin_purchases?direction=dec&sort=id";
+            } else {
+                window.location.href = "http://localhost:3000/admin_purchases?direction=asc&sort=id";
+            }
+        });
+    }
 });
 
 
