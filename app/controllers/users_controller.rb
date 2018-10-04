@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def create
     @user = User.new
     @user.save
@@ -20,7 +21,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users = User.all
     @user = User.find(params[:id])
     @items = @user.purchases
     @price = 0
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     @all_price = item.old_price * item.number_of_sheets
     @price +=  @all_price
    end
-　end
+ end
 
   def destroy
     @users = current_user
@@ -41,4 +41,5 @@ class UsersController < ApplicationController
     def user_params
     params.require(:user).permit(:user_name,:user_name_phonetic, :profile_image, :postal_code,:address,:phone_number,:email,:favorite_people_image,:favorite_people)
     end
-end
+
+  end

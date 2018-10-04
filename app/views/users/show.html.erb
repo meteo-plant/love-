@@ -8,7 +8,7 @@
            <%= link_to "お気に入り",favorites_path(@user.id), class: "sidelink"%>
            <%= link_to "購入履歴",purchases_path(@user.id), class: "sidelink"%>
            <%= link_to "所持チケット",events_path(current_user.id), class: "sidelink"%>
-           <%= link_to '退会手続き',@users, method: :delete, data: {confirm: '本当に退会しますか?'},class: "sidelink" %>
+           <%= link_to '退会手続き',@user, method: :delete, data: {confirm: '本当に退会しますか?'},class: "sidelink" %>
           <style type="text/css">
           a.sidelink { display: block; }
           </style>
