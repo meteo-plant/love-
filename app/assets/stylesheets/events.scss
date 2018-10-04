@@ -7,7 +7,8 @@
 
 .ticket {
   padding: 10px;
-  height: 200px;
+  height: 230px;
+  position: relative;
   border: solid 1px #dadada;/*左側の線*/
   border-bottom: solid 2px #dadada;
   border-right: solid 2px #dadada;
@@ -21,18 +22,24 @@
   height: 160px;
   float: left;
   margin-top: 15px;
+  position: absolute;
+  left: 60px;
+  top: 15px;
 }
 
 .ivent {
   margin-top: 0px;
-  padding: 10px;
+  padding: 15px;
   padding-left: 55px;
-  width: 430px;
-  height: 130px;
+  width: 480px;
+  height: 150px;
   float: left;
   border-top: solid #D8BfD8 1px;/*上のボーダー*/
   border-bottom: solid #D8BfD8 1px;/*下のボーダー*/
-  background: #FFFAFA;
+  background: none;
+  position: absolute;
+  right: 90px;
+  top: 48px;
 }
 
 .ivent ul,li {
@@ -42,7 +49,8 @@
 .event_ribbonn {
     display: inline-block;
     margin-top: 10px;
-    position: relative;
+    position: absolute;
+    left: 270px;
     height: 30px;
     width: 215px;
     line-height: 60px;

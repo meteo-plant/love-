@@ -149,7 +149,7 @@
 
 .my {
   margin-top: 22px;
-  width: 720px;
+  width: 770px;
   height: 500px;
   background: white;
   border: solid 1px #dadada;/*左側の線*/
@@ -190,7 +190,7 @@
 
 .push {
   margin-top:20px;
-  width: 720px;
+  width: 770px;
   height: 220px;
   background: white;
   border: solid 1px #dadada;/*左側の線*/
@@ -229,7 +229,7 @@
 .pushing_comment {
   word-wrap: break-word;
   padding-top: 20px;
-  width: 430px;
+  width: 450px;
   height: 160px;
   float: left;
   background: #FFF0F5;
@@ -280,7 +280,7 @@
 
 .user_ranking {
   margin-top:20px;
-  width: 720px;
+  width: 770px;
   height: 330px;
   background: white;
   border: solid 1px #dadada;/*左側の線*/
@@ -320,7 +320,7 @@
   position: absolute;
   width: 300px;
   height: 300px;
-  left: 10%;
+  left: 15%;
   top: 50px;
   background: none;
   z-index: 1;
@@ -330,15 +330,14 @@
   position: absolute;
   font-size: 60px;
   z-index: 2;
-  left: 20%;
-  top: 35%;
-
+  left: 25%;
+  top: 33%;
 }
 
 .doru {
   font-size: 25px;
   position: absolute;
-  right: 12%;
+  right: 30%;
   bottom: 17%;
   border-bottom: 1px dashed #cccccc;
 }

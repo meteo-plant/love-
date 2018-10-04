@@ -16,9 +16,9 @@ attachment :favorite_people_image
 
 validates :user_name, presence: true, length: { maximum: 50 }
 validates :user_name_phonetic, presence: true , length: { maximum: 50 }
-validates :postal_code, presence: true
+validates :postal_code, presence: true, length: { is: 7 }
 validates :address, presence: true
-validates :phone_number, presence: true
+validates :phone_number, presence: true, length: { is: 11 }
 validates :favorite_people, length: { maximum: 150 }
 
 

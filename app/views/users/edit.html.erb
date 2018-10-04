@@ -1,8 +1,8 @@
 <div class="form-form">
    <h5 class="sign_up_message">会員情報を編集します。下記フォームに登録内容をご記入の上、画面下部の『登録』を押して下さい。</h5><br><br>
 
+<%= form_for(@user) do |f| %>
   <div class="form-group">
-    <%= form_for(@user) do |f| %>
     <%= f.label :profile_image, "プロフィール画像", class: "col-sm-3 control-label file" %>
     <div class="col-sm-7">
       <%=  f.attachment_field :profile_image, class: "file col-sm-7" %>
