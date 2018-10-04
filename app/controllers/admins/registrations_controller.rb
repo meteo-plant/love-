@@ -5,11 +5,15 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
 
-   def after_sign_in_path_for(resource)
+   def after_sign_up_path_for(resource)
 
-     admin_users_path
+     new_product_path(current_admin.id)
   end
 
+   def after_sign_out_path_for(resource)
+
+     new_admin_session_path
+  end
 
   #  def after_inactive_sign_up_path_for(resource)
   #   admin_users_path

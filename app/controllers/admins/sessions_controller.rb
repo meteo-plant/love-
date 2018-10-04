@@ -9,7 +9,7 @@ def after_sign_out_path_for(resource)
 
   def after_sign_in_path_for(resource)
 
-     admin_users_path(current_admin.id)
+     new_product_path(current_admin.id)
   end
 
 

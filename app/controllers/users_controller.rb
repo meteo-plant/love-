@@ -20,8 +20,15 @@ class UsersController < ApplicationController
   end
 
   def show
+    @users = User.all
     @user = User.find(params[:id])
-  end
+    @items = @user.purchases
+    @price = 0
+    @items.each do |item|
+    @all_price = item.old_price * item.number_of_sheets
+    @price +=  @all_price
+   end
+　end
 
   def destroy
     @users = current_user
