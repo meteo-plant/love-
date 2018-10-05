@@ -5,7 +5,7 @@ class TopsController < ApplicationController
     puts @users
     @users = Hash[ @users.sort_by{ |_, v| -v } ]
 
-    @event_products=Event.order("id DESC").limit(5)
+    @event_products=Event.order("id DESC")
   	@products = Product.order("id DESC").limit(5)
     @genres = Genre.all
     # @event_products.each do |a|

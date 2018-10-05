@@ -15,7 +15,7 @@ attachment :profile_image
 attachment :favorite_people_image
 
 validates :user_name, presence: true, length: { maximum: 50 }
-validates :user_name_phonetic, presence: true , length: { maximum: 50 }
+validates :user_name_phonetic, presence: true , length: { maximum: 50 } ,format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
 validates :postal_code, presence: true, length: { is: 7 }
 validates :address, presence: true
 validates :phone_number, presence: true, length: { is: 11 }
