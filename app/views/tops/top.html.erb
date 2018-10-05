@@ -51,7 +51,16 @@
 			<%= image_tag "main2.png" ,alt: "" %>
 		</div>
 		<div class="tickets my-slide">
+
+			<% i = 0 %>
 			<% @event_products.each do |event_product| %>
+
+				<% if event_product.event_name.blank? %>
+
+				<% else %>
+				<% break if i == 5 %>
+
+
 				<div class="item__box" >
 					<% if event_product.product.stock == 0  %>
 						<%= image_tag ("soldout.jpg"),:size => "140x120" %>
@@ -95,6 +104,14 @@
 						<% end %>
 					<% end %>
 				</div>
+
+
+				<% i += 1 %>
+				<% end %>
+
+
+
+
 			<% end %>	
 		</div>
 
